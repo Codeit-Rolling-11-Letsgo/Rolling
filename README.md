@@ -1,7 +1,7 @@
 # Rolling
 
 ## 프로젝트 구조
-
+```
 src
 ┣ apis
 ┣ components
@@ -16,3 +16,4 @@ src
 ┣ App.module.scss
 ┣ globals.scss
 ┗ main.jsx
+```

@@ -1,19 +1,22 @@
 # Rolling
 
 ## 프로젝트 구조
+
 ```
 src
-┣ apis
-┣ components
-┃ ┗ common
-┣ constants
-┃ ┗ routes.js
-┣ hooks
-┣ pages
-┃ ┗ HomePage.jsx
-┣ utils
-┣ App.jsx
-┣ App.module.scss
-┣ globals.scss
-┗ main.jsx
+ ┣ assets
+ ┃ ┣ globals.scss
+ ┃ ┣ reset.scss
+ ┃ ┗ variables.scss
+ ┣ components
+ ┃ ┗ common
+ ┣ constants
+ ┃ ┗ routes.js
+ ┣ pages
+ ┃ ┣ home
+ ┃ ┃ ┣ HomePage.jsx
+ ┃ ┃ ┗ HomePage.module.scss
+ ┃ ┣ list
+ ┃ ┗ post
+ ┗ main.jsx
 ```

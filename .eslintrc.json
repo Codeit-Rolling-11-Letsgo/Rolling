@@ -22,6 +22,7 @@
 			"version": "18.2"
 		}
 	},
+	"ignorePatterns": ["dist"],
 	"plugins": ["react-refresh", "simple-import-sort"],
 	"rules": {
 		"react-refresh/only-export-components": [

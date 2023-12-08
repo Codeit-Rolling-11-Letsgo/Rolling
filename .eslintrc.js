@@ -1,6 +1,6 @@
-module.exports = {
+export default {
 	root: true,
-	env: { browser: true, es2020: true },
+	env: { browser: true, es2020: true, node: true },
 	extends: [
 		'eslint:recommended',
 		'plugin:react/recommended',
@@ -10,11 +10,15 @@ module.exports = {
 		'plugin:jsx-a11y/recommended',
 		'prettier',
 	],
-	ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.js'],
+	ignorePatterns: ['dist', '.eslintrc.cjs'],
 	parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
 	settings: {
 		react: { version: '18.2' },
-		// 'import/resolver': 'vite',
+		'import/resolver': {
+			alias: {
+				map: [['@', './src']],
+			},
+		},
 	},
 	plugins: ['react-refresh', 'simple-import-sort'],
 	rules: {

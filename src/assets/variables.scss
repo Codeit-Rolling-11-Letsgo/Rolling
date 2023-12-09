@@ -1,5 +1,141 @@
-@layer typography {
+@mixin typo_28_bold {
+	font-size: 2.8rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 4.2rem;
+	letter-spacing: -0.028rem;
+}
+@mixin typo_24_bold {
+	font-size: 2.4rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 3.6rem;
+	letter-spacing: -0.024rem;
+}
+@mixin typo_24_regular {
+	font-size: 2.4rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 3.6rem;
+	letter-spacing: -0.024rem;
+}
+@mixin typo_20_bold {
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 3rem;
+	letter-spacing: -0.02rem;
+}
+@mixin typo_20_regular {
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 3rem;
+	letter-spacing: -0.02rem;
+}
+@mixin typo_18_bold {
+	font-size: 1.8rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 2.8rem;
+	letter-spacing: -0.018rem;
+}
+@mixin typo_18_regular {
+	font-size: 1.8rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 2.8rem;
+	letter-spacing: -0.018rem;
+}
+@mixin typo_16_bold {
+	font-size: 1.6rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 2.6rem;
+	letter-spacing: -0.016rem;
+}
+@mixin typo_16_regular {
+	font-size: 1.6rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 2.6rem;
+	letter-spacing: -0.016rem;
+}
+@mixin typo_15_bold {
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 2.2rem;
+	letter-spacing: -0.015rem;
+}
+@mixin typo_15_regular {
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 2.2rem;
+	letter-spacing: -0.015rem;
+}
+@mixin typo_14_bold {
+	font-size: 1.4rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 2rem;
+	letter-spacing: -0.007rem;
+}
+@mixin typo_14_regular {
+	font-size: 1.4rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 2rem;
+	letter-spacing: -0.007rem;
+}
+@mixin typo_12_regular {
+	font-size: 1.2rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.8rem;
+	letter-spacing: -0.006rem;
 }
 
-@layer color {
-}
+$color_purple_100: #f8f0ff;
+$color_purple_200: #ecd9ff;
+$color_purple_300: #dcb9ff;
+$color_purple_400: #c894fd;
+$color_purple_500: #ab57ff;
+$color_purple_600: #9935ff;
+$color_purple_700: #861dee;
+$color_purple_800: #6e0ad1;
+$color_purple_900: #5603a7;
+
+$color_orange_100: #fff0d6;
+$color_orange_200: #ffe2ad;
+$color_orange_300: #ffc583;
+$color_orange_400: #ffae65;
+$color_orange_500: #ff8832;
+
+$color_blue_100: #e2f5ff;
+$color_blue_200: #b1e4ff;
+$color_blue_300: #7cd2ff;
+$color_blue_400: #34b9ff;
+$color_blue_500: #00a2fe;
+
+$color_green_100: #e4fbdc;
+$color_green_200: #d0f5c3;
+$color_green_300: #9be282;
+$color_green_400: #60cf37;
+$color_green_500: #2ba600;
+
+$color_gray_100: #f6f6f6;
+$color_gray_200: #eee;
+$color_gray_300: #ccc;
+$color_gray_400: #999;
+$color_gray_500: #555;
+$color_gray_600: #4a4a4a;
+$color_gray_700: #3a3a3a;
+$color_gray_800: #2b2b2b;
+$color_gray_900: #181818;
+
+$white: #fff;
+$black: #000;
+$error: #dc3a3a;
+$surface: #f6f8ff;

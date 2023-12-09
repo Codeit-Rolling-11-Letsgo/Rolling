@@ -1,6 +1,10 @@
 @use 'reset';
 @use 'variables';
 
+* {
+	box-sizing: border-box;
+}
+
 :root {
 	font-size: 62.5%;
 }
@@ -22,6 +26,8 @@ html {
 		'Segoe UI Emoji',
 		'Segoe UI Symbol',
 		sans-serif;
+
+	background-color: $color_white;
 }
 
 .root {

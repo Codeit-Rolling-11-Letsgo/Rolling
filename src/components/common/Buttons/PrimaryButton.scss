@@ -4,6 +4,8 @@ $button-basic-padding: 0.875rem 1.5rem;
 $button-small-padding: 0.4375rem 1rem;
 $button-basic-font-size: 1.125rem;
 $button-small-font-size: 1rem;
+$button-basic-font-weight: 700;
+$button-small-font-weight: 400;
 
 button {
 	display: inline-flex;
@@ -15,12 +17,14 @@ button {
 	&.basic {
 		padding: $button-basic-padding;
 		font-size: $button-basic-font-size;
+		font-weight: $button-basic-font-weight;
 		border-radius: 12px;
 	}
 
 	&.small {
 		padding: $button-small-padding;
 		font-size: $button-small-font-size;
+		font-weight: $button-small-font-weight;
 		border-radius: 6px;
 	}
 
@@ -49,7 +53,6 @@ button {
 		color: var(--white, $white);
 		text-align: center;
 		font-style: normal;
-		font-weight: 400;
 		line-height: 1.625rem;
 		letter-spacing: -0.01rem;
 	}

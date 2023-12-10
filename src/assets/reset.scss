@@ -414,4 +414,13 @@ video {
 
 a {
 	text-decoration: none;
+
+	&:active {
+		color: inherit;
+	}
+}
+
+svg {
+	width: 100%;
+	height: 100%;
 }

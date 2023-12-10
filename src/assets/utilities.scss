@@ -1,0 +1,13 @@
+@mixin svg_stroke {
+	stroke: currentColor;
+	& * {
+		stroke: currentColor;
+	}
+}
+
+@mixin svg_fill {
+	fill: currentColor;
+	& * {
+		fill: currentColor;
+	}
+}

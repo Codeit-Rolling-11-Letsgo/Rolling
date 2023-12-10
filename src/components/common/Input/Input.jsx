@@ -6,7 +6,6 @@ import styles from './Input.module.scss';
  * @returns
  */
 function Input({ errorMessage, className, ...props }) {
-	console.log(props);
 	const { disabled } = { ...props };
 	const classNames = `${styles.input} ${disabled && styles.disabled} ${
 		errorMessage && styles.error

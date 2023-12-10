@@ -1,53 +1,56 @@
-@import "../../../assets/variables";
+@import '../../../assets/variables';
 
-$white: #fff;
-$button-basic-padding: 14px 24px;
-$button-small-padding: 7px 16px;
-$button-basic-font-size: 18px;
-$button-small-font-size: 16px;
+$button-basic-padding: 0.875rem 1.5rem;
+$button-small-padding: 0.4375rem 1rem;
+$button-basic-font-size: 1.125rem;
+$button-small-font-size: 1rem;
 
 button {
-  cursor: pointer;
-  border-radius: 12px;
-  border: none;
+	display: inline-flex;
+	border: none;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
 
-  &.basic {
-    padding: $button-basic-padding;
-    font-size: $button-basic-font-size;
-  }
+	&.basic {
+		padding: $button-basic-padding;
+		font-size: $button-basic-font-size;
+		border-radius: 12px;
+	}
 
-  &.small {
-    padding: $button-small-padding;
-    font-size: $button-small-font-size;
-  }
+	&.small {
+		padding: $button-small-padding;
+		font-size: $button-small-font-size;
+		border-radius: 6px;
+	}
 
-  &.enabled {
-    background-color: $color_purple_600;
-  }
+	&.enabled {
+		background-color: $color_purple_600;
+	}
 
-  &.disabled {
-    background-color: $color_gray_300;
-  }
+	&.disabled {
+		background-color: $color_gray_300;
+	}
 
-  &.hover {
-    background-color: $color_purple_700;
-  }
+	&.hover {
+		background-color: $color_purple_700;
+	}
 
-  &.pressed,
-  &.focus {
-    background-color: $color_purple_800;
-  }
+	&.pressed,
+	&.focus {
+		background-color: $color_purple_800;
+	}
 
-  &.focus {
-    border: $color_purple_900;
-  }
+	&.focus {
+		border: 2px solid $color_purple_900;
+	}
 
-  div {
-    color: var(--white, $white);
-    text-align: center;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 26px;
-    letter-spacing: -0.16px;
-  }
+	div {
+		color: var(--white, $white);
+		text-align: center;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 1.625rem;
+		letter-spacing: -0.01rem;
+	}
 }

@@ -38,6 +38,7 @@
 
 .errorMessage {
 	display: block;
+	margin-top: 0.25rem;
 	color: $color_error;
 	@include typo_12_regular;
 }

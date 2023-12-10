@@ -1,5 +1,10 @@
 import styles from './Input.module.scss';
 
+/**
+ *
+ * @param {{errorMessage?: string}} props
+ * @returns
+ */
 function Input({ errorMessage, className, ...props }) {
 	console.log(props);
 	const { disabled } = { ...props };

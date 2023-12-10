@@ -1,0 +1,50 @@
+.selectContainer {
+	@include typo_16_regular;
+	background-color: $color_white;
+	position: relative;
+	width: 32rem;
+	padding: 1.2rem 1.6rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 0.8rem;
+	border: 0.2rem solid $color_gray_500;
+	.animation {
+		transition: transform 0.3s ease;
+	}
+	&:hover {
+		border: 0.1rem solid $color_gray_500;
+	}
+}
+
+.options {
+	@include typo_16_regular;
+	margin-top: 0.8rem;
+	width: 32rem;
+	position: absolute;
+	top: inherit;
+	left: 0;
+	padding: 1rem 0.1rem;
+	border-radius: 0.8rem;
+	border: 1px solid $color_gray_300;
+	background: $color_white;
+	box-shadow: 0 0.2rem 1.2rem 0 rgba(0, 0, 0, 0.08);
+
+	button {
+		@include typo_16_regular;
+		background-color: $color_white;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1.2rem 1.6rem;
+		&:hover {
+			background-color: $color_gray_100;
+		}
+	}
+}
+
+.rotate {
+	transform: rotate(180deg);
+}

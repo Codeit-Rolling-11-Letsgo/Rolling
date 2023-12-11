@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import styles from '@/components/common//DropDown/DropDown.module.scss';
 import Icon from '@/components/common/icon/Icon';
@@ -17,7 +17,7 @@ import Icon from '@/components/common/icon/Icon';
 
 export default function DropDown({
 	options = ['옵션1', '옵션2', '옵션3'],
-	defaultValue = 'placeholder',
+	defaultValue = 'default value',
 	onChange,
 	errorMessage = '',
 	className,
@@ -25,7 +25,11 @@ export default function DropDown({
 	...props
 }) {
 	const [isArrowRotated, setArrowRotated] = useState(false);
-	const [placeholder, setPlaceholder] = useState(defaultValue);
+	const [selectedOption, setSelectedOption] = useState(defaultValue);
+
+	useEffect(() => {
+		onChange(selectedOption);
+	}, [selectedOption, onChange]);
 
 	const classNamesButton = `${styles.selectContainer} ${
 		disabled && styles.disabled
@@ -33,7 +37,7 @@ export default function DropDown({
 
 	const classNamesIcon = `${styles.Icon} ${isArrowRotated && styles.rotate}`;
 
-	const classNamePlaceholder = `${styles.placeholder} ${
+	const classNamePlaceholder = `${styles.selectedOption} ${
 		disabled && styles.disabled
 	}`;
 
@@ -42,7 +46,7 @@ export default function DropDown({
 	};
 
 	const handleSelect = ({ target }) => {
-		setPlaceholder(target.innerText);
+		setSelectedOption(target.innerText);
 		setArrowRotated(!isArrowRotated);
 	};
 
@@ -55,10 +59,9 @@ export default function DropDown({
 			>
 				<input
 					type='button'
-					onChange={onChange}
-					value={placeholder}
+					value={selectedOption}
 					className={classNamePlaceholder}
-				></input>
+				/>
 				<Icon name='arrowDown' className={classNamesIcon} />
 			</button>
 			{errorMessage && (
@@ -66,17 +69,15 @@ export default function DropDown({
 			)}
 			{isArrowRotated && (
 				<ul className={styles.options}>
-					{options.map((option) => {
-						return (
-							<button
-								key={option.slice(-1)}
-								onClick={handleSelect}
-								className={styles.optionItem}
-							>
-								{option}
-							</button>
-						);
-					})}
+					{options.map((option) => (
+						<button
+							key={option.slice(-1)}
+							onClick={handleSelect}
+							className={styles.optionItem}
+						>
+							{option}
+						</button>
+					))}
 				</ul>
 			)}
 		</div>

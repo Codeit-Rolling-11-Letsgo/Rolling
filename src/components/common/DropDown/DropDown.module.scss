@@ -1,6 +1,6 @@
 @use '@/assets/utilities.scss' as *;
 
-.placeholder,
+.selectedOption,
 .optionItem,
 .selectContainer {
 	outline: none;
@@ -35,8 +35,8 @@
 .selectContainer.disabled {
 	box-shadow: 0 0 0 0.1rem $color_gray_300;
 	background-color: $color_gray_100;
+	color: $color_gray_300;
 	&:hover {
-		color: $color_gray_300;
 		box-shadow: 0 0 0 0.1rem $color_gray_300;
 	}
 }
@@ -47,11 +47,11 @@
 	color: $color_black;
 }
 
-.placeholder {
+.selectedOption {
 	background-color: inherit;
 }
 
-.placeholder.disabled {
+.selectedOption.disabled {
 	border: none;
 	color: $color_gray_400;
 }

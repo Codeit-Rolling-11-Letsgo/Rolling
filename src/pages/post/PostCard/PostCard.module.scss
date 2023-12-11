@@ -1,0 +1,17 @@
+.card {
+	height: 28rem;
+	border-radius: 1.6rem;
+	background-color: $color_white;
+}
+
+@media only screen and (max-width: 768px) and (min-width: 361px) {
+	.card {
+		height: 28.4rem;
+	}
+}
+
+@media only screen and (max-width: 360px) {
+	.card {
+		height: 23rem;
+	}
+}

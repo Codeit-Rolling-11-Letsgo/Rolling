@@ -1,0 +1,18 @@
+.container {
+	background-color: $color_orange_200;
+	height: 100%;
+	padding-top: 11.3rem;
+	padding-bottom: 24.6rem;
+}
+
+@media only screen and (max-width: 768px) and (min-width: 361px) {
+	.container {
+		padding-bottom: 91rem;
+	}
+}
+
+@media only screen and (max-width: 360px) {
+	.cardList {
+		padding-bottom: 3.2rem;
+	}
+}

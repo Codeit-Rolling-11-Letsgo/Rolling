@@ -30,7 +30,7 @@ export default function DropDown({
 	onChange,
 	errorMessage = '',
 	className,
-	disabled = true,
+	disabled = false,
 	...props
 }) {
 	const [isArrowRotated, setArrowRotated] = useState(false);

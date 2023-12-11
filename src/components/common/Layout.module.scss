@@ -1,3 +1,8 @@
+.container {
+	height: 100%;
+	min-height: 100vh;
+}
+
 .global_header {
 	padding-block: 1.2rem;
 	height: 6.4rem;
@@ -27,4 +32,8 @@
 .logo {
 	width: 2.8rem;
 	height: 2.8rem;
+}
+
+.mainContainer {
+	height: 100%;
 }

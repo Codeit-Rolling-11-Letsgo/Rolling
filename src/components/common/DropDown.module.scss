@@ -1,3 +1,5 @@
+@use '@/assets/utilities.scss' as *;
+
 .selectContainer {
 	@include typo_16_regular;
 	background-color: $color_white;
@@ -16,6 +18,29 @@
 	&:hover {
 		border: 0.1rem solid $color_gray_500;
 	}
+}
+
+.disabled {
+	border: 0.1rem solid $color_gray_300;
+	&:hover {
+		border: 0.1rem solid $color_gray_300;
+	}
+}
+
+.disabledIcon {
+	@include svg_stroke;
+}
+
+.selectContainer.error {
+	border: 0.1rem solid $color_error;
+	color: $color_black;
+}
+
+.errorMessage {
+	@include typo_12_regular;
+	margin-top: 0.4rem;
+	width: 32rem;
+	color: $color_error;
 }
 
 .options {

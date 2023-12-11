@@ -6,10 +6,21 @@ import Icon from '@/components/common/icon/Icon';
 export default function DropDown({
 	options = ['옵션1', '옵션2', '옵션3'],
 	defaultValue = 'placeholder',
+	errorMessage = '',
 	className,
+	disabled = false,
+	...props
 }) {
 	const [isArrowRotated, setArrowRotated] = useState(false);
 	const [placeholder, setPlaceholder] = useState(defaultValue);
+
+	const classNamesButton = `${styles.selectContainer} ${
+		disabled && styles.disabled
+	} ${errorMessage && styles.error}`;
+
+	const classNamesIcon = `${styles.animation} ${
+		isArrowRotated && styles.rotate
+	} ${disabled && styles.disabledIcon}`;
 
 	const handleArrowFocus = () => {
 		setArrowRotated(!isArrowRotated);
@@ -20,16 +31,18 @@ export default function DropDown({
 	};
 
 	return (
-		<div className={className}>
-			<button className={styles.selectContainer} onClick={handleArrowFocus}>
+		<div className={className} {...props}>
+			<button
+				className={classNamesButton}
+				onClick={handleArrowFocus}
+				disabled={disabled || errorMessage}
+			>
 				<div>{placeholder}</div>
-				<Icon
-					name='arrowDown'
-					className={`${styles.animation} ${
-						isArrowRotated ? styles.rotate : ''
-					}`}
-				/>
+				<Icon name='arrowDown' className={classNamesIcon} />
 			</button>
+			{errorMessage && (
+				<div className={styles.errorMessage}>{errorMessage}</div>
+			)}
 			{isArrowRotated && (
 				<ul className={styles.options}>
 					{options.map((option) => {

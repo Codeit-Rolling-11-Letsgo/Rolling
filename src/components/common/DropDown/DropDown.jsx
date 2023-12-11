@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import styles from '@/components/common/DropDown.module.scss';
+import styles from '@/components/common//DropDown/DropDown.module.scss';
 import Icon from '@/components/common/icon/Icon';
 
 export default function DropDown({

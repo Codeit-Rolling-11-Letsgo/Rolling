@@ -1,5 +1,9 @@
-import styles from '@/pages/home/HomePage.module.scss';
+import HomeLayout from '@/components/home/HomeLayout';
 
 export default function HomePage() {
-	return <div className={styles.text_28}>홈페이지</div>;
+	return (
+		<HomeLayout>
+			<div>안녕하세요</div>
+		</HomeLayout>
+	);
 }

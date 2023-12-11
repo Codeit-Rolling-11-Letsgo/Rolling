@@ -10,7 +10,7 @@ import { PATH_HOME } from '@/constants/routes';
  */
 export default function Layout({ addon, children }) {
 	return (
-		<>
+		<div className={styles.container}>
 			<header className={styles.global_header}>
 				<nav className={styles.gnb}>
 					<Link to={PATH_HOME}>
@@ -27,7 +27,7 @@ export default function Layout({ addon, children }) {
 					{addon}
 				</nav>
 			</header>
-			{children}
-		</>
+			<main className={styles.mainContainer}>{children}</main>
+		</div>
 	);
 }

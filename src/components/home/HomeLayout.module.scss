@@ -14,8 +14,12 @@
 }
 
 .container {
+	box-sizing: content-box;
 	padding-inline: $padding_safe_zone;
+	padding-top: 6rem;
 	height: 100%;
+	max-width: 120rem;
+	margin-inline: auto;
 
 	display: flex;
 	flex-direction: column;

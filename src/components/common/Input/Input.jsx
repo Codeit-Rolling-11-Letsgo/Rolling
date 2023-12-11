@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import styles from './Input.module.scss';
 
 /**
@@ -6,15 +8,13 @@ import styles from './Input.module.scss';
  * @returns
  */
 function Input({ errorMessage, className, ...props }) {
-	const { disabled } = { ...props };
-	const classNames = `${styles.input} ${disabled && styles.disabled} ${
-		errorMessage && styles.error
-	} ${className}`;
-
 	return (
 		<>
-			<input className={classNames} disabled={disabled} {...props} />
-			{errorMessage && (
+			<input
+				className={clsx(styles.input, errorMessage && styles.error, className)}
+				{...props}
+			/>
+			{!!errorMessage && (
 				<span className={styles.errorMessage}>{errorMessage}</span>
 			)}
 		</>

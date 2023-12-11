@@ -2,8 +2,9 @@
 	display: block;
 	width: 100%;
 	padding: 1.2rem 1.6rem;
-	border: 1px solid $color_gray_300;
-	border-radius: 8px;
+	box-shadow: 0 0 0 0.1rem $color_gray_300;
+
+	border-radius: 0.8rem;
 	background: $color_white;
 	color: $color_gray_900;
 	@include typo_16_regular;
@@ -13,27 +14,32 @@
 	}
 
 	&:hover {
-		border: 1px solid $color_gray_500;
+		box-shadow: 0 0 0 0.1rem $color_gray_500;
 	}
 
 	&:focus {
-		border: 2px solid $color_gray_500;
 		outline: none;
+		box-shadow: 0 0 0 0.2rem $color_gray_500;
 	}
-}
 
-.input.disabled {
-	border: 1px solid $color_gray_300;
-	background: $color_gray_100;
-	color: $color_gray_400;
-
-	&::placeholder {
+	&:disabled {
+		box-shadow: 0 0 0 0.1rem $color_gray_300;
+		background: $color_gray_100;
 		color: $color_gray_400;
+
+		&::placeholder {
+			color: $color_gray_400;
+		}
 	}
 }
 
 .input.error {
-	border: 1px solid $color_error;
+	box-shadow: 0 0 0 0.1rem $color_error;
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 0.1rem $color_error;
+	}
 }
 
 .errorMessage {

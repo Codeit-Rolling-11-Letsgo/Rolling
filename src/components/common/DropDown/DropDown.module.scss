@@ -1,5 +1,11 @@
 @use '@/assets/utilities.scss' as *;
 
+.placeholder,
+.optionItem,
+.selectContainer {
+	outline: none;
+}
+
 .selectContainer {
 	@include typo_16_regular;
 	background-color: $color_white;
@@ -11,31 +17,48 @@
 	align-items: center;
 	justify-content: space-between;
 	border-radius: 0.8rem;
-	border: 0.2rem solid $color_gray_500;
-	.animation {
+	box-shadow: 0 0 0 0.1rem $color_gray_300;
+	.Icon {
+		height: 2.4rem;
+		width: 2.4rem;
 		transition: transform 0.3s ease;
 	}
 	&:hover {
 		color: $color_gray_500;
-		border: 0.1rem solid $color_gray_500;
+		box-shadow: 0 0 0 0.1rem $color_gray_500;
+	}
+	&:focus {
+		box-shadow: 0 0 0 0.2rem $color_gray_500;
+		background-color: $color_gray_100;
 	}
 }
 
-.disabled {
-	border: 0.1rem solid $color_gray_300;
+.selectContainer.disabled {
+	box-shadow: 0 0 0 0.1rem $color_gray_300;
+	background-color: $color_gray_100;
 	&:hover {
 		color: $color_gray_300;
-		border: 0.1rem solid $color_gray_300;
+		box-shadow: 0 0 0 0.1rem $color_gray_300;
 	}
-}
-
-.disabledIcon {
-	@include svg_stroke;
 }
 
 .selectContainer.error {
+	box-shadow: none;
 	border: 0.1rem solid $color_error;
 	color: $color_black;
+}
+
+.placeholder {
+	background-color: inherit;
+}
+
+.placeholder.disabled {
+	border: none;
+	color: $color_gray_400;
+}
+
+.Icon {
+	@include svg_stroke;
 }
 
 .errorMessage {
@@ -47,6 +70,7 @@
 
 .options {
 	@include typo_16_regular;
+	z-index: 1;
 	margin-top: 0.8rem;
 	width: 32rem;
 	position: absolute;
@@ -58,15 +82,17 @@
 	background: $color_white;
 	box-shadow: 0 0.2rem 1.2rem 0 rgba(0, 0, 0, 0.08);
 
-	button {
+	.optionItem {
 		@include typo_16_regular;
 		background-color: $color_white;
 		width: 100%;
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
 		padding: 1.2rem 1.6rem;
 		&:hover {
+			background-color: $color_gray_100;
+		}
+		&:focus {
+			outline: none;
 			background-color: $color_gray_100;
 		}
 	}

@@ -27,9 +27,10 @@ import Icon from '@/components/common/icon/Icon';
 export default function DropDown({
 	options = ['옵션1', '옵션2', '옵션3'],
 	defaultValue = 'placeholder',
+	onChange,
 	errorMessage = '',
 	className,
-	disabled = false,
+	disabled = true,
 	...props
 }) {
 	const [isArrowRotated, setArrowRotated] = useState(false);
@@ -39,9 +40,11 @@ export default function DropDown({
 		disabled && styles.disabled
 	} ${errorMessage && styles.error}`;
 
-	const classNamesIcon = `${styles.animation} ${
-		isArrowRotated && styles.rotate
-	} ${disabled && styles.disabledIcon}`;
+	const classNamesIcon = `${styles.Icon} ${isArrowRotated && styles.rotate}`;
+
+	const classNamePlaceholder = `${styles.placeholder} ${
+		disabled && styles.disabled
+	}`;
 
 	const handleArrowFocus = () => {
 		setArrowRotated(!isArrowRotated);
@@ -58,7 +61,12 @@ export default function DropDown({
 				onClick={handleArrowFocus}
 				disabled={disabled || errorMessage}
 			>
-				<div>{placeholder}</div>
+				<input
+					type='button'
+					onChange={onChange}
+					value={placeholder}
+					className={classNamePlaceholder}
+				></input>
 				<Icon name='arrowDown' className={classNamesIcon} />
 			</button>
 			{errorMessage && (
@@ -68,7 +76,11 @@ export default function DropDown({
 				<ul className={styles.options}>
 					{options.map((option) => {
 						return (
-							<button key={option.slice(-1)} onClick={handleSelect}>
+							<button
+								key={option.slice(-1)}
+								onClick={handleSelect}
+								className={styles.optionItem}
+							>
 								{option}
 							</button>
 						);

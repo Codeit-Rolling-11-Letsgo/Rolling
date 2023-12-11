@@ -16,6 +16,7 @@
 		transition: transform 0.3s ease;
 	}
 	&:hover {
+		color: $color_gray_500;
 		border: 0.1rem solid $color_gray_500;
 	}
 }
@@ -23,6 +24,7 @@
 .disabled {
 	border: 0.1rem solid $color_gray_300;
 	&:hover {
+		color: $color_gray_300;
 		border: 0.1rem solid $color_gray_300;
 	}
 }

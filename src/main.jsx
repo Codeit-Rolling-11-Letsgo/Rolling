@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from '@/pages/home/HomePage';
 import ListPage from '@/pages/list/ListPage';
 import PostPage from '@/pages/post/PostPage';
+import DropDown from '@/components/common/DropDown';
 
 const router = createBrowserRouter([
 	{
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		{/* <RouterProvider router={router} /> */}
+		<DropDown />
 	</React.StrictMode>,
 );

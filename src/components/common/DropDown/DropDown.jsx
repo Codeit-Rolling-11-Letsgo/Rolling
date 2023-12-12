@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import styles from '@/components/common//DropDown/DropDown.module.scss';
 import Icon from '@/components/common/icon/Icon';
@@ -35,15 +35,12 @@ export default function DropDown({
 	const [isOpened, setIsOpened] = useState(false);
 	const [selectedOption, setSelectedOption] = useState(defaultValue);
 
-	useEffect(() => {
-		onChange(selectedOption);
-	}, [selectedOption, onChange]);
-
 	const handleOpenDropDown = () => {
 		setIsOpened(!isOpened);
 	};
 
 	const handleOptionSelect = ({ target }) => {
+		onChange(target.value);
 		setSelectedOption(target.value);
 		setIsOpened(!isOpened);
 	};

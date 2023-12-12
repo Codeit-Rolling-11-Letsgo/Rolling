@@ -1,0 +1,101 @@
+@use '@/assets/utilities.scss' as *;
+
+.selectedOption,
+.optionItem,
+.selectContainer {
+	outline: none;
+}
+
+.selectContainer {
+	@include typo_16_regular;
+	overflow: hidden;
+	background-color: $color_white;
+	position: relative;
+	width: 32rem;
+	padding: 1.2rem 1.6rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 0.8rem;
+	box-shadow: 0 0 0 0.1rem $color_gray_300;
+	.Icon {
+		height: 2.4rem;
+		width: 2.4rem;
+		transition: transform 0.3s ease;
+	}
+	&:hover {
+		color: $color_gray_500;
+		box-shadow: 0 0 0 0.1rem $color_gray_500;
+	}
+	&:focus {
+		box-shadow: 0 0 0 0.2rem $color_gray_500;
+	}
+	&:disabled {
+		box-shadow: 0 0 0 0.1rem $color_gray_300;
+		background-color: $color_gray_100;
+		color: $color_gray_300;
+		&:hover {
+			box-shadow: 0 0 0 0.1rem $color_gray_300;
+		}
+	}
+}
+
+.selectContainer.error {
+	box-shadow: none;
+	border: 0.1rem solid $color_error;
+	color: $color_black;
+}
+
+.selectedOption {
+	background-color: inherit;
+	&:disabled {
+		border: none;
+		color: $color_gray_400;
+	}
+}
+
+.Icon {
+	@include svg_stroke;
+}
+
+.errorMessage {
+	@include typo_12_regular;
+	margin-top: 0.4rem;
+	width: 32rem;
+	color: $color_error;
+}
+
+.options {
+	@include typo_16_regular;
+	z-index: 1;
+	margin-top: 0.8rem;
+	width: 32rem;
+	position: absolute;
+	top: inherit;
+	left: inherit;
+	padding: 1rem 0.1rem;
+	border-radius: 0.8rem;
+	border: 1px solid $color_gray_300;
+	background: $color_white;
+	box-shadow: 0 0.2rem 1.2rem 0 rgba(0, 0, 0, 0.08);
+
+	.optionItem {
+		@include typo_16_regular;
+		color: $color_gray_900;
+		background-color: $color_white;
+		width: 100%;
+		display: flex;
+		padding: 1.2rem 1.6rem;
+		&:hover {
+			background-color: $color_gray_100;
+		}
+		&:focus {
+			outline: none;
+			background-color: $color_gray_100;
+		}
+	}
+}
+
+.rotate {
+	transform: rotate(180deg);
+}

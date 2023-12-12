@@ -30,14 +30,13 @@
 	&:focus {
 		box-shadow: 0 0 0 0.2rem $color_gray_500;
 	}
-}
-
-.selectContainer.disabled {
-	box-shadow: 0 0 0 0.1rem $color_gray_300;
-	background-color: $color_gray_100;
-	color: $color_gray_300;
-	&:hover {
+	&:disabled {
 		box-shadow: 0 0 0 0.1rem $color_gray_300;
+		background-color: $color_gray_100;
+		color: $color_gray_300;
+		&:hover {
+			box-shadow: 0 0 0 0.1rem $color_gray_300;
+		}
 	}
 }
 
@@ -49,11 +48,10 @@
 
 .selectedOption {
 	background-color: inherit;
-}
-
-.selectedOption.disabled {
-	border: none;
-	color: $color_gray_400;
+	&:disabled {
+		border: none;
+		color: $color_gray_400;
+	}
 }
 
 .Icon {

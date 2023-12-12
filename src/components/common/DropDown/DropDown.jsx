@@ -51,15 +51,16 @@ export default function DropDown({
 	return (
 		<div className={className} {...props}>
 			<button
+				disabled={disabled || errorMessage}
 				className={clsx(
 					styles.selectContainer,
 					disabled && styles.disabled,
 					errorMessage && styles.error,
 				)}
 				onClick={handleArrowFocus}
-				disabled={disabled || errorMessage}
 			>
 				<input
+					disabled={disabled}
 					type='button'
 					value={selectedOption}
 					className={clsx(styles.selectedOption, disabled && styles.disabled)}
@@ -76,6 +77,7 @@ export default function DropDown({
 				<ul className={styles.options}>
 					{options.map((option) => (
 						<button
+							disabled={disabled}
 							key={option.slice(-1)}
 							onClick={handleSelect}
 							className={styles.optionItem}

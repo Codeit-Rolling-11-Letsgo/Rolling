@@ -32,32 +32,33 @@ export default function DropDown({
 	disabled = false,
 	...props
 }) {
-	const [isArrowRotated, setArrowRotated] = useState(false);
+	const [isOpened, setIsOpened] = useState(false);
 	const [selectedOption, setSelectedOption] = useState(defaultValue);
 
 	useEffect(() => {
 		onChange(selectedOption);
 	}, [selectedOption, onChange]);
 
-	const handleArrowFocus = () => {
-		setArrowRotated(!isArrowRotated);
+	const handleOpenDropDown = () => {
+		setIsOpened(!isOpened);
 	};
 
-	const handleSelect = ({ target }) => {
-		setSelectedOption(target.innerText);
-		setArrowRotated(!isArrowRotated);
+	const handleOptionSelect = ({ target }) => {
+		setSelectedOption(target.value);
+		setIsOpened(!isOpened);
 	};
 
 	return (
 		<div className={className} {...props}>
 			<button
+				type='button'
 				disabled={disabled || errorMessage}
 				className={clsx(
 					styles.selectContainer,
 					disabled && styles.disabled,
 					errorMessage && styles.error,
 				)}
-				onClick={handleArrowFocus}
+				onClick={handleOpenDropDown}
 			>
 				<input
 					disabled={disabled}
@@ -67,25 +68,25 @@ export default function DropDown({
 				/>
 				<Icon
 					name='arrowDown'
-					className={clsx(styles.Icon, isArrowRotated && styles.rotate)}
+					className={clsx(styles.Icon, isOpened && styles.rotate)}
 				/>
 			</button>
 			{errorMessage && (
 				<div className={styles.errorMessage}>{errorMessage}</div>
 			)}
-			{isArrowRotated && (
-				<ul className={styles.options}>
+			{isOpened && (
+				<div className={styles.options}>
 					{options.map((option) => (
-						<button
+						<input
+							type='button'
 							disabled={disabled}
 							key={option.slice(-1)}
-							onClick={handleSelect}
+							onClick={handleOptionSelect}
 							className={styles.optionItem}
-						>
-							{option}
-						</button>
+							value={option}
+						></input>
 					))}
-				</ul>
+				</div>
 			)}
 		</div>
 	);

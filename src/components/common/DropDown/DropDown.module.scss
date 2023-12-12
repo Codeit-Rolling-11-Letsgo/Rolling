@@ -14,7 +14,6 @@
 	width: 32rem;
 	padding: 1.2rem 1.6rem;
 	display: flex;
-	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	border-radius: 0.8rem;
@@ -73,7 +72,7 @@
 	width: 32rem;
 	position: absolute;
 	top: inherit;
-	left: 0;
+	left: inherit;
 	padding: 1rem 0.1rem;
 	border-radius: 0.8rem;
 	border: 1px solid $color_gray_300;
@@ -82,6 +81,7 @@
 
 	.optionItem {
 		@include typo_16_regular;
+		color: $color_gray_900;
 		background-color: $color_white;
 		width: 100%;
 		display: flex;

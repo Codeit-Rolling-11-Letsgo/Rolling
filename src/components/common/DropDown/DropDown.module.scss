@@ -8,6 +8,7 @@
 
 .selectContainer {
 	@include typo_16_regular;
+	overflow: hidden;
 	background-color: $color_white;
 	position: relative;
 	width: 32rem;

@@ -1,0 +1,214 @@
+$button-basic-padding: 1.4rem 2.4rem;
+$button-small-padding: 0.7rem 1.6rem;
+$button-xl-padding: 1.4rem 1.6rem;
+$button-lg-padding: 0.8rem 1.6rem;
+$button-md-padding: 0.6rem 1.6rem;
+$button-sm-padding: 0.2rem 1.6rem;
+
+$button-basic-font-size: 1.8rem;
+$button-small-font-size: 1.6rem;
+$button-sm-font-size: 1.4rem;
+$button-basic-font-weight: 700;
+$button-small-font-weight: 400;
+$button-md-font-weight: 500;
+
+@mixin common-style {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
+.button.basic {
+	@include common-style;
+	padding: $button-basic-padding;
+	border: none;
+	border-radius: 1.2rem;
+	font-size: $button-basic-font-size;
+	font-weight: $button-basic-font-weight;
+	background: $color_purple_600;
+	color: $color_white;
+
+	&:disabled {
+		background: $color_gray_300;
+	}
+
+	&:not(:disabled):hover {
+		background: $color_purple_700;
+	}
+
+	&:not(:disabled):active,
+	&:not(:disabled):focus {
+		background: $color_purple_800;
+		outline: none;
+	}
+
+	&:focus {
+		border: 0.2rem solid $color_purple_900;
+	}
+}
+
+.button.small {
+	@include common-style;
+	padding: $button-small-padding;
+	border: none;
+	border-radius: 0.6rem;
+	font-size: $button-small-font-size;
+	font-weight: $button-small-font-weight;
+	background: $color_purple_600;
+	color: $color_white;
+
+	&:disabled {
+		background: $color_gray_300;
+	}
+
+	&:not(:disabled):hover {
+		background: $color_purple_700;
+	}
+
+	&:not(:disabled):active,
+	&:not(:disabled):focus {
+		background: $color_purple_800;
+	}
+
+	&:not(:disabled):focus {
+		border: 0.2rem solid $color_purple_900;
+	}
+}
+
+.button.secondary {
+	@include common-style;
+	padding: $button-small-padding;
+	font-size: $button-small-font-size;
+	font-weight: $button-small-font-weight;
+	color: $color_purple_700;
+	background: $color_white;
+	border: 0.1rem solid $color_purple_600;
+	border-radius: 0.6rem;
+
+	&:disabled {
+		border: none;
+		color: $color_white;
+		background: $color_gray_300;
+	}
+
+	&:not(:disabled):hover,
+	&:not(:disabled):active {
+		background: $color_purple_100;
+		color: $color_purple_600;
+	}
+
+	&:not(:disabled):hover {
+		border: 0.1rem solid $color_purple_700;
+	}
+
+	&:not(:disabled):active {
+		border: 0.1rem solid $color_purple_800;
+	}
+
+	&:not(:disabled):focus {
+		border: 0.1rem solid $color_purple_800;
+	}
+}
+
+@mixin outlined-button {
+	@include common-style;
+	border: 0.1rem solid $color_gray_300;
+	color: $color_gray_900;
+	background: $color_white;
+
+	&:disabled,
+	&:not(:disabled):hover,
+	&:not(:disabled):active {
+		border: 0.1rem solid $color_gray_300;
+	}
+
+	&:disabled {
+		color: $color_white;
+		background: $color_gray_300;
+		cursor: not-allowed;
+	}
+
+	&:not(:disabled):hover,
+	&:not(:disabled):active {
+		background: $color_gray_100;
+	}
+
+	&:not(:disabled):focus {
+		border: 0.1rem solid $color_gray_500;
+		background: $color_white;
+	}
+}
+
+.button.outlined.xl {
+	@include outlined-button;
+	padding: $button-xl-padding;
+	border-radius: 1.2rem;
+	font-size: $button-basic-font-size;
+	font-weight: $button-basic-font-weight;
+}
+
+.button.outlined.lg {
+	@include outlined-button;
+	padding: $button-lg-padding;
+	border-radius: 0.6rem;
+	font-size: $button-small-font-size;
+	font-weight: $button-small-font-weight;
+}
+
+.button.outlined.md {
+	@include outlined-button;
+	padding: $button-md-padding;
+	border-radius: 0.6rem;
+	font-size: $button-small-font-size;
+	font-weight: $button-md-font-weight;
+}
+
+.button.outlined.sm {
+	@include outlined-button;
+	padding: $button-sm-padding;
+	border-radius: 0.6rem;
+	font-size: $button-sm-font-size;
+	font-weight: $button-small-font-weight;
+}
+
+.icon {
+	width: 2.4rem;
+	height: 2.4rem;
+}
+
+@mixin icon-outlined-button {
+	@include outlined-button;
+	border-radius: 0.6rem;
+	gap: 1rem;
+}
+
+.button.iconOutlined.lg {
+	@include icon-outlined-button;
+	padding: $button-lg-padding;
+	font-size: $button-small-font-size;
+	font-weight: $button-md-font-weight;
+}
+
+.button.iconOutlined.md {
+	@include icon-outlined-button;
+	padding: $button-md-padding;
+	font-size: $button-small-font-size;
+	font-weight: $button-md-font-weight;
+}
+
+.button.iconOutlined.sm {
+	@include icon-outlined-button;
+	padding: $button-md-padding;
+	font-size: $button-sm-font-size;
+	font-weight: $button-small-font-weight;
+
+	.icon {
+		width: 2rem;
+		height: 2rem;
+	}
+}

@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 
 import styles from '@/components/common//DropDown/DropDown.module.scss';
@@ -38,16 +39,6 @@ export default function DropDown({
 		onChange(selectedOption);
 	}, [selectedOption, onChange]);
 
-	const classNamesButton = `${styles.selectContainer} ${
-		disabled && styles.disabled
-	} ${errorMessage && styles.error}`;
-
-	const classNamesIcon = `${styles.Icon} ${isArrowRotated && styles.rotate}`;
-
-	const classNamePlaceholder = `${styles.selectedOption} ${
-		disabled && styles.disabled
-	}`;
-
 	const handleArrowFocus = () => {
 		setArrowRotated(!isArrowRotated);
 	};
@@ -60,16 +51,23 @@ export default function DropDown({
 	return (
 		<div className={className} {...props}>
 			<button
-				className={classNamesButton}
+				className={clsx(
+					styles.selectContainer,
+					disabled && styles.disabled,
+					errorMessage && styles.error,
+				)}
 				onClick={handleArrowFocus}
 				disabled={disabled || errorMessage}
 			>
 				<input
 					type='button'
 					value={selectedOption}
-					className={classNamePlaceholder}
+					className={clsx(styles.selectedOption, disabled && styles.disabled)}
 				/>
-				<Icon name='arrowDown' className={classNamesIcon} />
+				<Icon
+					name='arrowDown'
+					className={clsx(styles.Icon, isArrowRotated && styles.rotate)}
+				/>
 			</button>
 			{errorMessage && (
 				<div className={styles.errorMessage}>{errorMessage}</div>

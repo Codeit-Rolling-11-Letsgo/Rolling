@@ -43,7 +43,7 @@ export default function EmojiPickerButton() {
 				이모티콘 추가
 			</button>
 			{isPickerOpened && (
-				<div ref={emojiPickerRef}>
+				<div className={styles.emojiPicker} ref={emojiPickerRef}>
 					<EmojiPicker
 						onEmojiClick={handleEmojiClick}
 						width={EMOJI_PICKER_WIDTH}

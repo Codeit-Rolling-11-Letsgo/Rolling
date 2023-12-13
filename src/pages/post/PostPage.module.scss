@@ -4,26 +4,24 @@
 	width: 120rem;
 	margin: 0 auto;
 	gap: 2.8rem 2.4rem;
-}
 
-@media (max-width: 1248px) {
-	.cardList {
+	@media (max-width: 1248px) {
 		width: calc(100% - 48px);
-		margin: 0 2.4rem;
 	}
 }
 
-@media only screen and (max-width: 768px) and (min-width: 361px) {
+@media only screen and (max-width: 1248px) and (min-width: 768px) {
 	.cardList {
+		width: 72rem;
 		grid-template-columns: repeat(2, minmax(20rem, 1fr));
 		gap: 1.6rem;
 	}
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 767px) and (min-width: 360px) {
 	.cardList {
+		width: 32rem;
 		grid-template-columns: minmax(20rem, 1fr);
-		margin: 0 2rem;
 		gap: 1.6rem;
 	}
 }

@@ -1,5 +1,5 @@
 import Layout from '@/components/common/Layout';
-import styles from '@/pages/post/PostLayout.module.scss';
+import styles from '@/components/post/PostLayout.module.scss';
 
 function PostLayout({ children, pageTitle }) {
 	return (

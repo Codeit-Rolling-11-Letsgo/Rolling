@@ -14,15 +14,13 @@
 }
 
 .container {
-	box-sizing: content-box;
+	height: 100%;
 	padding-inline: $padding_safe_zone;
 	padding-top: 6rem;
-	height: 100%;
-	max-width: 120rem;
+	padding-bottom: 15rem;
+	max-width: 124.8rem;
 	margin-inline: auto;
 
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
 }

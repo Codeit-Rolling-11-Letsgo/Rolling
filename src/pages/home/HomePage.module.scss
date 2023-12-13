@@ -1,3 +1,94 @@
-.text_28 {
-	@include typo_28_bold;
+$color_surface: #f6f8ff;
+
+.contents {
+	width: max-content;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+}
+
+.intro_card {
+	width: 120rem;
+	padding-block: 6rem;
+	border-radius: 1.6rem;
+	background-color: $color_surface;
+	display: flex;
+}
+
+.rolling {
+	padding-left: 6rem;
+	gap: 15.2rem;
+}
+
+.emoji {
+	padding-right: 19.2rem;
+}
+
+.intro_card_badge {
+	@include typo_14_bold;
+
+	width: max-content;
+	padding-block: 0.6rem;
+	padding-inline: 1.2rem;
+	color: $color_white;
+	background-color: $color_purple_600;
+	border-radius: 5rem;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.intro_card_title {
+	@include typo_24_bold;
+
+	margin-top: 1.6rem;
+	color: $color_gray_900;
+}
+
+.intro_card_description {
+	@include typo_18_regular;
+
+	margin-top: 0.8rem;
+	color: $color_gray_500;
+}
+
+.intro_image_rolling_container {
+	padding-block: 1rem;
+	padding-inline: 2.8rem;
+}
+
+.intro_image_rolling {
+	width: 66.4rem;
+	height: 18.8rem;
+}
+
+.intro_image_emoji_container {
+	padding-inline: 12.5rem;
+}
+
+.intro_image_emoji {
+	width: 47rem;
+	height: 20.4rem;
+}
+
+.bottom {
+	margin-top: 2.4rem;
+	padding-block: 2.4rem;
+	display: flex;
+	justify-content: center;
+}
+
+.bottom_cta {
+	@include typo_18_regular;
+
+	width: 28rem;
+	padding-block: 1.4rem;
+	padding-inline: 2.4rem;
+	background-color: $color_purple_600;
+	color: $color_white;
+	text-align: center;
+	border-radius: 1.2rem;
+
+	display: block;
 }

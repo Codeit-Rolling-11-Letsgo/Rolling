@@ -12,16 +12,18 @@ export default function EmojiPickerButton({ onEmojiClick }) {
 	const [isPickerOpened, setIsPickerOpened] = useState(false);
 	const emojiPickerRef = useRef(null);
 
+	const handleEmojiClick = (emojiInfo) => {
+		setIsPickerOpened(false);
+		onEmojiClick(emojiInfo);
+	};
+
 	const handlePickerToggle = (e) => {
 		e.stopPropagation(); //handleOutsideClick 이벤트 발생 방지
 		setIsPickerOpened(!isPickerOpened);
 	};
 
-	const handleOutsideClick = (event) => {
-		if (
-			emojiPickerRef.current &&
-			!emojiPickerRef.current.contains(event.target)
-		) {
+	const handleOutsideClick = (e) => {
+		if (emojiPickerRef.current && !emojiPickerRef.current.contains(e.target)) {
 			setIsPickerOpened(false);
 		}
 	};
@@ -41,7 +43,7 @@ export default function EmojiPickerButton({ onEmojiClick }) {
 			{isPickerOpened && (
 				<div ref={emojiPickerRef}>
 					<EmojiPicker
-						onEmojiClick={onEmojiClick}
+						onEmojiClick={handleEmojiClick}
 						width={EMOJI_PICKER_WIDTH}
 						height={EMOJI_PICKER_HEIGHT}
 					/>

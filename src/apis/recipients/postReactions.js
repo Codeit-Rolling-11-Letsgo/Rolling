@@ -1,7 +1,6 @@
 import { fetcher } from '@/apis/fetcher';
-const USER_ID = 962;
 
-const postReactions = async (emoji) => {
+const postReactions = async (emoji, USER_ID = 962) => {
 	const result = await fetcher.post(`recipients/${USER_ID}/reactions/`, {
 		json: { emoji, type: 'increase' },
 	});

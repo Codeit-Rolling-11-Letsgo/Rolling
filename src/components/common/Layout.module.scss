@@ -1,6 +1,12 @@
+$size_header: 6.4rem;
+
+.container {
+	height: 100%;
+}
+
 .global_header {
 	padding-block: 1.2rem;
-	height: 6.4rem;
+	height: $size_header;
 	background-color: $color_white;
 }
 
@@ -27,4 +33,8 @@
 .logo {
 	width: 2.8rem;
 	height: 2.8rem;
+}
+
+.mainContainer {
+	height: calc(100% - $size_header);
 }

@@ -1,0 +1,26 @@
+.cta {
+	@include typo_16_bold;
+
+	border: 0.1rem solid $color_gray_300;
+	border-radius: 0.6rem;
+	padding-inline: 1.6rem;
+	padding-block: 0.8rem;
+	color: $color_gray_900;
+	background-color: $color_white;
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	height: 100%;
+	padding-inline: $padding_safe_zone;
+	padding-top: 6rem;
+	padding-bottom: 15rem;
+	max-width: 124.8rem;
+	margin-inline: auto;
+
+	display: flex;
+	flex-direction: column;
+}

@@ -1,0 +1,50 @@
+.input {
+	display: block;
+	width: 100%;
+	padding: 1.2rem 1.6rem;
+	box-shadow: 0 0 0 0.1rem $color_gray_300;
+
+	border-radius: 0.8rem;
+	background: $color_white;
+	color: $color_gray_900;
+	@include typo_16_regular;
+
+	&::placeholder {
+		color: $color_gray_500;
+	}
+
+	&:hover {
+		box-shadow: 0 0 0 0.1rem $color_gray_500;
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 0.2rem $color_gray_500;
+	}
+
+	&:disabled {
+		box-shadow: 0 0 0 0.1rem $color_gray_300;
+		background: $color_gray_100;
+		color: $color_gray_400;
+
+		&::placeholder {
+			color: $color_gray_400;
+		}
+	}
+}
+
+.input.error {
+	box-shadow: 0 0 0 0.1rem $color_error;
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 0.1rem $color_error;
+	}
+}
+
+.errorMessage {
+	display: block;
+	margin-top: 0.25rem;
+	color: $color_error;
+	@include typo_12_regular;
+}

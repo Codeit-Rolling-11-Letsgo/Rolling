@@ -9,8 +9,6 @@ const EMOJI_PICKER_WIDTH = 307; // library 특성상 px로 조정
 const EMOJI_PICKER_HEIGHT = 393; // library 특성상 px로 조정
 
 export default function EmojiPickerButton() {
-	// onEmojiClick 핸들러에 파라미터로 전달되는 객체
-	//activeSkinTone: "neutral" emoji: "😀" getImageUrl: ƒ getImageUrl(emojiStyle)imageUrl: "https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/1f600.png" isCustom: false names: (2) ['grinning', 'grinning face'] unified: "1f600" unifiedWithoutSkinTone: "1f600"
 	const [isPickerOpened, setIsPickerOpened] = useState(false);
 	const emojiPickerRef = useRef(null);
 

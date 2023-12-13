@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Card from '@/components/common/card/Card';
 import Icon from '@/components/common/icon/Icon';
 import styles from '@/components/post/PostCard.module.scss';
+import { formatDate } from '@/utils/dateFunc';
 
 const badgeStyleByRelationship = {
 	지인: 'badgeOrange',
@@ -54,7 +55,7 @@ function PostCard({ message }) {
 			</Card.Panel>
 			<Card.Panel className={styles.contentContainer}>
 				<Card.Description className={styles.content} description={content} />
-				<span className={styles.createdAt}>{createdAt}</span>
+				<span className={styles.createdAt}>{formatDate(createdAt)}</span>
 			</Card.Panel>
 		</Card>
 	);

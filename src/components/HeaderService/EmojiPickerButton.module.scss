@@ -1,0 +1,18 @@
+.emojiPickerComponent {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.toggleButton {
+	margin-bottom: 0.6rem;
+}
+
+// 버튼 컴포넌트 제작 완료되면 삭제할 임시 스타일 요소
+.toggleButton {
+	border-radius: 6px;
+	border: 1px solid var(--gray-300, #ccc);
+	background: var(--white, #fff);
+	width: 88px;
+	height: 36px;
+}

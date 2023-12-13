@@ -1,0 +1,131 @@
+.card {
+	max-width: 38.4rem;
+	max-height: 28rem;
+	border-radius: 1.6rem;
+	background-color: $color_white;
+	aspect-ratio: 384/280;
+
+	@media only screen and (max-width: 1248px) and (min-width: 768px) {
+		max-width: 35.2rem;
+		max-height: 28.4rem;
+	}
+
+	@media only screen and (max-width: 767px) and (min-width: 360px) {
+		max-width: 32rem;
+		max-height: 23rem;
+	}
+}
+
+.newMessageContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.linkToNewMessage {
+	display: block;
+	width: 5.6rem;
+	height: 5.6rem;
+	padding: 1.6rem;
+	border-radius: 99rem;
+	background-color: $color_gray_500;
+}
+
+.newMessage {
+	width: 2.4rem;
+	height: 2.4rem;
+}
+
+.cardTitle {
+	display: flex;
+	position: relative;
+	max-width: 38.4rem;
+	max-height: 10rem;
+	padding: 2.8rem 2.4rem 1.5rem;
+	aspect-ratio: 384/100;
+	gap: 1.4rem;
+}
+
+.cardTitle::after {
+	position: absolute;
+	bottom: 0;
+	width: 33.6rem;
+	border-bottom: 0.1rem solid $color_gray_200;
+	content: '';
+}
+
+.thumbnail {
+	width: 5.6rem;
+	height: 5.6rem;
+	border-radius: 99rem;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.from {
+	@include typo_20_regular;
+}
+
+.sender {
+	@include typo_20_bold;
+}
+
+.badge {
+	flex-grow: 0;
+	width: 4.1rem;
+	padding: 0 0.8rem;
+	border-radius: 0.4rem;
+
+	@include typo_14_regular;
+}
+
+.badgeOrange {
+	background-color: $color_orange_100;
+	color: $color_orange_500;
+}
+
+.badgePurple {
+	background-color: $color_purple_100;
+	color: $color_purple_600;
+}
+
+.badgeGreen {
+	background-color: $color_green_100;
+	color: $color_green_500;
+}
+
+.badgeBlue {
+	background-color: $color_blue_100;
+	color: $color_blue_500;
+}
+
+.contentContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: calc(100% - 9.9rem);
+	padding: 1.6rem 2.4rem 2.4rem;
+	gap: 1.6rem;
+}
+
+.content {
+	display: -webkit-box;
+	overflow: hidden;
+	color: $color_gray_600;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	@include typo_18_regular;
+
+	@media only screen and (max-width: 1248px) and (min-width: 360px) {
+		-webkit-line-clamp: 2;
+	}
+}
+
+.createdAt {
+	color: $color_gray_400;
+	@include typo_12_regular;
+}

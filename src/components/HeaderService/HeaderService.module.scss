@@ -1,0 +1,37 @@
+.toSomeone {
+	grid-area: toSomeone;
+}
+
+.reactionByEmoji {
+	grid-area: emoji;
+}
+
+.layout {
+	@include typo_28_bold;
+	display: grid;
+	grid-template-areas: 'toSomeone emoji';
+	justify-content: space-between;
+	max-width: 124.8rem;
+	padding-inline: 2.4rem;
+	margin-inline: auto;
+	align-items: center;
+	height: 6.8rem;
+	@media (max-width: 767px) {
+		@include typo_18_bold;
+		padding-inline: 2rem;
+		height: auto;
+		grid-template-areas:
+			'toSomeone'
+			'emoji';
+	}
+}
+
+.toSomeone,
+.reactionByEmoji {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	@media (max-width: 767px) {
+		height: 5.2rem;
+	}
+}

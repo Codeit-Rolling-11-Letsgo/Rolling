@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import { getMessages } from '@/apis/post/postAPI';
 import HomePage from '@/pages/home/HomePage';
 import ListPage from '@/pages/list/ListPage';
 import PostPage from '@/pages/post/PostPage';
@@ -18,8 +19,13 @@ const router = createBrowserRouter([
 		element: <ListPage />,
 	},
 	{
-		path: '/post',
+		path: '/post/:recipientId',
 		element: <PostPage />,
+		loader: ({ params }) =>
+			getMessages({
+				recipientId: params.recipientId,
+				limit: 5,
+			}),
 	},
 ]);
 

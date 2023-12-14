@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Card from '@/components/common/card/Card';
 import Image from '@/components/common/Image';
 import styles from '@/components/list/RecipientCard.module.scss';
-import useRecipientCardBackground from '@/components/list/useRecipientCardBackground';
+import useRecipientCardBackground from '@/hooks/list/useRecipientCardBackground';
 import { take } from '@/utils/util';
 
 export default function RecipientCard({ recipient }) {

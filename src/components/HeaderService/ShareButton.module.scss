@@ -7,14 +7,14 @@ $gap: 0.6rem;
 	flex-direction: column;
 	align-items: flex-end;
 	position: relative;
-	margin: 30px;
+	margin: 3rem;
 }
 
 // 버튼 컴포넌트 제작 완료되면 삭제할 임시 스타일 요소
 .toggleButton {
 	display: block;
-	border-radius: 6px;
-	border: 1px solid var(--gray-300, #ccc);
+	border-radius: 0.6rem;
+	border: 0.1rem solid var(--gray-300, #ccc);
 	background: var(--white, #fff);
 	width: $width;
 	height: $height;
@@ -54,7 +54,7 @@ $gap: 0.6rem;
 
 .toast {
 	position: fixed;
-	bottom: 20px;
+	bottom: 7rem;
 	left: 50%;
 	transform: translateX(-50%);
 

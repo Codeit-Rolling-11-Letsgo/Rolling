@@ -17,7 +17,6 @@ export default function ShareButton() {
 
 	const handleOutsideClick = (e) => {
 		if (shareOptionPickerRef.current !== e.target) {
-			console.log(e.target);
 			setIsPickerOpened(false);
 		}
 	};

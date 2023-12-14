@@ -3,7 +3,6 @@ import '@/pages/post/postForm/postForm.scss';
 import Button from '@/components/common/Buttons/Button';
 import Input from '@/components/common/Input/Input';
 import Header from '@/components/common/Layout';
-import ColorSelect from '@/pages/post/postForm/ColorSelect';
 import Toggle from '@/pages/post/postForm/Toggle';
 
 function PostForm() {
@@ -12,7 +11,9 @@ function PostForm() {
 			<Header />
 			<form>
 				<div className='inputBox'>
-					<label htmlFor='sendingInput'>To.</label>
+					<label htmlFor='sendingInput' className='sendTo'>
+						To.
+					</label>
 					<Input
 						type='text'
 						id='sendingInput'
@@ -24,7 +25,6 @@ function PostForm() {
 					<p>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
 				</div>
 				<Toggle />
-				<ColorSelect />
 				<Button size='basic' content='생성하기' />
 			</form>
 		</>

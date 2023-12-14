@@ -1,10 +1,11 @@
 import '@/pages/post/postForm/Select.scss';
+import '@/pages/post/postForm/ImageSelect.scss';
 
 import { useState } from 'react';
 
 import Icon from '@/components/common/icon/Icon';
 
-function ColorSelect() {
+function ImageSelect() {
 	const [isChecked1, setIsChecked1] = useState(false);
 	const [isChecked2, setIsChecked2] = useState(false);
 	const [isChecked3, setIsChecked3] = useState(false);
@@ -47,7 +48,7 @@ function ColorSelect() {
 		<div className='selector_box'>
 			<label
 				htmlFor='ckb1'
-				className={`selectLabel orange ${isChecked1 ? 'checked' : ''}`}
+				className={`selectLabel image1 ${isChecked1 ? 'checked' : ''}`}
 			>
 				{check}
 			</label>
@@ -59,7 +60,7 @@ function ColorSelect() {
 			/>
 			<label
 				htmlFor='ckb2'
-				className={`selectLabel purple ${isChecked2 ? 'checked' : ''}`}
+				className={`selectLabel image2 ${isChecked2 ? 'checked' : ''}`}
 			>
 				{check}
 			</label>
@@ -71,7 +72,7 @@ function ColorSelect() {
 			/>
 			<label
 				htmlFor='ckb3'
-				className={`selectLabel blue ${isChecked3 ? 'checked' : ''}`}
+				className={`selectLabel image3 ${isChecked3 ? 'checked' : ''}`}
 			>
 				{check}
 			</label>
@@ -83,7 +84,7 @@ function ColorSelect() {
 			/>
 			<label
 				htmlFor='ckb4'
-				className={`selectLabel green ${isChecked4 ? 'checked' : ''}`}
+				className={`selectLabel image4 ${isChecked4 ? 'checked' : ''}`}
 			>
 				{check}
 			</label>
@@ -96,5 +97,4 @@ function ColorSelect() {
 		</div>
 	);
 }
-
-export default ColorSelect;
+export default ImageSelect;

@@ -13,8 +13,9 @@ form {
 	margin-top: 5.7rem;
 }
 
-label {
+.sendTo {
 	@include typo_24_bold;
+	border: none;
 }
 
 .textBox {
@@ -31,44 +32,4 @@ label {
 
 .textBox > p {
 	@include typo_16_regular;
-}
-
-.color-select {
-	display: flex;
-	align-items: flex-start;
-	gap: 1.6rem;
-}
-
-.color-box {
-	width: 16.8rem;
-	height: 16.8rem;
-	flex-shrink: 0;
-	border-radius: 1.6rem;
-	border: 0.1rem solid rgba(0, 0, 0, 0.08);
-	cursor: pointer;
-
-	&.orange {
-		background: $color_orange_200;
-	}
-
-	&.purple {
-		background: $color_purple_200;
-	}
-
-	&.blue {
-		background: $color_blue_200;
-	}
-
-	&.green {
-		background: $color_green_200;
-	}
-}
-
-form > button {
-	margin-top: 10rem;
-}
-
-.toggle_box {
-	display: flex;
-	flex-direction: row;
 }

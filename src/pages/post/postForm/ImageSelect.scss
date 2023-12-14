@@ -1,0 +1,26 @@
+.selector_box {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.6rem;
+
+	.selectLabel {
+		background-size: cover;
+		background-position: center;
+
+		&.image1 {
+			background-image: url('https://picsum.photos/id/683/3840/2160');
+		}
+
+		&.image2 {
+			background-image: url('https://picsum.photos/id/24/3840/2160');
+		}
+
+		&.image3 {
+			background-image: url('https://picsum.photos/id/599/3840/2160');
+		}
+
+		&.image4 {
+			background-image: url('https://picsum.photos/id/1058/3840/2160');
+		}
+	}
+}

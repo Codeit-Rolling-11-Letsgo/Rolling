@@ -1,0 +1,71 @@
+.selector_box {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.6rem;
+}
+
+.selectLabel {
+	width: 16.8rem;
+	height: 16.8rem;
+	border-radius: 1.6rem;
+	flex-shrink: 0;
+	border: 0.1rem solid rgba(0, 0, 0, 0.08);
+	cursor: pointer;
+}
+
+label > .check > svg {
+	width: 4.4rem;
+	height: 4.4rem;
+	background: $color_gray_500;
+	border-radius: 10rem;
+	margin: 6.2rem;
+	z-index: 1;
+}
+
+svg {
+	display: none;
+}
+
+.checked svg {
+	display: block;
+}
+
+.orange {
+	background: $color_orange_200;
+}
+
+.purple {
+	background: $color_purple_200;
+}
+
+.blue {
+	background: $color_blue_200;
+}
+
+.green {
+	background: $color_green_200;
+}
+
+.image1 {
+	background-image: url('https://picsum.photos/id/683/3840/2160');
+}
+
+.image2 {
+	background-image: url('https://picsum.photos/id/24/3840/2160');
+}
+
+.image3 {
+	background-image: url('https://picsum.photos/id/599/3840/2160');
+}
+
+.image4 {
+	background-image: url('https://picsum.photos/id/1058/3840/2160');
+}
+
+form > button {
+	margin-top: 10rem;
+}
+
+input[type='checkbox'] {
+	display: none;
+}

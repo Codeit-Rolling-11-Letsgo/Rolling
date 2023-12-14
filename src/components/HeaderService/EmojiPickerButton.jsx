@@ -1,7 +1,7 @@
 import EmojiPicker from 'emoji-picker-react';
 import { useEffect, useRef, useState } from 'react';
 
-import postReactions from '@/apis/recipients/postReactions';
+import { postRecipientsReactions } from '@/apis/recipients/reactionsAPI';
 
 import styles from './EmojiPickerButton.module.scss';
 
@@ -14,7 +14,7 @@ export default function EmojiPickerButton() {
 
 	const handleEmojiClick = (emojiInfo) => {
 		setIsPickerOpened(false);
-		postReactions(emojiInfo.emoji);
+		postRecipientsReactions(emojiInfo.emoji);
 	};
 
 	const handlePickerToggle = (e) => {

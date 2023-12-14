@@ -2,7 +2,7 @@ import '@/components/common/Buttons/Button.scss';
 
 import Icon from '@/components/common/icon/Icon';
 
-function Button({ variant, size, disabled, content, ...props }) {
+function Button({ variant, size, disabled, content, iconName, ...props }) {
 	let buttonClass = 'button';
 
 	if (size) {
@@ -16,7 +16,7 @@ function Button({ variant, size, disabled, content, ...props }) {
 	if (variant === 'iconOutlined') {
 		return (
 			<button className={buttonClass} {...props} disabled={disabled}>
-				<Icon type='svg' name='add' className='icon' />
+				<Icon type='svg' name={iconName} className='icon' />
 				{content}
 			</button>
 		);

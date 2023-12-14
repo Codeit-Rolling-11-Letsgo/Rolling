@@ -1,17 +1,19 @@
 import { useLoaderData } from 'react-router-dom';
 
+import NewMessageCTA from '@/components/post/NewMessageCTA';
 import PostCard from '@/components/post/PostCard';
 import PostLayout from '@/components/post/PostLayout';
 import styles from '@/pages/post/PostPage.module.scss';
 
 export default function PostPage() {
-	const { results } = useLoaderData();
+	const { recipientId, response } = useLoaderData();
+	const { results: messages } = response;
 
 	return (
 		<PostLayout>
 			<div className={styles.cardList}>
-				<PostCard.NewMessage />
-				{results.map((result) => (
+				<NewMessageCTA recipientId={recipientId} />
+				{messages.map((result) => (
 					<PostCard key={result.id} message={result}></PostCard>
 				))}
 			</div>

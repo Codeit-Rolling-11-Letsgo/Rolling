@@ -1,8 +1,6 @@
 import clsx from 'clsx';
-import { Link } from 'react-router-dom';
 
 import Card from '@/components/common/card/Card';
-import Icon from '@/components/common/icon/Icon';
 import styles from '@/components/post/PostCard.module.scss';
 import { formatDate } from '@/utils/dateFunc';
 
@@ -13,15 +11,12 @@ const badgeStyleByRelationship = {
 	친구: 'badgeBlue',
 };
 
-function Badge({ relationship }) {
+function Badge({ label }) {
 	return (
 		<span
-			className={clsx(
-				styles.badge,
-				styles[badgeStyleByRelationship[relationship]],
-			)}
+			className={clsx(styles.badge, styles[badgeStyleByRelationship[label]])}
 		>
-			{relationship}
+			{label}
 		</span>
 	);
 }
@@ -50,7 +45,7 @@ function PostCard({ message }) {
 							),
 						}}
 					/>
-					<Badge relationship={relationship} />
+					<Badge label={relationship} />
 				</div>
 			</Card.Panel>
 			<Card.Panel className={styles.contentContainer}>
@@ -60,17 +55,5 @@ function PostCard({ message }) {
 		</Card>
 	);
 }
-
-function NewMessage() {
-	return (
-		<Card className={clsx(styles.card, styles.newMessageContainer)}>
-			<Link to={`/post/{id}/message`} className={styles.linkToNewMessage}>
-				<Icon name='plus' className={styles.newMessage} />
-			</Link>
-		</Card>
-	);
-}
-
-PostCard.NewMessage = NewMessage;
 
 export default PostCard;

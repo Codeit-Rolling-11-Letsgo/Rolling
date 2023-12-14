@@ -1,14 +1,14 @@
 import { fetcher } from '@/apis/fetcher';
 
 export const getMessages = async ({ recipientId, limit, offset }) => {
-	try {
-		const res = await fetcher.get(
-			`recipients/${recipientId}/messages/?limit=${limit}&offset=${offset}`,
-		);
+	const params = new URLSearchParams({
+		limit: limit,
+		offset: offset,
+	});
 
-		const result = await res.json();
-		return result;
-	} catch (error) {
-		throw new Error(error);
-	}
+	const response = await fetcher
+		.get(`recipients/${recipientId}/messages/?${params}`)
+		.json();
+
+	return { recipientId, response };
 };

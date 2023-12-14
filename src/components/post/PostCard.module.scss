@@ -10,7 +10,7 @@
 		max-height: 28.4rem;
 	}
 
-	@media only screen and (max-width: 767px) and (min-width: 360px) {
+	@media only screen and (max-width: 767px) {
 		max-width: 32rem;
 		max-height: 23rem;
 	}
@@ -52,6 +52,14 @@
 	width: 33.6rem;
 	border-bottom: 0.1rem solid $color_gray_200;
 	content: '';
+
+	@media only screen and (max-width: 1248px) and (min-width: 768px) {
+		width: 30.4rem;
+	}
+
+	@media only screen and (max-width: 767px) {
+		width: 27.2rem;
+	}
 }
 
 .thumbnail {
@@ -120,7 +128,7 @@
 	-webkit-line-clamp: 3;
 	@include typo_18_regular;
 
-	@media only screen and (max-width: 1248px) and (min-width: 360px) {
+	@media only screen and (max-width: 1248px) {
 		-webkit-line-clamp: 2;
 	}
 }

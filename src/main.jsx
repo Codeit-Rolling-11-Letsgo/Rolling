@@ -8,6 +8,7 @@ import { getMessages } from '@/apis/post/postAPI';
 import HomePage from '@/pages/home/HomePage';
 import ListPage from '@/pages/list/ListPage';
 import PostPage from '@/pages/post/PostPage';
+import { getLimitByResolution } from '@/utils/commonUtils';
 
 const router = createBrowserRouter([
 	{
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
 		loader: ({ params }) =>
 			getMessages({
 				recipientId: params.recipientId,
-				limit: 5,
+				limit: getLimitByResolution(),
 			}),
 	},
 ]);

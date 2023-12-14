@@ -7,22 +7,23 @@ import PostCard from '@/components/post/PostCard';
 import PostLayout from '@/components/post/PostLayout';
 import { useIntersect } from '@/hooks/useIntersect';
 import styles from '@/pages/post/PostPage.module.scss';
+import { getLimitByResolution } from '@/utils/commonUtils';
 
 export default function PostPage() {
 	const { recipientId, messagesInfo } = useLoaderData();
 	const { results: messages } = messagesInfo;
+
 	const [currentMessages, setCurrentMessages] = useState(messages);
 	const [isLoading, setIsLoading] = useState(false);
 
 	const fetchMoreMessages = async () => {
 		if (messagesInfo.count > currentMessages.length) {
 			setIsLoading(true);
-			const params = new URLSearchParams(messagesInfo.next);
-			const offset = params.get('offset');
+
 			const { messagesInfo: newMessagesInfo } = await getMessages({
 				recipientId,
-				limit: 5,
-				offset,
+				limit: getLimitByResolution(),
+				offset: currentMessages.length,
 			});
 
 			setCurrentMessages((prevMessages) => [

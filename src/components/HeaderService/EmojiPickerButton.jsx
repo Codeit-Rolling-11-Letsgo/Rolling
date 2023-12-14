@@ -1,20 +1,20 @@
 import EmojiPicker from 'emoji-picker-react';
 import { useEffect, useRef, useState } from 'react';
 
+import { postRecipientsReactions } from '@/apis/recipients/reactionsAPI';
+
 import styles from './EmojiPickerButton.module.scss';
 
 const EMOJI_PICKER_WIDTH = 307; // library 특성상 px로 조정
 const EMOJI_PICKER_HEIGHT = 393; // library 특성상 px로 조정
 
-export default function EmojiPickerButton({ onEmojiClick }) {
-	// onEmojiClick 핸들러에 파라미터로 전달되는 객체
-	//activeSkinTone: "neutral" emoji: "😀" getImageUrl: ƒ getImageUrl(emojiStyle)imageUrl: "https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/1f600.png" isCustom: false names: (2) ['grinning', 'grinning face'] unified: "1f600" unifiedWithoutSkinTone: "1f600"
+export default function EmojiPickerButton() {
 	const [isPickerOpened, setIsPickerOpened] = useState(false);
 	const emojiPickerRef = useRef(null);
 
 	const handleEmojiClick = (emojiInfo) => {
 		setIsPickerOpened(false);
-		onEmojiClick(emojiInfo);
+		postRecipientsReactions(emojiInfo.emoji);
 	};
 
 	const handlePickerToggle = (e) => {
@@ -41,7 +41,7 @@ export default function EmojiPickerButton({ onEmojiClick }) {
 				이모티콘 추가
 			</button>
 			{isPickerOpened && (
-				<div ref={emojiPickerRef}>
+				<div className={styles.emojiPicker} ref={emojiPickerRef}>
 					<EmojiPicker
 						onEmojiClick={handleEmojiClick}
 						width={EMOJI_PICKER_WIDTH}

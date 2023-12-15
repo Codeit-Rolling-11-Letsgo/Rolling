@@ -3,8 +3,7 @@ import '@/pages/post/postForm/Toggle.scss';
 import { useState } from 'react';
 
 import Button from '@/components/common/Buttons/Button';
-import ColorSelect from '@/pages/post/postForm/ColorSelect';
-import ImageSelect from '@/pages/post/postForm/ImageSelect';
+import Select from '@/pages/post/postForm/Select';
 
 function Toggle() {
 	const [showColorSelect, setShowColorSelect] = useState(true);
@@ -65,8 +64,8 @@ function Toggle() {
 				/>
 			</div>
 			<div>
-				{showColorSelect && <ColorSelect />}
-				{showImageSelect && <ImageSelect />}
+				{showColorSelect && <Select type='color' />}
+				{showImageSelect && <Select type='image' />}
 			</div>
 		</>
 	);

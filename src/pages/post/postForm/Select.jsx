@@ -1,10 +1,11 @@
+// CombinedSelect.jsx
 import '@/pages/post/postForm/Select.scss';
 
 import { useState } from 'react';
 
 import Icon from '@/components/common/icon/Icon';
 
-function ColorSelect() {
+function CombinedSelect({ type }) {
 	const [isChecked1, setIsChecked1] = useState(true);
 	const [isChecked2, setIsChecked2] = useState(false);
 	const [isChecked3, setIsChecked3] = useState(false);
@@ -47,7 +48,9 @@ function ColorSelect() {
 		<div className='selector_box'>
 			<label
 				htmlFor='ckb1'
-				className={`selectLabel orange ${isChecked1 ? 'checked' : ''}`}
+				className={`selectLabel ${type === 'color' ? 'orange' : 'image1'} ${
+					isChecked1 ? 'checked' : ''
+				}`}
 			>
 				{check}
 			</label>
@@ -59,7 +62,9 @@ function ColorSelect() {
 			/>
 			<label
 				htmlFor='ckb2'
-				className={`selectLabel purple ${isChecked2 ? 'checked' : ''}`}
+				className={`selectLabel ${type === 'color' ? 'purple' : 'image2'} ${
+					isChecked2 ? 'checked' : ''
+				}`}
 			>
 				{check}
 			</label>
@@ -71,7 +76,9 @@ function ColorSelect() {
 			/>
 			<label
 				htmlFor='ckb3'
-				className={`selectLabel blue ${isChecked3 ? 'checked' : ''}`}
+				className={`selectLabel ${type === 'color' ? 'blue' : 'image3'} ${
+					isChecked3 ? 'checked' : ''
+				}`}
 			>
 				{check}
 			</label>
@@ -83,7 +90,9 @@ function ColorSelect() {
 			/>
 			<label
 				htmlFor='ckb4'
-				className={`selectLabel green ${isChecked4 ? 'checked' : ''}`}
+				className={`selectLabel ${type === 'color' ? 'green' : 'image4'} ${
+					isChecked4 ? 'checked' : ''
+				}`}
 			>
 				{check}
 			</label>
@@ -97,4 +106,4 @@ function ColorSelect() {
 	);
 }
 
-export default ColorSelect;
+export default CombinedSelect;

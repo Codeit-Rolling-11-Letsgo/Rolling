@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { getMessages } from '@/apis/post/postAPI';
 import HomePage from '@/pages/home/HomePage';
 import ListPage from '@/pages/list/ListPage';
-import PostForm from '@/pages/post/postForm/postForm';
+import Post from '@/pages/post/postForm/Post';
 import PostPage from '@/pages/post/PostPage';
 
 const router = createBrowserRouter([
@@ -29,8 +29,8 @@ const router = createBrowserRouter([
 			}),
 	},
 	{
-		path: '/postForm',
-		element: <PostForm />,
+		path: '/post',
+		element: <Post />,
 	},
 ]);
 

@@ -1,0 +1,51 @@
+$gap: 0.7rem;
+$height: 3.6rem;
+
+.emojiReactionCollection {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+
+	padding: 30px;
+}
+
+.emojiReactionTop3Container {
+	height: $height;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.2rem;
+}
+
+.emojiReactionTop3 {
+	align-items: center;
+	display: flex;
+	gap: 0.8rem;
+}
+
+.arrowDownButton {
+	background-color: inherit;
+	width: 3.6rem;
+	height: 100%;
+	padding: 0.6rem;
+}
+
+.emojiReactionTop8 {
+	display: grid;
+	width: fit-content;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+
+	border-radius: 0.8rem;
+	border: 0.1rem solid #b6b6b6;
+	background: #fff;
+	box-shadow: 0 0.2rem 1.2rem 0 rgba(0, 0, 0, 0.08);
+
+	padding: 2.4rem;
+	gap: 0.8rem 1rem;
+
+	position: absolute;
+	top: $gap + $height;
+	right: -0.65rem;
+}

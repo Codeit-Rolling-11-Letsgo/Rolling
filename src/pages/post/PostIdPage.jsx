@@ -6,10 +6,10 @@ import NewMessageCTA from '@/components/post/NewMessageCTA';
 import PostCard from '@/components/post/PostCard';
 import PostLayout from '@/components/post/PostLayout';
 import { useIntersect } from '@/hooks/useIntersect';
-import styles from '@/pages/post/PostPage.module.scss';
+import styles from '@/pages/post/PostIdPage.module.scss';
 import { getLimitByResolution } from '@/utils/commonUtils';
 
-export default function PostPage() {
+export default function PostIdPage() {
 	const { recipientId, messagesInfo } = useLoaderData();
 	const { results: messages } = messagesInfo;
 

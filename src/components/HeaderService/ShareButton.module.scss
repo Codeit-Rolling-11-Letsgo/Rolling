@@ -54,7 +54,6 @@ $gap: 0.6rem;
 
 .toast {
 	position: fixed;
-	bottom: 7rem;
 	left: 50%;
 	transform: translateX(-50%);
 
@@ -64,15 +63,22 @@ $gap: 0.6rem;
 
 	background-color: $color_black;
 
-	width: 52.4rem;
-	height: 6.4rem;
-	@media (max-width: 767px) {
-		width: 32rem;
-		height: 6.4rem;
-	}
 	padding: 1.9rem 3rem;
 	border-radius: 8px;
 	opacity: 0.8;
+
+	width: 52.4rem;
+	height: 6.4rem;
+	bottom: 7rem;
+
+	@media (max-width: 1024px) {
+		bottom: 5rem;
+	}
+	@media (max-width: 767px) {
+		width: 32rem;
+		height: 6.4rem;
+		bottom: 8.8rem;
+	}
 }
 
 .toastContents {

@@ -1,15 +1,15 @@
-.toSomeone {
-	grid-area: toSomeone;
+.title {
+	grid-area: title;
 }
 
-.reactionByEmoji {
-	grid-area: emoji;
+.service {
+	grid-area: service;
 }
 
 .layout {
 	@include typo_28_bold;
 	display: grid;
-	grid-template-areas: 'toSomeone emoji';
+	grid-template-areas: 'title service';
 	justify-content: space-between;
 	max-width: 124.8rem;
 	padding-inline: 2.4rem;
@@ -21,13 +21,13 @@
 		padding-inline: 2rem;
 		height: auto;
 		grid-template-areas:
-			'toSomeone'
-			'emoji';
+			'title'
+			'service';
 	}
 }
 
-.toSomeone,
-.reactionByEmoji {
+.title,
+.service {
 	display: flex;
 	align-items: center;
 	height: 100%;

@@ -60,9 +60,11 @@ export default function RecipientCard({ recipient }) {
 								/>
 							),
 						)}
-						<div className={styles.more_profile}>
-							+{recipient.messageCount - MESSAGE_PREVIEW_COUNT}
-						</div>
+						{recipient.messageCount - MESSAGE_PREVIEW_COUNT > 0 ? (
+							<div className={styles.more_profile}>
+								+{recipient.messageCount - MESSAGE_PREVIEW_COUNT}
+							</div>
+						) : null}
 					</Card.Panel>
 					<Card.Description
 						description={

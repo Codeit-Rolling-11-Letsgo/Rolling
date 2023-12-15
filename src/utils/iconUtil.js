@@ -17,10 +17,10 @@ export const ICON_MATCHER = {
 	arrowRight: 'arrow_right',
 	arrowDown: 'arrow_down',
 	arrowLeft: 'arrow_left',
-	cardBackgroundPurple: 'card_bg_purple',
-	cardBackgroundBeige: 'card_bg_beige',
-	cardBackgroundBlue: 'card_bg_blue',
-	cardBackgroundGreen: 'card_bg_green',
+	cardPatternPurple: 'card_pattern_1',
+	cardPatternBeige: 'card_pattern_2',
+	cardPatternBlue: 'card_pattern_3',
+	cardPatternGreen: 'card_pattern_4',
 };
 
 export const ICON_URL =

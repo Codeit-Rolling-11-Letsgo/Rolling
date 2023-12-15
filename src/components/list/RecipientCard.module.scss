@@ -7,9 +7,30 @@
 	padding: 3rem 2.4rem 2rem;
 	border-radius: 1.6rem;
 	overflow: hidden;
-	background-color: $color_gray_100;
+	background-color: $color_gray_200;
 	color: $color_gray_700;
 	background-size: cover;
+}
+
+.background_beige {
+	background-color: $color_orange_200;
+}
+
+.background_purple {
+	background-color: $color_purple_200;
+}
+
+.background_blue {
+	background-color: $color_blue_200;
+}
+
+.background_green {
+	background-color: $color_green_200;
+}
+
+.content {
+	position: relative;
+	z-index: 1;
 }
 
 .text_content {
@@ -90,18 +111,9 @@
 	gap: 0.8rem;
 }
 
-.reaction {
-	height: 3.6rem;
-	padding: 0.8rem 1.2rem;
-	border-radius: 3.2rem;
-	background-color: rgba(0, 0, 0, 0.54);
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.4rem;
-}
-
-.emoji {
-	vertical-align: middle;
+.pattern {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 0;
 }

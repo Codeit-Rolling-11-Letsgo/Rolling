@@ -34,12 +34,7 @@ export default function PostPage() {
 		}
 	};
 
-	const intersectionOptions = {
-		rootMargin: '350px',
-		threshold: 0,
-	};
-
-	const trigger = useIntersect(fetchMoreMessages, intersectionOptions);
+	const trigger = useIntersect(fetchMoreMessages, { rootMargin: '350px' });
 
 	return (
 		<PostLayout>

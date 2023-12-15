@@ -1,7 +1,6 @@
 export const getLimitByResolution = () => {
-	const width = window.innerWidth;
-
-	if (width > 1248) return 8;
-	if (width > 767) return 5;
+	if (matchMedia('(max-width: 1248px) and (min-width: 768px)').matches)
+		return 8;
+	if (matchMedia('(max-width: 767px)').matches) return 5;
 	return 3;
 };

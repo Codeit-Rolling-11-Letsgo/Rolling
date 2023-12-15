@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from 'react-router-dom';
 
-import ListContet from '@/components/list/ListContent';
+import ListContent from '@/components/list/ListContent';
 import ListLayout from '@/components/list/ListLayout';
 import RecipientCardList from '@/components/list/RecipientCardList';
 import { PATH_POST } from '@/constants/routes';
@@ -11,12 +11,12 @@ export default function ListPage() {
 
 	return (
 		<ListLayout>
-			<ListContet title='인기 롤링 페이퍼 🔥'>
+			<ListContent title='인기 롤링 페이퍼 🔥'>
 				<RecipientCardList recipientList={popularRecipientList} />
-			</ListContet>
-			<ListContet title='최근에 만든 롤링 페이퍼 ⭐️'>
+			</ListContent>
+			<ListContent title='최근에 만든 롤링 페이퍼 ⭐️'>
 				<RecipientCardList recipientList={recentRecipientList} />
-			</ListContet>
+			</ListContent>
 			<div className={styles.bottom}>
 				<Link to={PATH_POST} className={styles.post_cta}>
 					나도 만들어보기

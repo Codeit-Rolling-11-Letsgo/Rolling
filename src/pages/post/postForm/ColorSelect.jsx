@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Icon from '@/components/common/icon/Icon';
 
 function ColorSelect() {
-	const [isChecked1, setIsChecked1] = useState(false);
+	const [isChecked1, setIsChecked1] = useState(true);
 	const [isChecked2, setIsChecked2] = useState(false);
 	const [isChecked3, setIsChecked3] = useState(false);
 	const [isChecked4, setIsChecked4] = useState(false);

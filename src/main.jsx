@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { getMessages } from '@/apis/post/postAPI';
 import HomePage from '@/pages/home/HomePage';
 import ListPage from '@/pages/list/ListPage';
+import PostForm from '@/pages/post/postForm/postForm';
 import PostPage from '@/pages/post/PostPage';
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
 				recipientId: params.recipientId,
 				limit: 5,
 			}),
+	},
+	{
+		path: '/postForm',
+		element: <PostForm />,
 	},
 ]);
 

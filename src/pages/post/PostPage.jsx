@@ -1,5 +1,6 @@
 import { useLoaderData } from 'react-router-dom';
 
+import HeaderService from '@/components/post/header-service/HeaderService';
 import NewMessageCTA from '@/components/post/NewMessageCTA';
 import PostCard from '@/components/post/PostCard';
 import PostLayout from '@/components/post/PostLayout';
@@ -10,7 +11,7 @@ export default function PostPage() {
 	const { results: messages } = response;
 
 	return (
-		<PostLayout>
+		<PostLayout pageTitle={<HeaderService recipientId={recipientId} />}>
 			<div className={styles.cardList}>
 				<NewMessageCTA recipientId={recipientId} />
 				{messages.map((result) => (

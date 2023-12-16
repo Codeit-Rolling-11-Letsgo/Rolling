@@ -1,24 +1,32 @@
 import EmojiPicker from 'emoji-picker-react';
 import { useEffect, useRef, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import { postRecipientsReactions } from '@/apis/recipients/reactionsAPI';
+import Icon from '@/components/common/icon/Icon';
 
 import styles from './EmojiPickerButton.module.scss';
 
 const EMOJI_PICKER_WIDTH = 307; // library 특성상 px로 조정
 const EMOJI_PICKER_HEIGHT = 393; // library 특성상 px로 조정
 
-export default function EmojiPickerButton() {
+export default function EmojiPickerButton({
+	recipientId,
+	setReloadingTrigger,
+}) {
+	const isMobile = useMediaQuery({ maxWidth: 767 });
+
 	const [isPickerOpened, setIsPickerOpened] = useState(false);
 	const emojiPickerRef = useRef(null);
 
-	const handleEmojiClick = (emojiInfo) => {
+	const handleEmojiClick = async (emojiInfo) => {
 		setIsPickerOpened(false);
-		postRecipientsReactions(emojiInfo.emoji);
+		await postRecipientsReactions(emojiInfo.emoji, recipientId);
+		setReloadingTrigger((prevTrigger) => !prevTrigger);
 	};
 
 	const handlePickerToggle = (e) => {
-		e.stopPropagation(); //handleOutsideClick 이벤트 발생 방지
+		e.stopPropagation();
 		setIsPickerOpened(!isPickerOpened);
 	};
 
@@ -38,7 +46,8 @@ export default function EmojiPickerButton() {
 	return (
 		<div className={styles.emojiPickerComponent}>
 			<button className={styles.toggleButton} onClick={handlePickerToggle}>
-				이모티콘 추가
+				<Icon name='add' />
+				{!isMobile && '추가'}
 			</button>
 			{isPickerOpened && (
 				<div className={styles.emojiPicker} ref={emojiPickerRef}>

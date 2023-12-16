@@ -5,8 +5,6 @@ $height: 3.6rem;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
-
-	padding: 30px;
 }
 
 .emojiReactionTop3Container {
@@ -31,11 +29,15 @@ $height: 3.6rem;
 	padding: 0.6rem;
 }
 
-.emojiReactionTop8 {
+.emojiReactionTop8or6 {
 	display: grid;
 	width: fit-content;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(2, 1fr);
+	@media (max-width: 767px) {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+	}
 
 	border-radius: 0.8rem;
 	border: 0.1rem solid #b6b6b6;

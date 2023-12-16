@@ -1,30 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
-import { getRecipientsReactions } from '@/apis/recipients/reactionsAPI';
 import Icon from '@/components/common/icon/Icon';
 import EmojiBadge from '@/components/post/header-service/EmojiBadge';
 
 import styles from './EmojiReactionCollection.module.scss';
 
-export default function EmojiReactionCollection() {
+export default function EmojiReactionCollection({ reactionList }) {
+	const decideReactionTypeCountToRender = useMediaQuery({ maxWidth: 767 })
+		? 6
+		: 8;
 	const emojiCollectionRef = useRef(null);
 	const [isEmojiDropDownOpened, setIsEmojiDropDownOpened] = useState(false);
-	const [reactionList, setReactionList] = useState([
-		{ id: 0, emoji: '', count: 0 },
-	]);
-
-	const fetchReactionList = async () => {
-		try {
-			const { results: fetchedReactionList } = await getRecipientsReactions();
-			setReactionList(fetchedReactionList);
-		} catch (error) {
-			console.error('Error fetching reaction list:', error);
-		}
-	};
-
-	useEffect(() => {
-		fetchReactionList();
-	}, []); // 언제 재렌더링을 해야하는가? 이모지 추가 컴포넌트와 연동?
 
 	const handleToggleEmojiDropDown = (e) => {
 		e.stopPropagation();
@@ -44,11 +31,13 @@ export default function EmojiReactionCollection() {
 		};
 	}, []);
 
-	function EmojiReactionTop3(reactionList) {
+	function EmojiReactionTopN(reactionList, N) {
 		const result = [];
-		if (reactionList.length < 3) return;
+		if (reactionList.length < 3) {
+			N = reactionList.length;
+		}
 
-		for (let i = 0; i < 3; i++) {
+		for (let i = 0; i < N; i++) {
 			result.push(
 				<EmojiBadge key={reactionList[i].id} count={reactionList[i].count}>
 					{reactionList[i].emoji}
@@ -58,19 +47,11 @@ export default function EmojiReactionCollection() {
 		return result;
 	}
 
-	function EmojiReactionTop8(reactionList) {
-		return reactionList.map((reaction) => (
-			<EmojiBadge key={reaction.id} count={reaction.count}>
-				{reaction.emoji}
-			</EmojiBadge>
-		));
-	}
-
 	return (
 		<div className={styles.emojiReactionCollection}>
 			<div className={styles.emojiReactionTop3Container}>
 				<div className={styles.emojiReactionTop3}>
-					{EmojiReactionTop3(reactionList)}
+					{EmojiReactionTopN(reactionList, 3)}
 				</div>
 				<button
 					className={styles.arrowDownButton}
@@ -79,8 +60,8 @@ export default function EmojiReactionCollection() {
 					<Icon name='arrowDown' />
 				</button>
 				{isEmojiDropDownOpened && (
-					<div className={styles.emojiReactionTop8}>
-						{EmojiReactionTop8(reactionList)}
+					<div className={styles.emojiReactionTop8or6}>
+						{EmojiReactionTopN(reactionList, decideReactionTypeCountToRender)}
 					</div>
 				)}
 			</div>

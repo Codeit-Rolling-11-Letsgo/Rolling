@@ -48,7 +48,7 @@ export default function ShareButton() {
 	return (
 		<div className={styles.shareOption}>
 			<button className={styles.toggleButton} onClick={handlePickerToggle}>
-				공유
+				<Icon name='share' />
 			</button>
 			{isPickerOpened && (
 				<div className={styles.shareOptionList} ref={shareOptionPickerRef}>
@@ -66,7 +66,7 @@ export default function ShareButton() {
 			{isToastVisible && (
 				<div className={clsx(styles.toast)}>
 					<div className={styles.toastContents}>
-						<Icon name='complete' />
+						<Icon className={styles.checkIcon} name='complete' />
 						<div className={styles.toastText}>URL이 복사되었습니다</div>
 					</div>
 					<button

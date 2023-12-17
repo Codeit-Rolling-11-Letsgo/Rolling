@@ -10,17 +10,17 @@ import { useIntersect } from '@/hooks/useIntersect';
 import styles from '@/pages/post/PostIdPage.module.scss';
 
 export default function PostIdPage() {
-	const { recipientId, messagesInfo } = useLoaderData();
-	const { results: messages } = messagesInfo;
+	const { recipientId, messageListInfo } = useLoaderData();
+	const { results: messageList } = messageListInfo;
 
-	const [currentMessages, setCurrentMessages] = useState(messages);
+	const [currentMessages, setCurrentMessages] = useState(messageList);
 	const [isLoading, setIsLoading] = useState(false);
 
 	const fetchMoreMessages = async () => {
-		if (messagesInfo.count > currentMessages.length) {
+		if (messageListInfo.count > currentMessages.length) {
 			setIsLoading(true);
 
-			const { messagesInfo: newMessagesInfo } = await getMessageList({
+			const { messageListInfo: newMessageListInfo } = await getMessageList({
 				recipientId,
 				limit: 15,
 				offset: currentMessages.length,
@@ -28,7 +28,7 @@ export default function PostIdPage() {
 
 			setCurrentMessages((prevMessages) => [
 				...prevMessages,
-				...newMessagesInfo.results,
+				...newMessageListInfo.results,
 			]);
 			setIsLoading(false);
 		}

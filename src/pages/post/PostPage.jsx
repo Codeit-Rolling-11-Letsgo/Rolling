@@ -11,7 +11,7 @@ export default function PostPage() {
 	const { results: messages } = response;
 
 	return (
-		<PostLayout pageTitle={<HeaderService recipientId={recipientId} />}>
+		<PostLayout pageTitle={<HeaderService />}>
 			<div className={styles.cardList}>
 				<NewMessageCTA recipientId={recipientId} />
 				{messages.map((result) => (

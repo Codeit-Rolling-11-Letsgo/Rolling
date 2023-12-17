@@ -6,8 +6,8 @@ import { postRecipientsReactions } from '@/apis/recipients/reactionsAPI';
 import Icon from '@/components/common/icon/Icon';
 import styles from '@/components/post/header-service/EmojiPickerButton.module.scss';
 
-const EMOJI_PICKER_WIDTH = 307; // library 특성상 px로 조정
-const EMOJI_PICKER_HEIGHT = 393; // library 특성상 px로 조정
+const EMOJI_PICKER_WIDTH = '30.7rem';
+const EMOJI_PICKER_HEIGHT = '39.3rem';
 
 export default function EmojiPickerButton({
 	recipientId,

@@ -33,7 +33,7 @@ export default function EmojiReactionCollection({ reactionList }) {
 
 	function EmojiReactionTopN(reactionList, N) {
 		const result = [];
-		if (reactionList.length < 3) {
+		if (N > reactionList.length) {
 			N = reactionList.length;
 		}
 

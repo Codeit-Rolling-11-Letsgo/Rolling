@@ -1,0 +1,69 @@
+@use '@/assets/utilities.scss' as *;
+
+.container {
+	width: 100%;
+	position: relative;
+}
+
+.item_list {
+	display: flex;
+	gap: 2rem;
+	overflow: hidden;
+}
+
+.carousel_button {
+	position: absolute;
+	width: 4rem;
+	height: 4rem;
+	border-radius: 100%;
+	background-color: rgba(255, 255, 255, 0.5);
+	border: 0.1rem solid $color_gray_200;
+	z-index: 5;
+	color: $color_gray_400;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s $transition_ease_squish_3;
+
+	&:is(:hover, :focus-visible) {
+		background-color: $color_white;
+		outline: none;
+	}
+}
+
+.right_arrow {
+	@include svg_stroke;
+}
+
+.left_arrow {
+	@include svg_stroke;
+}
+
+.next {
+	right: -2rem;
+	bottom: calc(50% - 2rem);
+
+	&:is(:hover, :focus-visible) .right_arrow {
+		$x: 0.2rem;
+
+		transform: translateX($x) scale(1.15);
+		transition: transform 0.5s $transition_ease_squish_3;
+		transform-origin: center center;
+		color: $color_purple_600;
+	}
+}
+
+.prev {
+	left: -2rem;
+	bottom: calc(50% - 2rem);
+
+	&:is(:hover, :focus-visible) .left_arrow {
+		$x: 0.2rem;
+
+		transform: translateX(-$x) scale(1.15);
+		transition: transform 0.5s $transition_ease_squish_3;
+		transform-origin: center center;
+		color: $color_purple_600;
+	}
+}

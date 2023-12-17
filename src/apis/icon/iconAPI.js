@@ -1,7 +1,15 @@
 import ky from 'ky';
 
-export const getIcon = async (name, baseURL) => {
-	const res = await ky.get(`${baseURL}/${name}.svg`);
+import { generateIconURL } from '@/utils/iconUtil';
+
+/**
+ * @param {Parameters<typeof generateIconURL>[0]} name
+ * @returns
+ */
+export const getIcon = async (name) => {
+	const url = generateIconURL(name);
+
+	const res = await ky.get(url);
 	const icon = await res.text();
 
 	return icon;

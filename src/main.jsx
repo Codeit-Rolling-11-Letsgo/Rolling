@@ -4,11 +4,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { getMessages } from '@/apis/post/postAPI';
+import { getMessageList } from '@/apis/post/postAPI';
+import { getRecipientList } from '@/apis/recipients/recipientsAPI';
 import HomePage from '@/pages/home/HomePage';
 import ListPage from '@/pages/list/ListPage';
 import Post from '@/pages/post/Post';
-import PostPage from '@/pages/post/PostPage';
+import PostIdPage from '@/pages/post/PostIdPage';
 import PostMessage from '@/pages/PostIdMessage/PostMessage';
 
 const router = createBrowserRouter([
@@ -19,14 +20,25 @@ const router = createBrowserRouter([
 	{
 		path: '/list',
 		element: <ListPage />,
+		loader: async () => {
+			const [
+				{ results: popularRecipientList },
+				{ results: recentRecipientList },
+			] = await Promise.all([
+				getRecipientList({ limit: 12, sort: 'like' }),
+				getRecipientList({ limit: 12 }),
+			]);
+
+			return { popularRecipientList, recentRecipientList };
+		},
 	},
 	{
 		path: '/post/:recipientId',
-		element: <PostPage />,
+		element: <PostIdPage />,
 		loader: ({ params }) =>
-			getMessages({
+			getMessageList({
 				recipientId: params.recipientId,
-				limit: 5,
+				limit: 15,
 			}),
 	},
 	{

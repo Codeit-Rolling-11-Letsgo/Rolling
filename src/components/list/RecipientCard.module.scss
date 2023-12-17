@@ -1,0 +1,119 @@
+@use '@/assets/utilities.scss' as *;
+
+.panel {
+	position: relative;
+	width: 27.5rem;
+	height: 26rem;
+	padding: 3rem 2.4rem 2rem;
+	border-radius: 1.6rem;
+	overflow: hidden;
+	background-color: $color_gray_200;
+	color: $color_gray_700;
+	background-size: cover;
+}
+
+.background_beige {
+	background-color: $color_orange_200;
+}
+
+.background_purple {
+	background-color: $color_purple_200;
+}
+
+.background_blue {
+	background-color: $color_blue_200;
+}
+
+.background_green {
+	background-color: $color_green_200;
+}
+
+.content {
+	position: relative;
+	z-index: 1;
+}
+
+.text_content {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.title {
+	@include typo_24_bold;
+	@include line_clamp(1);
+
+	max-width: 12.5rem;
+	text-overflow: ellipsis;
+	color: $color_gray_900;
+}
+
+.title_dark {
+	color: $color_white;
+}
+
+.sender_profile_container {
+	display: flex;
+}
+
+.sender_profile {
+	border-radius: 5rem;
+	width: 2.8rem;
+	height: 2.8rem;
+	border: 0.15rem solid $color_white;
+	display: inline-block;
+
+	&:not(:first-child) {
+		margin-left: -1.2rem;
+	}
+}
+
+.more_profile {
+	@include typo_12_regular;
+
+	height: 2.8rem;
+	padding-inline: 0.8rem;
+	border-radius: 3rem;
+	background-color: $color_white;
+	color: $color_gray_500;
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	&:not(:first-child) {
+		margin-left: -1.2rem;
+	}
+}
+
+.description {
+	@include typo_16_regular;
+}
+
+.description_dark {
+	color: $color_gray_200;
+}
+
+.splitter {
+	width: 100%;
+	height: 0.1rem;
+	margin-top: 4.3rem;
+	background-color: rgba(0, 0, 0, 0.12);
+}
+
+.reaction_list {
+	@include typo_16_regular;
+
+	margin-top: 1.6rem;
+	color: $color_white;
+
+	display: flex;
+	gap: 0.8rem;
+}
+
+.pattern {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	z-index: 0;
+}

@@ -1,0 +1,16 @@
+.header {
+	width: 100%;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.title {
+	@include typo_24_bold;
+}
+
+.content {
+	margin-top: 1.6rem;
+	overflow: auto;
+}

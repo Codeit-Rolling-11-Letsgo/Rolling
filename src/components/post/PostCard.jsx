@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import Card from '@/components/common/card/Card';
 import styles from '@/components/post/PostCard.module.scss';
-import { formatDate } from '@/utils/dateFunc';
+import { formatDate } from '@/utils/dateUtils';
 
 const badgeStyleByRelationship = {
 	지인: 'badgeOrange',

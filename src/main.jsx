@@ -4,11 +4,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { getMessages } from '@/apis/post/postAPI';
 import { getRecipientList } from '@/apis/recipients/recipientsAPI';
+import { getMessageList } from '@/apis/post/postAPI';
 import HomePage from '@/pages/home/HomePage';
 import ListPage from '@/pages/list/ListPage';
-import PostPage from '@/pages/post/PostPage';
+import PostIdPage from '@/pages/post/PostIdPage';
 
 const router = createBrowserRouter([
 	{
@@ -32,11 +32,11 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/post/:recipientId',
-		element: <PostPage />,
+		element: <PostIdPage />,
 		loader: ({ params }) =>
-			getMessages({
+			getMessageList({
 				recipientId: params.recipientId,
-				limit: 5,
+				limit: 15,
 			}),
 	},
 ]);

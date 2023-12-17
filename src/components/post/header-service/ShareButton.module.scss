@@ -1,0 +1,118 @@
+$width: 5.6rem;
+$height: 3.6rem;
+$gap: 0.6rem;
+
+.shareOption {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	position: relative;
+}
+
+// 버튼 컴포넌트 제작 완료되면 삭제할 임시 스타일 요소
+.toggleButton {
+	@include typo_16_regular;
+	display: block;
+	padding: 0.6rem 1.6rem;
+	border-radius: 0.6rem;
+	border: 0.1rem solid $color_gray_300;
+	background: var(--white, #fff);
+	width: $width;
+	height: $height;
+	position: relative;
+}
+
+.shareOptionList {
+	@include typo_16_regular;
+	display: block;
+	position: absolute;
+	top: $gap + $height;
+	z-index: 1;
+	width: 14rem;
+	padding: 1rem 0.1rem;
+	border-radius: 0.8rem;
+	border: 0.1rem solid $color_gray_300;
+	background: $color_white;
+	box-shadow: 0 0.2rem 1.2rem 0 rgba(0, 0, 0, 0.08);
+}
+
+.shareOptionItem {
+	@include typo_16_regular;
+	display: flex;
+
+	color: $color_gray_900;
+	background-color: $color_white;
+	padding: 1.2rem 1.6rem;
+	width: 100%;
+	&:hover {
+		background-color: $color_gray_100;
+	}
+	&:focus {
+		outline: none;
+		background-color: $color_gray_100;
+	}
+}
+
+.toast {
+	z-index: 1;
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background-color: $color_black;
+
+	padding: 1.9rem 3rem;
+	border-radius: 0.8rem;
+	opacity: 0.8;
+
+	width: 52.4rem;
+	height: 6.4rem;
+	bottom: 7rem;
+
+	@media (max-width: 1024px) {
+		bottom: 5rem;
+	}
+	@media (max-width: 767px) {
+		width: 32rem;
+		height: 6.4rem;
+		bottom: 8.8rem;
+	}
+}
+
+.checkIcon {
+	width: 2.4rem;
+	height: 2.4rem;
+}
+
+.toastContents {
+	display: flex;
+	flex-direction: row;
+	gap: 1.2rem;
+}
+
+.toastClose {
+	background-color: inherit;
+	opacity: inherit;
+	width: 2.4rem;
+	height: 2.4rem;
+	padding: 0;
+}
+.toastText {
+	@include typo_16_regular;
+	color: $color_white;
+}
+
+@media (max-width: 767px) {
+	$width: 3.6rem;
+	$height: 3.2rem;
+
+	.toggleButton {
+		padding: 0.6rem 0.8rem;
+		width: $width;
+		height: $height;
+	}
+}

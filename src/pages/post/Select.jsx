@@ -1,5 +1,4 @@
-// CombinedSelect.jsx
-import '@/pages/post/postForm/Select.scss';
+import '@/pages/post/Select.scss';
 
 import { useState } from 'react';
 

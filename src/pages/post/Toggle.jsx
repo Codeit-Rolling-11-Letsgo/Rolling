@@ -1,9 +1,9 @@
-import '@/pages/post/postForm/Toggle.scss';
+import '@/pages/post/Toggle.scss';
 
 import { useState } from 'react';
 
 import Button from '@/components/common/Buttons/Button';
-import Select from '@/pages/post/postForm/Select';
+import Select from '@/pages/post/Select';
 
 function Toggle() {
 	const [showColorSelect, setShowColorSelect] = useState(true);

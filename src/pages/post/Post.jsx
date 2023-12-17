@@ -1,4 +1,4 @@
-import '@/pages/post/postForm/post.scss';
+import '@/pages/post/post.scss';
 
 import { useState } from 'react';
 
@@ -6,7 +6,7 @@ import { fetcher } from '@/apis/fetcher';
 import Button from '@/components/common/Buttons/Button';
 import Input from '@/components/common/Input/Input';
 import Layout from '@/components/common/Layout';
-import Toggle from '@/pages/post/postForm/Toggle';
+import Toggle from '@/pages/post/Toggle';
 
 function PostForm() {
 	const [inputValue, setInputValue] = useState('');
@@ -33,11 +33,11 @@ function PostForm() {
 		e.preventDefault();
 
 		const formData = new FormData();
-		formData.append('recipientName', inputValue);
+		formData.append('name', inputValue);
 		formData.append('type', selectedType);
 
 		try {
-			const response = await fetcher.post('/{team}/recipients', {
+			const response = await fetcher.post('recipients/', {
 				body: formData,
 			});
 

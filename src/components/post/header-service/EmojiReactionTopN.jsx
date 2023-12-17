@@ -8,9 +8,11 @@ export default function EmojiReactionTopN(reactionList, N) {
 
 	for (let i = 0; i < N; i++) {
 		result.push(
-			<EmojiBadge key={reactionList[i].id} count={reactionList[i].count}>
-				{reactionList[i].emoji}
-			</EmojiBadge>,
+			<EmojiBadge
+				key={reactionList[i].id}
+				label={reactionList[i].count}
+				emoji={reactionList[i].emoji}
+			/>,
 		);
 	}
 	return result;

@@ -1,10 +1,10 @@
 import styles from './EmojiBadge.module.scss';
 
-export default function EmojiBadge({ children, count }) {
+export default function EmojiBadge({ emoji, label, ...props }) {
 	return (
-		<div className={styles.emojiBadge}>
-			<div className={styles.emojiInBadge}>{children}</div>
-			<div className={styles.emojiCountInBadge}>{count}</div>
+		<div className={styles.badge} {...props}>
+			<span className={styles.emoji}>{emoji}</span>
+			{label}
 		</div>
 	);
 }

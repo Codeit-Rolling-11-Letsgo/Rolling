@@ -1,24 +1,18 @@
-.emojiBadge {
+.badge {
 	@include typo_16_regular;
 	color: $color_white;
-	width: fit-content;
+
 	height: 3.6rem;
-	display: flex;
-	gap: 0.4rem;
 	padding: 0.8rem 1.2rem;
-	align-items: center;
 	border-radius: 3.2rem;
-	background: rgba(0, 0, 0, 0.54);
-	@media (max-width: 767px) {
-		@include typo_14_regular;
-		gap: 0.6rem;
-		padding: 0.4rem 0.8rem;
-		height: 2.8rem;
-	}
+	background-color: rgba(0, 0, 0, 0.54);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
 }
 
-.emojiInBadge {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.emoji {
+	vertical-align: middle;
 }

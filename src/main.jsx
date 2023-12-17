@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { getMessages } from '@/apis/post/postAPI';
 import HomePage from '@/pages/home/HomePage';
 import ListPage from '@/pages/list/ListPage';
-import PostPage from '@/pages/post/PostPage';
+import PostIdPage from '@/pages/post/PostIdPage';
 
 const router = createBrowserRouter([
 	{
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/post/:recipientId',
-		element: <PostPage />,
+		element: <PostIdPage />,
 		loader: ({ params }) =>
 			getMessages({
 				recipientId: params.recipientId,

@@ -4,9 +4,9 @@ import HeaderService from '@/components/post/header-service/HeaderService';
 import NewMessageCTA from '@/components/post/NewMessageCTA';
 import PostCard from '@/components/post/PostCard';
 import PostLayout from '@/components/post/PostLayout';
-import styles from '@/pages/post/PostPage.module.scss';
+import styles from '@/pages/post/PostIdPage.module.scss';
 
-export default function PostPage() {
+export default function PostIdPage() {
 	const { recipientId, response } = useLoaderData();
 	const { results: messages } = response;
 

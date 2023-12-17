@@ -17,7 +17,10 @@ export default function EmojiReactionCollection({ reactionList }) {
 	};
 
 	const handleOutsideClick = (e) => {
-		if (emojiCollectionRef.current !== e.target) {
+		if (
+			emojiCollectionRef.current &&
+			!emojiCollectionRef.current.contains(e.target)
+		) {
 			setIsEmojiDropDownOpened(false);
 		}
 	};
@@ -42,7 +45,7 @@ export default function EmojiReactionCollection({ reactionList }) {
 					<Icon name='arrowDown' />
 				</button>
 				{isEmojiDropDownOpened && (
-					<div className={styles.emojiReactionTop8or6}>
+					<div className={styles.emojiReactionTop8or6} ref={emojiCollectionRef}>
 						{EmojiReactionTopN(reactionList, reactionTypeCount)}
 					</div>
 				)}

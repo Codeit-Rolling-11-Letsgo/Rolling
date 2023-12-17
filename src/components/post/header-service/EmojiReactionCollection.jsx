@@ -2,9 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import Icon from '@/components/common/icon/Icon';
+import styles from '@/components/post/header-service/EmojiReactionCollection.module.scss';
 import EmojiReactionTopN from '@/components/post/header-service/EmojiReactionTopN';
-
-import styles from './EmojiReactionCollection.module.scss';
 
 export default function EmojiReactionCollection({ reactionList }) {
 	const reactionTypeCount = useMediaQuery({ maxWidth: 767 }) ? 6 : 8;

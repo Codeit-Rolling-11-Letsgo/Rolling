@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react';
 import { getRecipientsReactions } from '@/apis/recipients/reactionsAPI';
 import EmojiPickerButton from '@/components/post/header-service/EmojiPickerButton';
 import EmojiReactionCollection from '@/components/post/header-service/EmojiReactionCollection';
-
-import styles from './EmojiReactionViewer.module.scss';
+import styles from '@/components/post/header-service/EmojiReactionViewer.module.scss';
 
 export default function EmojiReactionViewer({ recipientId }) {
 	const [reactionList, setReactionList] = useState([

@@ -4,8 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 
 import { postRecipientsReactions } from '@/apis/recipients/reactionsAPI';
 import Icon from '@/components/common/icon/Icon';
-
-import styles from './EmojiPickerButton.module.scss';
+import styles from '@/components/post/header-service/EmojiPickerButton.module.scss';
 
 const EMOJI_PICKER_WIDTH = 307; // library 특성상 px로 조정
 const EMOJI_PICKER_HEIGHT = 393; // library 특성상 px로 조정

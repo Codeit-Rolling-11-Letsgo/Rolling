@@ -2,8 +2,7 @@ import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 
 import Icon from '@/components/common/icon/Icon';
-
-import styles from './ShareButton.module.scss';
+import styles from '@/components/post/header-service/ShareButton.module.scss';
 
 export default function ShareButton() {
 	const [isPickerOpened, setIsPickerOpened] = useState(false);

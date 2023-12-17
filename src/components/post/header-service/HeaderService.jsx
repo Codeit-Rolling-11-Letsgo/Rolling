@@ -1,7 +1,6 @@
 import EmojiReactionViewer from '@/components/post/header-service/EmojiReactionViewer';
+import styles from '@/components/post/header-service/HeaderService.module.scss';
 import ShareButton from '@/components/post/header-service/ShareButton';
-
-import styles from './HeaderService.module.scss';
 
 export default function HeaderService({ recipientId }) {
 	return (

@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
-import { getMessages } from '@/apis/post/postAPI';
+import { getMessageList } from '@/apis/post/postAPI';
 import HeaderService from '@/components/post/header-service/HeaderService';
 import NewMessageCTA from '@/components/post/NewMessageCTA';
 import PostCard from '@/components/post/PostCard';
 import PostLayout from '@/components/post/PostLayout';
 import { useIntersect } from '@/hooks/useIntersect';
 import styles from '@/pages/post/PostIdPage.module.scss';
-import { getLimitByResolution } from '@/utils/commonUtils';
 
 export default function PostIdPage() {
 	const { recipientId, messagesInfo } = useLoaderData();
@@ -21,9 +20,9 @@ export default function PostIdPage() {
 		if (messagesInfo.count > currentMessages.length) {
 			setIsLoading(true);
 
-			const { messagesInfo: newMessagesInfo } = await getMessages({
+			const { messagesInfo: newMessagesInfo } = await getMessageList({
 				recipientId,
-				limit: getLimitByResolution(),
+				limit: 15,
 				offset: currentMessages.length,
 			});
 

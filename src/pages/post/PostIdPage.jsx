@@ -13,34 +13,34 @@ export default function PostIdPage() {
 	const { recipientId, messageListInfo } = useLoaderData();
 	const { results: messageList } = messageListInfo;
 
-	const [currentMessages, setCurrentMessages] = useState(messageList);
+	const [currentMessageList, setCurrentMessageList] = useState(messageList);
 	const [isLoading, setIsLoading] = useState(false);
 
-	const fetchMoreMessages = async () => {
-		if (messageListInfo.count > currentMessages.length) {
+	const fetchMoreMessageList = async () => {
+		if (messageListInfo.count > currentMessageList.length) {
 			setIsLoading(true);
 
 			const { messageListInfo: newMessageListInfo } = await getMessageList({
 				recipientId,
 				limit: 15,
-				offset: currentMessages.length,
+				offset: currentMessageList.length,
 			});
 
-			setCurrentMessages((prevMessages) => [
-				...prevMessages,
+			setCurrentMessageList((prevMessageList) => [
+				...prevMessageList,
 				...newMessageListInfo.results,
 			]);
 			setIsLoading(false);
 		}
 	};
 
-	const trigger = useIntersect(fetchMoreMessages, { rootMargin: '350px' });
+	const trigger = useIntersect(fetchMoreMessageList, { rootMargin: '350px' });
 
 	return (
 		<PostLayout pageTitle={<HeaderService />}>
 			<div className={styles.cardList}>
 				<NewMessageCTA recipientId={recipientId} />
-				{currentMessages.map((message) => (
+				{currentMessageList.map((message) => (
 					<PostCard key={message.id} message={message}></PostCard>
 				))}
 

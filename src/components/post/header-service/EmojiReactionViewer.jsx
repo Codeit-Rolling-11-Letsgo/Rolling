@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { getRecipientsReactions } from '@/apis/recipients/reactionsAPI';
 import EmojiPickerButton from '@/components/post/header-service/EmojiPickerButton';
@@ -12,15 +12,14 @@ export default function EmojiReactionViewer({ recipientId }) {
 	]);
 	const [reloadingTrigger, setReloadingTrigger] = useState(false);
 
-	const fetchReactionList = useCallback(async () => {
-		const { results: fetchedReactionList } =
-			await getRecipientsReactions(recipientId);
-		setReactionList(fetchedReactionList);
-	}, [recipientId]);
-
 	useEffect(() => {
+		const fetchReactionList = async () => {
+			const { results: fetchedReactionList } =
+				await getRecipientsReactions(recipientId);
+			setReactionList(fetchedReactionList);
+		};
 		fetchReactionList();
-	}, [reloadingTrigger, fetchReactionList]);
+	}, [reloadingTrigger, recipientId]);
 
 	return (
 		<div className={styles.emojiReactionViewer}>

@@ -6,7 +6,7 @@ import CardSplitter from '@/components/common/card/CardSplitter';
 import CardThumbnail from '@/components/common/card/CardThumbnail';
 import CardTitle from '@/components/common/card/CardTitle';
 
-const Card = forwardRef(function ({ children, ...props }, ref) {
+const Card = forwardRef(function Card({ children, ...props }, ref) {
 	return (
 		<div ref={ref} {...props}>
 			{children}
@@ -14,7 +14,6 @@ const Card = forwardRef(function ({ children, ...props }, ref) {
 	);
 });
 
-Card.displayName = Card;
 Card.Thumbnail = CardThumbnail;
 Card.Title = CardTitle;
 Card.Description = CardDescription;

@@ -44,7 +44,7 @@ export default function EmojiReactionCollection({ reactionList }) {
 					<Icon name='arrowDown' />
 				</button>
 				{isEmojiDropDownOpened && (
-					<div className={styles.emojiReactionTop8or6} ref={emojiCollectionRef}>
+					<div className={styles.emojiReactionList} ref={emojiCollectionRef}>
 						{EmojiReactionTopN(reactionList, reactionTypeCount)}
 					</div>
 				)}

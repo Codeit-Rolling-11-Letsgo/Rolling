@@ -1,12 +1,12 @@
 import EmojiBadge from '@/components/post/header-service/EmojiBadge';
 
-export default function EmojiReactionTopN(reactionList, N) {
+export default function TopEmojiReactionList(reactionList, count) {
 	const result = [];
-	if (N > reactionList.length) {
-		N = reactionList.length;
+	if (count > reactionList.length) {
+		count = reactionList.length;
 	}
 
-	for (let i = 0; i < N; i++) {
+	for (let i = 0; i < count; i++) {
 		result.push(
 			<EmojiBadge
 				key={reactionList[i].id}

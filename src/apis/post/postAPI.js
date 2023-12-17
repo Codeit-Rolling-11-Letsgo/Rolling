@@ -13,12 +13,12 @@ import { fetcher } from '@/apis/fetcher';
  *  }
  * }>}
  */
-export const getMessages = async ({ recipientId, limit, offset }) => {
-	const messagesInfo = await fetcher
+export const getMessageList = async ({ recipientId, limit, offset }) => {
+	const messageListInfo = await fetcher
 		.get(`recipients/${recipientId}/messages/`, {
 			searchParams: { limit, offset },
 		})
 		.json();
 
-	return { recipientId, messagesInfo };
+	return { recipientId, messageListInfo };
 };

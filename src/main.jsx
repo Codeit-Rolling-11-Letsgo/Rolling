@@ -4,11 +4,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { getMessages } from '@/apis/post/postAPI';
+import { getMessageList } from '@/apis/post/postAPI';
 import HomePage from '@/pages/home/HomePage';
 import ListPage from '@/pages/list/ListPage';
 import PostIdPage from '@/pages/post/PostIdPage';
-import { getLimitByResolution } from '@/utils/commonUtils';
 
 const router = createBrowserRouter([
 	{
@@ -23,9 +22,9 @@ const router = createBrowserRouter([
 		path: '/post/:recipientId',
 		element: <PostIdPage />,
 		loader: ({ params }) =>
-			getMessages({
+			getMessageList({
 				recipientId: params.recipientId,
-				limit: getLimitByResolution(),
+				limit: 15,
 			}),
 	},
 ]);

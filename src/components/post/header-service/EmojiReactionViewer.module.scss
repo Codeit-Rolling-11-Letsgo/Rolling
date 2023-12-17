@@ -1,0 +1,12 @@
+.emojiReactionViewer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1.3rem;
+	@media (max-width: 1199px) {
+		gap: 1.5rem;
+	}
+	@media (max-width: 767px) {
+		gap: 0.2rem;
+	}
+}

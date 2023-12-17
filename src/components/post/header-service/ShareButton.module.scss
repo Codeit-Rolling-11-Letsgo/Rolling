@@ -1,4 +1,4 @@
-$width: 8.8rem;
+$width: 5.6rem;
 $height: 3.6rem;
 $gap: 0.6rem;
 
@@ -7,14 +7,15 @@ $gap: 0.6rem;
 	flex-direction: column;
 	align-items: flex-end;
 	position: relative;
-	margin: 3rem;
 }
 
 // 버튼 컴포넌트 제작 완료되면 삭제할 임시 스타일 요소
 .toggleButton {
+	@include typo_16_regular;
 	display: block;
+	padding: 0.6rem 1.6rem;
 	border-radius: 0.6rem;
-	border: 0.1rem solid var(--gray-300, #ccc);
+	border: 0.1rem solid $color_gray_300;
 	background: var(--white, #fff);
 	width: $width;
 	height: $height;
@@ -53,6 +54,7 @@ $gap: 0.6rem;
 }
 
 .toast {
+	z-index: 1;
 	position: fixed;
 	left: 50%;
 	transform: translateX(-50%);
@@ -64,7 +66,7 @@ $gap: 0.6rem;
 	background-color: $color_black;
 
 	padding: 1.9rem 3rem;
-	border-radius: 8px;
+	border-radius: 0.8rem;
 	opacity: 0.8;
 
 	width: 52.4rem;
@@ -79,6 +81,11 @@ $gap: 0.6rem;
 		height: 6.4rem;
 		bottom: 8.8rem;
 	}
+}
+
+.checkIcon {
+	width: 2.4rem;
+	height: 2.4rem;
 }
 
 .toastContents {
@@ -97,4 +104,15 @@ $gap: 0.6rem;
 .toastText {
 	@include typo_16_regular;
 	color: $color_white;
+}
+
+@media (max-width: 767px) {
+	$width: 3.6rem;
+	$height: 3.2rem;
+
+	.toggleButton {
+		padding: 0.6rem 0.8rem;
+		width: $width;
+		height: $height;
+	}
 }

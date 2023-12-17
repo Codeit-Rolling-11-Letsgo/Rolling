@@ -11,10 +11,10 @@
 	display: grid;
 	grid-template-areas: 'title service';
 	justify-content: space-between;
+	align-items: center;
 	max-width: 124.8rem;
 	padding-inline: 2.4rem;
 	margin-inline: auto;
-	align-items: center;
 	height: 6.8rem;
 	@media (max-width: 767px) {
 		@include typo_18_bold;
@@ -30,8 +30,16 @@
 .service {
 	display: flex;
 	align-items: center;
+	gap: 1.3rem;
 	height: 100%;
 	@media (max-width: 767px) {
 		height: 5.2rem;
 	}
+}
+
+.divider {
+	width: 0.1rem;
+	height: 2.8rem;
+
+	background-color: $color_gray_200;
 }

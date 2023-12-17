@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 import { getMessages } from '@/apis/post/postAPI';
+import HeaderService from '@/components/post/header-service/HeaderService';
 import NewMessageCTA from '@/components/post/NewMessageCTA';
 import PostCard from '@/components/post/PostCard';
 import PostLayout from '@/components/post/PostLayout';
@@ -37,7 +38,7 @@ export default function PostIdPage() {
 	const trigger = useIntersect(fetchMoreMessages, { rootMargin: '350px' });
 
 	return (
-		<PostLayout>
+		<PostLayout pageTitle={<HeaderService />}>
 			<div className={styles.cardList}>
 				<NewMessageCTA recipientId={recipientId} />
 				{currentMessages.map((message) => (

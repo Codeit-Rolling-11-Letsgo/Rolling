@@ -2,8 +2,7 @@ import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 
 import Icon from '@/components/common/icon/Icon';
-
-import styles from './ShareButton.module.scss';
+import styles from '@/components/post/header-service/ShareButton.module.scss';
 
 export default function ShareButton() {
 	const [isPickerOpened, setIsPickerOpened] = useState(false);
@@ -16,7 +15,10 @@ export default function ShareButton() {
 	};
 
 	const handleOutsideClick = (e) => {
-		if (shareOptionPickerRef.current !== e.target) {
+		if (
+			shareOptionPickerRef.current &&
+			!shareOptionPickerRef.current.contains(e.target)
+		) {
 			setIsPickerOpened(false);
 		}
 	};
@@ -48,7 +50,7 @@ export default function ShareButton() {
 	return (
 		<div className={styles.shareOption}>
 			<button className={styles.toggleButton} onClick={handlePickerToggle}>
-				공유
+				<Icon name='share' />
 			</button>
 			{isPickerOpened && (
 				<div className={styles.shareOptionList} ref={shareOptionPickerRef}>
@@ -66,7 +68,7 @@ export default function ShareButton() {
 			{isToastVisible && (
 				<div className={clsx(styles.toast)}>
 					<div className={styles.toastContents}>
-						<Icon name='complete' />
+						<Icon className={styles.checkIcon} name='complete' />
 						<div className={styles.toastText}>URL이 복사되었습니다</div>
 					</div>
 					<button

@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 import { getMessageList } from '@/apis/post/postAPI';
-import HeaderService from '@/components/post/header-service/HeaderService';
 import NewMessageCTA from '@/components/post/NewMessageCTA';
 import PostCard from '@/components/post/PostCard';
 import PostLayout from '@/components/post/PostLayout';
+import PostModal from '@/components/post/PostModal';
 import { useIntersect } from '@/hooks/useIntersect';
+import { useModalContext } from '@/hooks/useModalContext';
 import styles from '@/pages/post/PostIdPage.module.scss';
 
 export default function PostIdPage() {
@@ -36,15 +37,22 @@ export default function PostIdPage() {
 
 	const trigger = useIntersect(fetchMoreMessageList, { rootMargin: '350px' });
 
+	const { isModalOpen, openModal } = useModalContext();
+
 	return (
-		<PostLayout pageTitle={<HeaderService />}>
+		<PostLayout>
 			<div className={styles.cardList}>
 				<NewMessageCTA recipientId={recipientId} />
 				{currentMessageList.map((message) => (
-					<PostCard key={message.id} message={message}></PostCard>
+					<PostCard
+						key={message.id}
+						message={message}
+						onClick={openModal}
+					></PostCard>
 				))}
 
 				{!isLoading && <div ref={trigger}></div>}
+				{isModalOpen && <PostModal />}
 			</div>
 		</PostLayout>
 	);

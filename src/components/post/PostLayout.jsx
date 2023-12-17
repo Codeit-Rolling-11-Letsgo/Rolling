@@ -1,13 +1,22 @@
+import clsx from 'clsx';
+import { forwardRef } from 'react';
+
 import Layout from '@/components/common/Layout';
+import HeaderService from '@/components/post/header-service/HeaderService';
 import styles from '@/components/post/PostLayout.module.scss';
 
-function PostLayout({ children, pageTitle }) {
+const PostLayout = forwardRef(function PostLayout(
+	{ children, className },
+	ref,
+) {
 	return (
 		<Layout>
-			{pageTitle}
-			<div className={styles.container}>{children}</div>
+			<HeaderService />
+			<div className={clsx(styles.container, className)} ref={ref}>
+				{children}
+			</div>
 		</Layout>
 	);
-}
+});
 
 export default PostLayout;

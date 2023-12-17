@@ -1,31 +1,13 @@
-import clsx from 'clsx';
-
 import Card from '@/components/common/card/Card';
+import PostBadge from '@/components/post/PostBadge';
 import styles from '@/components/post/PostCard.module.scss';
 import { formatDate } from '@/utils/dateUtils';
 
-const badgeStyleByRelationship = {
-	지인: 'badgeOrange',
-	동료: 'badgePurple',
-	가족: 'badgeGreen',
-	친구: 'badgeBlue',
-};
-
-function Badge({ label }) {
-	return (
-		<span
-			className={clsx(styles.badge, styles[badgeStyleByRelationship[label]])}
-		>
-			{label}
-		</span>
-	);
-}
-
-function PostCard({ message }) {
+function PostCard({ message, onClick }) {
 	const { profileImageURL, sender, relationship, content, createdAt } = message;
 
 	return (
-		<Card className={styles.card}>
+		<Card className={styles.card} onClick={() => onClick(message)}>
 			<Card.Panel className={styles.cardTitle}>
 				<Card.Thumbnail
 					src={profileImageURL}
@@ -45,7 +27,7 @@ function PostCard({ message }) {
 							),
 						}}
 					/>
-					<Badge label={relationship} />
+					<PostBadge label={relationship} />
 				</div>
 			</Card.Panel>
 			<Card.Panel className={styles.contentContainer}>

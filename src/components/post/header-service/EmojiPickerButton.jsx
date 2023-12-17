@@ -1,6 +1,5 @@
 import EmojiPicker from 'emoji-picker-react';
 import { useEffect, useRef, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
 
 import { postRecipientsReactions } from '@/apis/recipients/reactionsAPI';
 import Icon from '@/components/common/icon/Icon';
@@ -13,8 +12,6 @@ export default function EmojiPickerButton({
 	recipientId,
 	setReloadingTrigger,
 }) {
-	const isMobile = useMediaQuery({ maxWidth: 767 });
-
 	const [isPickerOpened, setIsPickerOpened] = useState(false);
 	const emojiPickerRef = useRef(null);
 
@@ -46,7 +43,7 @@ export default function EmojiPickerButton({
 		<div className={styles.emojiPickerComponent}>
 			<button className={styles.toggleButton} onClick={handlePickerToggle}>
 				<Icon name='add' />
-				{!isMobile && '추가'}
+				<div className={styles.addText}> 추가</div>
 			</button>
 			{isPickerOpened && (
 				<div className={styles.emojiPicker} ref={emojiPickerRef}>

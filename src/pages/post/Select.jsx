@@ -11,6 +11,10 @@ function CombinedSelect({ type }) {
 	const [isChecked4, setIsChecked4] = useState(false);
 
 	const handleCheckboxChange = (checkboxId) => {
+		setIsChecked1(false);
+		setIsChecked2(false);
+		setIsChecked3(false);
+		setIsChecked4(false);
 		switch (checkboxId) {
 			case 'ckb1':
 				setIsChecked1((prev) => !prev);
@@ -51,7 +55,7 @@ function CombinedSelect({ type }) {
 					isChecked1 ? 'checked' : ''
 				}`}
 			>
-				{check}
+				{isChecked1 && check}
 			</label>
 			<input
 				type='checkbox'
@@ -65,7 +69,7 @@ function CombinedSelect({ type }) {
 					isChecked2 ? 'checked' : ''
 				}`}
 			>
-				{check}
+				{isChecked2 && check}
 			</label>
 			<input
 				type='checkbox'
@@ -79,7 +83,7 @@ function CombinedSelect({ type }) {
 					isChecked3 ? 'checked' : ''
 				}`}
 			>
-				{check}
+				{isChecked3 && check}
 			</label>
 			<input
 				type='checkbox'
@@ -93,7 +97,7 @@ function CombinedSelect({ type }) {
 					isChecked4 ? 'checked' : ''
 				}`}
 			>
-				{check}
+				{isChecked4 && check}
 			</label>
 			<input
 				type='checkbox'

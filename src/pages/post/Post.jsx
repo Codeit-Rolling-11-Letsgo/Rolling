@@ -2,7 +2,6 @@ import '@/pages/post/post.scss';
 
 import { useState } from 'react';
 
-import { fetcher } from '@/apis/fetcher';
 import Button from '@/components/common/Buttons/Button';
 import Input from '@/components/common/Input/Input';
 import Layout from '@/components/common/Layout';
@@ -12,7 +11,6 @@ function PostForm() {
 	const [inputValue, setInputValue] = useState('');
 	const [error, setError] = useState('');
 	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-	const [selectedType, setSelectedType] = useState('');
 
 	const handleInputChange = (e) => {
 		const value = e.target.value;
@@ -29,31 +27,9 @@ function PostForm() {
 		}
 	};
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-
-		const formData = new FormData();
-		formData.append('name', inputValue);
-		formData.append('type', selectedType);
-
-		try {
-			const response = await fetcher.post('recipients/', {
-				body: formData,
-			});
-
-			if (response.ok) {
-				console.log('폼이 성공적으로 제출되었습니다.');
-			} else {
-				console.error('폼 제출에 실패했습니다.');
-			}
-		} catch (error) {
-			console.error('오류가 발생했습니다:', error);
-		}
-	};
-
 	return (
 		<Layout>
-			<form onSubmit={handleSubmit}>
+			<form>
 				<div className='inputBox'>
 					<label htmlFor='sendingInput' className='sendTo'>
 						To.
@@ -72,7 +48,7 @@ function PostForm() {
 					<h2>배경화면을 선택해 주세요.</h2>
 					<p>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
 				</div>
-				<Toggle setSelectedType={setSelectedType} />
+				<Toggle />
 				<Button size='basic' disabled={isButtonDisabled} content='생성하기' />
 			</form>
 		</Layout>

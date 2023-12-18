@@ -1,4 +1,4 @@
-$size_header: 6.4rem;
+@use '@/assets/utilities.scss' as *;
 
 .container {
 	height: 100%;
@@ -6,7 +6,7 @@ $size_header: 6.4rem;
 
 .global_header {
 	padding-block: 1.2rem;
-	height: $size_header;
+	height: $layout_global_header_height;
 	background-color: $color_white;
 }
 
@@ -36,5 +36,11 @@ $size_header: 6.4rem;
 }
 
 .mainContainer {
-	height: calc(100% - $size_header);
+	height: calc(100% - $layout_global_header_height);
+}
+
+@include tablet {
+}
+
+@include mobile {
 }

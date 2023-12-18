@@ -10,6 +10,22 @@
 	}
 }
 
+.beige {
+	background-color: $color_orange_200;
+}
+
+.purple {
+	background-color: $color_purple_200;
+}
+
+.blue {
+	background-color: $color_blue_200;
+}
+
+.green {
+	background-color: $color_green_200;
+}
+
 @media only screen and (max-width: 1248px) and (min-width: 768px) {
 	.cardList {
 		width: 72rem;

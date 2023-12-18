@@ -7,3 +7,12 @@ export const take = (iter, count) => {
 	}
 	return res;
 };
+
+export const detectMobile = () => {
+	try {
+		document.createEvent('TouchEvent');
+		return true;
+	} catch (err) {
+		return false;
+	}
+};

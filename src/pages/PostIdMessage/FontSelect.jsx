@@ -6,18 +6,17 @@ import DropDown from '@/components/common/DropDown/DropDown';
 
 const fontOptions = [
 	'Noto Sans',
-	'Arial',
-	'Helvetica',
-	'Verdana',
-	'Times New Roman',
-	'Courier New',
+	'Pretendard',
+	'나눔명조',
+	'나눔손글씨 손편지체',
 ];
 
-function FontSelector() {
+function FontSelector({ onSelectFont }) {
 	const [selectedFont, setSelectedFont] = useState('Noto Sans');
 
 	const handleFontChange = (font) => {
 		setSelectedFont(font);
+		onSelectFont(font);
 	};
 
 	return (

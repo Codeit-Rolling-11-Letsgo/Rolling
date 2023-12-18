@@ -2,7 +2,7 @@ import '@/pages/PostIdMessage/ProfileImageSelect.scss';
 
 import { useEffect, useState } from 'react';
 
-function ProfileImageSelect() {
+function ProfileImageSelect({ onProfileImageChange }) {
 	const [imageUrls, setImageUrls] = useState([]);
 	const [checkedItems, setCheckedItems] = useState({});
 	const [selectedImage, setSelectedImage] = useState('');
@@ -33,6 +33,7 @@ function ProfileImageSelect() {
 		setCheckedItems((prev) => ({ ...prev, [id]: !prev[id] }));
 		if (imageUrl) {
 			setSelectedImage(imageUrl);
+			onProfileImageChange(imageUrl);
 		}
 	};
 

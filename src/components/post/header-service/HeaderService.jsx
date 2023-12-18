@@ -1,86 +1,39 @@
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
-import { fetcher } from '@/apis/fetcher';
-import { getMessageList } from '@/apis/post/postAPI';
 import { getRecipientsReactions } from '@/apis/recipients/reactionsAPI';
 import Card from '@/components/common/card/Card';
 import Image from '@/components/common/Image';
 import EmojiReactionViewer from '@/components/post/header-service/EmojiReactionViewer';
 import styles from '@/components/post/header-service/HeaderService.module.scss';
 import ShareButton from '@/components/post/header-service/ShareButton';
-
-const getRecipientInfo = async (recipientId) => {
-	const res = await fetcher.get(`recipients/${recipientId}/`);
-	return res.json();
-};
-
+import { take } from '@/utils/util';
 const MESSAGE_PREVIEW_COUNT = 3;
 
 export default function HeaderService() {
-	const { recipientId } = useParams();
-
-	const [recipientInfo, setRecipientInfo] = useState({
-		id: 0,
-		name: '',
-		backgroundColor: '',
-		backgroundImageURL: '',
-		messageCount: '',
-	});
-	const [senderListInfo, setSenderListInfo] = useState([
-		{
-			id: 0,
-			sender: '',
-			profileImageURL: '',
-		},
-	]);
-	const [senderListCount, setSenderListCount] = useState(0);
+	const isPc = useMediaQuery({ minWidth: 1119 });
+	const { count: senderListCount, results: senderListInfo } =
+		useLoaderData().messageListInfo;
+	const { recipientId, recipientInfo } = useLoaderData();
 	const [reactionCount, setReactionCount] = useState(0);
 
 	useEffect(() => {
-		const loadRecipientInfo = async () => {
-			const { id, name, backgroundColor, backgroundImageURL, messageCount } =
-				await getRecipientInfo(recipientId);
-			setRecipientInfo({
-				id,
-				name,
-				backgroundColor,
-				backgroundImageURL,
-				messageCount,
-			});
-		};
-		loadRecipientInfo();
-
-		const loadSenderProfileList = async () => {
-			const { messageListInfo } = await getMessageList({
-				recipientId,
-				limit: 3,
-				offset: 0,
-			});
-			const { count, results } = messageListInfo;
-			setSenderListCount(count);
-			setSenderListInfo(results);
-		};
-		loadSenderProfileList();
-
 		const loadReactionCount = async () => {
 			const { count } = await getRecipientsReactions(recipientId);
 			setReactionCount(count);
 		};
 		loadReactionCount();
-	}, [recipientId, senderListCount]);
-
-	const isNotPc = useMediaQuery({ minWidth: 1119 });
+	}, [recipientId]);
 
 	return (
 		<div className={styles.layout}>
 			<h2 className={styles.title}>To.{recipientInfo.name}</h2>
 			<div className={styles.service}>
-				{isNotPc && (
+				{isPc && (
 					<>
 						<Card.Panel className={styles.sender_profile_container}>
-							{senderListInfo.map((senderList) => (
+							{take(senderListInfo, MESSAGE_PREVIEW_COUNT).map((senderList) => (
 								<Image
 									key={senderList.id}
 									src={senderList.profileImageURL}

@@ -5,7 +5,10 @@ import Icon from '@/components/common/icon/Icon';
 import styles from '@/components/post/header-service/ShareButton.module.scss';
 import shareMessageKakao from '@/utils/kakaoShareFormatting';
 
-export default function ShareButton() {
+export default function ShareButton({ shareInfo }) {
+	const { name, backgroundImageURL, messageCount, recipientId, reactionCount } =
+		shareInfo;
+
 	const [isPickerOpened, setIsPickerOpened] = useState(false);
 	const [isToastVisible, setIsToastVisible] = useState(false);
 	const shareOptionPickerRef = useRef(null);
@@ -25,7 +28,13 @@ export default function ShareButton() {
 	};
 
 	const handleShareKakao = (e) => {
-		shareMessageKakao(1238, 945, '안소연', 10, 5);
+		shareMessageKakao(
+			backgroundImageURL,
+			recipientId,
+			name,
+			reactionCount,
+			messageCount,
+		);
 		handlePickerToggle(e);
 	};
 

@@ -1,5 +1,6 @@
 .bottom {
 	padding-block: 2.4rem;
+	margin-top: auto;
 
 	display: flex;
 	justify-content: center;
@@ -17,4 +18,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+@media screen and (max-width: 1247px) {
+	.post_cta {
+		width: 100%;
+	}
 }

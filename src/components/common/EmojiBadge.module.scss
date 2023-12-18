@@ -13,3 +13,10 @@
 .emoji {
 	vertical-align: middle;
 }
+
+@media screen and (max-width: 767px) {
+	.badge {
+		height: 3.2rem;
+		padding: 0.6rem 0.8rem;
+	}
+}

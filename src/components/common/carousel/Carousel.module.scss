@@ -80,6 +80,12 @@
 	}
 }
 
+@media screen and (max-width: 1247px) {
+	.item_list {
+		scroll-snap-type: x proximity;
+	}
+}
+
 @media screen and (max-width: 767px) {
 	.item {
 		scroll-snap-align: center;

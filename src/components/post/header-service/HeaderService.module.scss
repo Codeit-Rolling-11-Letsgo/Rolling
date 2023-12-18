@@ -24,8 +24,8 @@
 		padding-inline: 2rem;
 		height: auto;
 		grid-template-areas:
-			'title'
-			'service';
+			'title .'
+			'. service';
 	}
 }
 

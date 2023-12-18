@@ -40,13 +40,13 @@
 }
 
 @mixin mobile {
-	@media (min-width: #{$media_mobile}) and (max-width: #{$media_tablet - 1px}) {
+	@media (max-width: #{$media_tablet - 1px}) {
 		@content;
 	}
 }
 
 @mixin tablet {
-	@media (min-width: #{$media_tablet}) and (max-width: #{$media_desktop - 1px}) {
+	@media (max-width: #{$media_desktop - 1px}) {
 		@content;
 	}
 }

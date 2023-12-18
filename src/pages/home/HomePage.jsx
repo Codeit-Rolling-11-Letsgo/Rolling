@@ -30,11 +30,13 @@ export default function HomePage() {
 							className={styles.intro_card_description}
 						/>
 					</Card.Panel>
-					<Card.Thumbnail
-						src='https://res.cloudinary.com/divjslgco/image/upload/v1702285173/codeit/rolling/image/service_intro_rolling_1.jpg'
-						alt='인트로 롤링페이퍼 이미지'
-						className={styles.intro_image_rolling}
-					/>
+					<Card.Panel className={styles.intro_image_rolling_container}>
+						<Card.Thumbnail
+							src='https://res.cloudinary.com/divjslgco/image/upload/v1702285173/codeit/rolling/image/service_intro_rolling_1.jpg'
+							alt='인트로 롤링페이퍼 이미지'
+							className={styles.intro_image_rolling}
+						/>
+					</Card.Panel>
 				</Card>
 				<Card className={`${styles.intro_card} ${styles.emoji}`}>
 					<Card.Panel className={styles.intro_card_content}>
@@ -57,11 +59,13 @@ export default function HomePage() {
 							className={styles.intro_card_description}
 						/>
 					</Card.Panel>
-					<Card.Thumbnail
-						src='https://res.cloudinary.com/divjslgco/image/upload/v1702285259/codeit/rolling/image/service_intro_emoji_1.jpg'
-						alt='인트로 이모지 이미지'
-						className={styles.intro_image_emoji}
-					/>
+					<Card.Panel className={styles.intro_image_emoji_container}>
+						<Card.Thumbnail
+							src='https://res.cloudinary.com/divjslgco/image/upload/v1702285259/codeit/rolling/image/service_intro_emoji_1.jpg'
+							alt='인트로 이모지 이미지'
+							className={styles.intro_image_emoji}
+						/>
+					</Card.Panel>
 				</Card>
 			</section>
 			<div className={styles.bottom}>

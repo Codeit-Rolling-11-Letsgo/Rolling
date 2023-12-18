@@ -10,20 +10,22 @@ $color_surface: #f6f8ff;
 }
 
 .intro_card {
+	position: relative;
 	width: 100%;
 	border-radius: 1.6rem;
 	background-color: $color_surface;
+	overflow: hidden;
+
 	display: flex;
 }
 
 .rolling {
-	padding: 6rem 0 10.2rem 6rem;
+	padding: 6rem 0 6rem 6rem;
 	gap: 15.2rem;
 }
 
 .emoji {
 	padding-block: 6rem;
-	gap: 25rem;
 }
 
 .intro_card_content {
@@ -50,6 +52,7 @@ $color_surface: #f6f8ff;
 
 	margin-top: 1.6rem;
 	color: $color_gray_900;
+	word-break: keep-all;
 }
 
 .intro_card_description {
@@ -59,16 +62,25 @@ $color_surface: #f6f8ff;
 	color: $color_gray_500;
 }
 
+.intro_image_rolling_container {
+	padding-block: 2.1rem;
+	padding-inline: 4rem;
+	order: 3;
+}
+
 .intro_image_rolling {
 	width: 64rem;
 	height: 16.2rem;
-	order: 3;
+}
+
+.intro_image_emoji_container {
+	padding-inline: 12.5rem;
+	order: 1;
 }
 
 .intro_image_emoji {
 	width: 47rem;
 	height: 20.4rem;
-	order: 1;
 }
 
 .bottom {
@@ -115,16 +127,59 @@ $color_surface: #f6f8ff;
 		gap: 3.6rem;
 	}
 
-	.intro_image_rolling {
+	.intro_image_rolling_container {
 		margin-inline: auto;
+		padding-inline: 0;
 	}
 
-	.intro_image_emoji {
+	.intro_image_emoji_container {
 		order: 3;
 		margin-inline: auto;
+		padding-inline: 0;
 	}
 
 	.bottom_cta {
 		width: 100%;
+	}
+}
+
+@include mobile {
+	.intro_card {
+		padding: 2.4rem;
+		gap: 0;
+	}
+
+	.intro_card_title {
+		@include typo_18_bold;
+
+		width: 27.2rem;
+	}
+
+	.intro_card_description {
+		@include typo_15_regular;
+
+		width: 27.2rem;
+		margin-top: 0.4rem;
+	}
+
+	.intro_image_rolling_container {
+		width: max-content;
+		padding-block: 5rem;
+		margin-left: calc((100% - 35.451rem) / 2);
+	}
+
+	.intro_image_emoji_container {
+		width: max-content;
+		padding-block: 5rem;
+	}
+
+	.intro_image_rolling {
+		width: 35.451rem;
+		height: 8.972rem;
+	}
+
+	.intro_image_emoji {
+		width: 26.034rem;
+		height: 11.3rem;
 	}
 }

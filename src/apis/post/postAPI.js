@@ -22,3 +22,13 @@ export const getMessageList = async ({ recipientId, limit, offset }) => {
 
 	return { recipientId, messageListInfo };
 };
+
+/**
+ *
+ * @param {number} recipientId
+ * @returns
+ */
+export const getRecipientInfo = async (recipientId) => {
+	const recipientInfo = await fetcher.get(`recipients/${recipientId}/`).json();
+	return recipientInfo;
+};

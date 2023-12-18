@@ -5,12 +5,16 @@ import { useState } from 'react';
 import Button from '@/components/common/Buttons/Button';
 import Input from '@/components/common/Input/Input';
 import Layout from '@/components/common/Layout';
-import Toggle from '@/pages/post/Toggle';
+import Select from '@/pages/post/Select';
 
 function PostForm() {
 	const [inputValue, setInputValue] = useState('');
 	const [error, setError] = useState('');
 	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+	const [backgroundSelection, setBackgroundSelection] = useState({
+		backgroundColor: 'beige',
+		backgroundImageURL: 'https://picsum.photos/id/683/3840/2160',
+	});
 
 	const handleInputChange = (e) => {
 		const value = e.target.value;
@@ -27,9 +31,43 @@ function PostForm() {
 		}
 	};
 
+	const handleFormSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			const requestBody = {
+				name: inputValue,
+				backgroundColor: backgroundSelection.backgroundColor,
+				backgroundImageURL: backgroundSelection.imageURL,
+			};
+			const response = await fetch(
+				'https://rolling-api.vercel.app/2-11/recipients/',
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(requestBody),
+				},
+			);
+
+			if (response.ok) {
+				console.log('전송이 완료되었습니다.');
+			} else {
+				const errorMessage = await response.text();
+				console.error('전송에 실패했습니다.', errorMessage);
+			}
+		} catch (error) {
+			console.error('에러 발생:', error);
+		}
+	};
+
+	const handleSelectionChange = (selection) => {
+		setBackgroundSelection(selection);
+	};
+
 	return (
 		<Layout>
-			<form>
+			<form onSubmit={handleFormSubmit}>
 				<div className='inputBox'>
 					<label htmlFor='sendingInput' className='sendTo'>
 						To.
@@ -48,8 +86,13 @@ function PostForm() {
 					<h2>배경화면을 선택해 주세요.</h2>
 					<p>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
 				</div>
-				<Toggle />
-				<Button size='basic' disabled={isButtonDisabled} content='생성하기' />
+				<Select type='color' onSelectionChange={handleSelectionChange} />
+				<Button
+					size='basic'
+					disabled={isButtonDisabled}
+					content='생성하기'
+					type='submit'
+				/>
 			</form>
 		</Layout>
 	);

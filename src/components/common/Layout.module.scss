@@ -5,6 +5,7 @@ $size_header: 6.4rem;
 }
 
 .global_header {
+	border-bottom: solid 0.1rem $color_border_gray;
 	padding-block: 1.2rem;
 	height: $size_header;
 	background-color: $color_white;

@@ -1,6 +1,5 @@
 .bottom {
 	padding-block: 2.4rem;
-	margin-top: auto;
 
 	display: flex;
 	justify-content: center;
@@ -21,6 +20,10 @@
 }
 
 @media screen and (max-width: 1247px) {
+	.bottom {
+		margin-top: auto;
+	}
+
 	.post_cta {
 		width: 100%;
 	}

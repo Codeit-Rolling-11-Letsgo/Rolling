@@ -1,0 +1,11 @@
+.modal {
+	width: 60rem;
+	height: 47.6rem;
+	padding: 0;
+	border-radius: 1.6rem;
+	outline: none;
+
+	&::backdrop {
+		background: rgba(0, 0, 0, 0.6);
+	}
+}

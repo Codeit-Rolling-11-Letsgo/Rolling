@@ -1,0 +1,84 @@
+.title {
+	display: flex;
+	position: relative;
+	justify-content: space-between;
+	width: 59.9rem;
+	height: 11.6rem;
+}
+
+.title::after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 52rem;
+	margin: 0 auto;
+	border-bottom: 0.1rem solid $color_gray_200;
+	content: '';
+}
+
+.profileContainer {
+	display: flex;
+
+	padding: 4rem 0 2rem 3.9rem;
+	gap: 1.6rem;
+}
+
+.profileImg {
+	width: 5.6rem;
+	height: 5.6rem;
+	border-radius: 10rem;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.from {
+	@include typo_20_regular;
+}
+
+.sender {
+	@include typo_20_bold;
+}
+
+.createdAt {
+	display: block;
+	margin: 5.6rem 4.5rem 4rem 0;
+	color: $color_gray_400;
+	@include typo_14_regular;
+}
+
+.content {
+	width: 52rem;
+	height: 24rem;
+	margin: 1.6rem auto;
+	overflow: scroll;
+	color: #5a5a5a;
+
+	@include typo_18_regular;
+	&::-webkit-scrollbar {
+		width: 0.5rem;
+		height: 0;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		width: 0.5rem;
+		border-radius: 12px 12px 12px 12px;
+		background: $color_gray_300;
+	}
+}
+
+.confirmButton {
+	display: block;
+	width: 12rem;
+	margin: 2.4rem auto 0;
+	padding: 0.7rem 1.6rem;
+	border-radius: 0.6rem;
+	background: $color_purple_600;
+	color: $color_white;
+	cursor: pointer;
+	@include typo_16_regular;
+}

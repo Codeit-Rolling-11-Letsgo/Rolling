@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { getMessageList } from '@/apis/post/postAPI';
+import { getMessageList, getRecipientInfo } from '@/apis/post/postAPI';
 import { getRecipientList } from '@/apis/recipients/recipientsAPI';
 import { ModalProvider } from '@/contexts/ModalContext';
 import HomePage from '@/pages/home/HomePage';
@@ -35,16 +35,18 @@ const router = createBrowserRouter([
 		path: '/post/:recipientId',
 		element: <PostIdPage />,
 		loader: async ({ params }) => {
-			const [{ messageListInfo }] = await Promise.all([
+			const [{ messageListInfo }, recipientInfo] = await Promise.all([
 				getMessageList({
 					recipientId: params.recipientId,
 					limit: 15,
 				}),
+				getRecipientInfo(params.recipientId),
 			]);
 
 			return {
 				recipientId: params.recipientId,
 				messageListInfo,
+				recipientInfo,
 			};
 		},
 	},

@@ -5,7 +5,7 @@ import { fetcher } from '@/apis/fetcher';
  * @param {{recipientId: number, limit?: number, offset?: number}} param
  * @returns {Promise<{
  *  recipientId: number,
- *  messagesInfo: {
+ *  messageListInfo: {
  *   count: number, // 전체 메세지 수
  *   next: string,  // 다음에 호출해야 할 url
  *   previous: string,  // 이전에 호출한 url

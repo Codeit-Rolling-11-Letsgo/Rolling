@@ -1,0 +1,28 @@
+.badge {
+	flex-grow: 0;
+	width: 4.1rem;
+	padding: 0 0.8rem;
+	border-radius: 0.4rem;
+
+	@include typo_14_regular;
+}
+
+.badgeOrange {
+	background-color: $color_orange_100;
+	color: $color_orange_500;
+}
+
+.badgePurple {
+	background-color: $color_purple_100;
+	color: $color_purple_600;
+}
+
+.badgeGreen {
+	background-color: $color_green_100;
+	color: $color_green_500;
+}
+
+.badgeBlue {
+	background-color: $color_blue_100;
+	color: $color_blue_500;
+}

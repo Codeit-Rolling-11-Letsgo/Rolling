@@ -2,49 +2,57 @@ import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 import { getMessageList } from '@/apis/post/postAPI';
-import HeaderService from '@/components/post/header-service/HeaderService';
 import NewMessageCTA from '@/components/post/NewMessageCTA';
 import PostCard from '@/components/post/PostCard';
 import PostLayout from '@/components/post/PostLayout';
+import PostModal from '@/components/post/PostModal';
 import { useIntersect } from '@/hooks/useIntersect';
+import { useModalContext } from '@/hooks/useModalContext';
 import styles from '@/pages/post/PostIdPage.module.scss';
 
 export default function PostIdPage() {
 	const { recipientId, messageListInfo } = useLoaderData();
 	const { results: messageList } = messageListInfo;
 
-	const [currentMessages, setCurrentMessages] = useState(messageList);
+	const [currentMessageList, setCurrentMessageList] = useState(messageList);
 	const [isLoading, setIsLoading] = useState(false);
 
-	const fetchMoreMessages = async () => {
-		if (messageListInfo.count > currentMessages.length) {
+	const fetchMoreMessageList = async () => {
+		if (messageListInfo.count > currentMessageList.length) {
 			setIsLoading(true);
 
 			const { messageListInfo: newMessageListInfo } = await getMessageList({
 				recipientId,
 				limit: 15,
-				offset: currentMessages.length,
+				offset: currentMessageList.length,
 			});
 
-			setCurrentMessages((prevMessages) => [
-				...prevMessages,
+			setCurrentMessageList((prevMessageList) => [
+				...prevMessageList,
 				...newMessageListInfo.results,
 			]);
 			setIsLoading(false);
 		}
 	};
 
-	const trigger = useIntersect(fetchMoreMessages, { rootMargin: '350px' });
+	const trigger = useIntersect(fetchMoreMessageList, { rootMargin: '350px' });
+
+	const { isModalOpen, openModal } = useModalContext();
 
 	return (
-		<PostLayout pageTitle={<HeaderService />}>
+		<PostLayout>
 			<div className={styles.cardList}>
 				<NewMessageCTA recipientId={recipientId} />
-				{currentMessages.map((message) => (
-					<PostCard key={message.id} message={message}></PostCard>
+				{currentMessageList.map((message) => (
+					<PostCard
+						key={message.id}
+						message={message}
+						onClick={openModal}
+					></PostCard>
 				))}
 
 				{!isLoading && <div ref={trigger}></div>}
+				{isModalOpen && <PostModal />}
 			</div>
 		</PostLayout>
 	);

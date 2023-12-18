@@ -1,27 +1,33 @@
+@use '@/assets/utilities.scss' as *;
+
 $color_surface: #f6f8ff;
 
 .contents {
-	width: max-content;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 3rem;
 }
 
 .intro_card {
-	width: 120rem;
-	padding-block: 6rem;
+	width: 100%;
 	border-radius: 1.6rem;
 	background-color: $color_surface;
 	display: flex;
 }
 
 .rolling {
-	padding-left: 6rem;
+	padding: 6rem 0 10.2rem 6rem;
 	gap: 15.2rem;
 }
 
 .emoji {
-	padding-right: 19.2rem;
+	padding-block: 6rem;
+	gap: 25rem;
+}
+
+.intro_card_content {
+	order: 2;
 }
 
 .intro_card_badge {
@@ -53,23 +59,16 @@ $color_surface: #f6f8ff;
 	color: $color_gray_500;
 }
 
-.intro_image_rolling_container {
-	padding-block: 1rem;
-	padding-inline: 2.8rem;
-}
-
 .intro_image_rolling {
-	width: 66.4rem;
-	height: 18.8rem;
-}
-
-.intro_image_emoji_container {
-	padding-inline: 12.5rem;
+	width: 64rem;
+	height: 16.2rem;
+	order: 3;
 }
 
 .intro_image_emoji {
 	width: 47rem;
 	height: 20.4rem;
+	order: 1;
 }
 
 .bottom {
@@ -91,4 +90,41 @@ $color_surface: #f6f8ff;
 	border-radius: 1.2rem;
 
 	display: block;
+}
+
+@include tablet {
+	.intro_card {
+		flex-direction: column;
+	}
+
+	.intro_card_content {
+		flex-direction: column;
+	}
+
+	.line_break {
+		display: none;
+	}
+
+	.rolling {
+		padding: 4rem;
+		gap: 3.6rem;
+	}
+
+	.emoji {
+		padding: 4rem;
+		gap: 3.6rem;
+	}
+
+	.intro_image_rolling {
+		margin-inline: auto;
+	}
+
+	.intro_image_emoji {
+		order: 3;
+		margin-inline: auto;
+	}
+
+	.bottom_cta {
+		width: 100%;
+	}
 }

@@ -75,9 +75,12 @@
 .more_profile {
 	@include typo_12_regular;
 
+	border: solid 0.1rem $color_border_gray;
+
 	height: 2.8rem;
+	width: 2.8rem;
 	padding-inline: 0.8rem;
-	border-radius: 3rem;
+	border-radius: 50%;
 	background-color: $color_white;
 	color: $color_gray_500;
 
@@ -86,7 +89,7 @@
 	align-items: center;
 
 	&:not(:first-child) {
-		margin-left: -1.2rem;
+		margin-left: -2rem;
 	}
 }
 

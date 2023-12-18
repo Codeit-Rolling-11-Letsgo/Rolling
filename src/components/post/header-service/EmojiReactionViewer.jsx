@@ -8,7 +8,6 @@ import styles from '@/components/post/header-service/EmojiReactionViewer.module.
 
 export default function EmojiReactionViewer() {
 	const { recipientId } = useParams();
-	const [hasReceivedReactions, setHasReceivedReactions] = useState(true);
 	const [reactionList, setReactionList] = useState([
 		{ id: 0, emoji: '', count: 0 },
 	]);
@@ -16,17 +15,16 @@ export default function EmojiReactionViewer() {
 
 	useEffect(() => {
 		const fetchReactionList = async () => {
-			const { count, results: fetchedReactionList } =
+			const { results: fetchedReactionList } =
 				await getRecipientsReactions(recipientId);
 			setReactionList(fetchedReactionList);
-			setHasReceivedReactions(!!count);
 		};
 		fetchReactionList();
 	}, [reloadingTrigger, recipientId]);
 
 	return (
 		<div className={styles.emojiReactionViewer}>
-			{hasReceivedReactions && (
+			{!!reactionList.length && (
 				<EmojiReactionCollection reactionList={reactionList} />
 			)}
 			<EmojiPickerButton

@@ -20,6 +20,9 @@ $gap: 0.6rem;
 	width: $width;
 	height: $height;
 	position: relative;
+	&:hover {
+		background-color: $color_gray_100;
+	}
 }
 
 .shareOptionList {

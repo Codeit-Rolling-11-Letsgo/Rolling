@@ -53,6 +53,11 @@
 
 .sender_profile_container {
 	display: flex;
+	align-items: center;
+	gap: 1rem;
+	.sender_avatar_container {
+		display: flex;
+	}
 }
 
 .sender_profile {

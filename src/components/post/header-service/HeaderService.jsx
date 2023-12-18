@@ -33,14 +33,18 @@ export default function HeaderService() {
 				{isPc && (
 					<>
 						<Card.Panel className={styles.sender_profile_container}>
-							{take(senderListInfo, MESSAGE_PREVIEW_COUNT).map((senderList) => (
-								<Image
-									key={senderList.id}
-									src={senderList.profileImageURL}
-									alt={`${senderList.sender} 프로필 이미지`}
-									className={styles.sender_profile}
-								/>
-							))}
+							<div className={styles.sender_avatar_container}>
+								{take(senderListInfo, MESSAGE_PREVIEW_COUNT).map(
+									(senderList) => (
+										<Image
+											key={senderList.id}
+											src={senderList.profileImageURL}
+											alt={`${senderList.sender} 프로필 이미지`}
+											className={styles.sender_profile}
+										/>
+									),
+								)}
+							</div>
 							{senderListCount - MESSAGE_PREVIEW_COUNT > 0 ? (
 								<div className={styles.more_profile}>
 									+{senderListCount - MESSAGE_PREVIEW_COUNT}

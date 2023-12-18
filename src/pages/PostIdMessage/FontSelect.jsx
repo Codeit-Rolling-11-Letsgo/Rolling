@@ -13,7 +13,7 @@ const fontOptions = [
 	'Courier New',
 ];
 
-const FontSelector = () => {
+function FontSelector() {
 	const [selectedFont, setSelectedFont] = useState('Noto Sans');
 
 	const handleFontChange = (font) => {
@@ -31,6 +31,6 @@ const FontSelector = () => {
 			/>
 		</div>
 	);
-};
+}
 
 export default FontSelector;

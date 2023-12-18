@@ -34,11 +34,21 @@ function PostForm() {
 	const handleFormSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const requestBody = {
-				name: inputValue,
-				backgroundColor: backgroundSelection.backgroundColor,
-				backgroundImageURL: backgroundSelection.imageURL,
-			};
+			let requestBody;
+
+			if (type === 'color') {
+				requestBody = {
+					name: inputValue,
+					backgroundColor: backgroundSelection.backgroundColor,
+					backgroundImageURL: null,
+				};
+			} else if (type === 'image') {
+				requestBody = {
+					name: inputValue,
+					backgroundColor: backgroundSelection.backgroundColor,
+					backgroundImageURL: backgroundSelection.imageURL,
+				};
+			}
 			const response = await fetch(
 				'https://rolling-api.vercel.app/2-11/recipients/',
 				{
@@ -61,8 +71,14 @@ function PostForm() {
 		}
 	};
 
+	const [type, setType] = useState('color');
+
 	const handleSelectionChange = (selection) => {
 		setBackgroundSelection(selection);
+	};
+
+	const handleSelectTypeChange = (newType) => {
+		setType(newType);
 	};
 
 	return (
@@ -86,7 +102,11 @@ function PostForm() {
 					<h2>배경화면을 선택해 주세요.</h2>
 					<p>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
 				</div>
-				<Select type='color' onSelectionChange={handleSelectionChange} />
+				<Select
+					type={type}
+					onSelectionChange={handleSelectionChange}
+					onSelectTypeChange={handleSelectTypeChange}
+				/>
 				<Button
 					size='basic'
 					disabled={isButtonDisabled}

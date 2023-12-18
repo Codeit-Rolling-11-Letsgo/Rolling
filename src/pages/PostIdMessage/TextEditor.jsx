@@ -1,11 +1,10 @@
 import '@/pages/PostIdMessage/TextEditor.scss';
-// TextEditor.jsx
 import 'react-quill/dist/quill.snow.css';
 
 import { useEffect, useState } from 'react';
 import ReactQuill from 'react-quill';
 
-const TextEditor = ({ onContentChange }) => {
+function TextEditor({ onContentChange }) {
 	const [content, setContent] = useState('');
 
 	useEffect(() => {
@@ -18,7 +17,7 @@ const TextEditor = ({ onContentChange }) => {
 		return () => observer.disconnect();
 	}, []);
 
-	const handleChange = (value, delta, source, editor) => {
+	const handleChange = (value, editor) => {
 		setContent(value);
 
 		if (editor && editor.format) {
@@ -57,6 +56,6 @@ const TextEditor = ({ onContentChange }) => {
 			/>
 		</div>
 	);
-};
+}
 
 export default TextEditor;

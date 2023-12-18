@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Button from '@/components/common/Buttons/Button';
 import Icon from '@/components/common/icon/Icon';
 
-function Select({ onSelectionChange }) {
+function Select({ onSelectionChange, onSelectTypeChange }) {
 	const [isChecked1, setIsChecked1] = useState(true);
 	const [isChecked2, setIsChecked2] = useState(false);
 	const [isChecked3, setIsChecked3] = useState(false);
@@ -24,7 +24,7 @@ function Select({ onSelectionChange }) {
 				setIsChecked3(false);
 				setIsChecked4(false);
 				onSelectionChange({
-					backgroundColor: 'orange',
+					backgroundColor: 'beige',
 					imageURL: 'https://picsum.photos/id/683/3840/2160',
 				});
 				break;
@@ -91,6 +91,7 @@ function Select({ onSelectionChange }) {
 			showColorSelect;
 		}
 		setType('color');
+		onSelectTypeChange('color');
 	};
 
 	const handleImageButtonClick = () => {
@@ -108,6 +109,7 @@ function Select({ onSelectionChange }) {
 			showImageSelect;
 		}
 		setType('image');
+		onSelectTypeChange('image');
 	};
 
 	const check = <Icon name='check' className='check' />;

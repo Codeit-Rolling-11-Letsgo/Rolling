@@ -53,6 +53,7 @@
 }
 
 .sender_profile_container {
+	height: 2.8rem;
 	display: flex;
 }
 
@@ -116,4 +117,30 @@
 	bottom: 0;
 	right: 0;
 	z-index: 0;
+}
+
+@media screen and (max-width: 767px) {
+	.panel {
+		width: 20.8rem;
+		height: 23.2rem;
+	}
+
+	.title {
+		@include typo_18_bold;
+	}
+
+	.description {
+		@include typo_14_regular;
+	}
+
+	.splitter {
+		margin-top: 3.3rem;
+	}
+
+	.reaction_list {
+		@include typo_14_regular;
+
+		margin-top: 1.6rem;
+		gap: 0.4rem;
+	}
 }

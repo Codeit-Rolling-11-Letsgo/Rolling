@@ -3,6 +3,7 @@ import { useRef, useState } from 'react';
 
 import styles from '@/components/common/carousel/Carousel.module.scss';
 import Icon from '@/components/common/icon/Icon';
+import { detectMobile } from '@/utils/util';
 
 /**
  *
@@ -18,6 +19,7 @@ export default function Carousel({
 	const [currentIdx, setCurrentIdx] = useState(0);
 	const swipeCountRef = useRef(swipeCount);
 	const itemMapRef = useRef(null);
+	const isMobile = detectMobile();
 
 	const scrollToId = (itemId) => {
 		const map = getMap();
@@ -53,7 +55,7 @@ export default function Carousel({
 
 	return (
 		<div className={styles.container}>
-			{isFirst ? null : (
+			{isMobile || isFirst ? null : (
 				<button
 					onClick={handlePrevClick}
 					className={clsx(styles.carousel_button, styles.prev)}
@@ -61,7 +63,7 @@ export default function Carousel({
 					<Icon name='arrowLeft' className={styles.left_arrow} />
 				</button>
 			)}
-			{isEnd ? null : (
+			{isMobile || isEnd ? null : (
 				<button
 					onClick={handleNextClick}
 					className={clsx(styles.carousel_button, styles.next)}
@@ -81,6 +83,7 @@ export default function Carousel({
 								map.delete(id);
 							}
 						}}
+						className={styles.item}
 					>
 						{item}
 					</li>

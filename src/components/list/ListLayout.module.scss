@@ -1,6 +1,7 @@
 .container {
 	width: 100%;
 	max-width: 120.8rem;
+	height: 100%;
 	margin-inline: auto;
 	padding-inline: $layout_safe_zone;
 	padding-top: 5rem;
@@ -9,4 +10,16 @@
 	display: flex;
 	flex-direction: column;
 	gap: 4rem;
+}
+
+@media screen and (max-width: 1247px) {
+	.container {
+		padding-bottom: $padding_safe_zone;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.container {
+		padding-top: 4rem;
+	}
 }

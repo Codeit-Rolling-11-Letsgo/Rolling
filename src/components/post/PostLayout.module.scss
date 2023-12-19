@@ -1,3 +1,5 @@
+@use '@/assets/utilities.scss' as *;
+
 .container {
 	padding-top: 11.3rem;
 	padding-bottom: 21.8rem;
@@ -12,5 +14,11 @@
 	@media only screen and (max-width: 767px) {
 		padding-top: 2.4rem;
 		padding-bottom: 3.2rem;
+	}
+}
+
+@include mobile {
+	.global_header {
+		display: none;
 	}
 }

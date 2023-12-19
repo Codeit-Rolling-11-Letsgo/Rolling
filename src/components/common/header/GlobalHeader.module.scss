@@ -1,0 +1,31 @@
+.global_header {
+	border-bottom: solid 0.1rem $color_border_gray;
+	padding-block: 1.2rem;
+	height: $layout_global_header_height;
+	background-color: $color_white;
+}
+
+.gnb {
+	height: 100%;
+	margin-inline: auto;
+	max-width: 124.8rem;
+	padding-inline: 2.4rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.logo_container {
+	@include typo_20_bold;
+
+	font-family: 'Poppins', sans-serif;
+	color: $color_light_gray_900;
+	display: flex;
+	gap: 0.8rem;
+	align-items: center;
+}
+
+.logo {
+	width: 2.8rem;
+	height: 2.8rem;
+}

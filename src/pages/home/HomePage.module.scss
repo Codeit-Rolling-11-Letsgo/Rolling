@@ -102,6 +102,10 @@ $color_surface: #f6f8ff;
 	border-radius: 1.2rem;
 
 	display: block;
+
+	&:active {
+		color: $color_white;
+	}
 }
 
 @include tablet {

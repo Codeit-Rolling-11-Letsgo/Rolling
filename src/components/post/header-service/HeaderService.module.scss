@@ -1,31 +1,31 @@
-.title {
-	grid-area: title;
-	@include typo_28_bold;
+.layout {
+	height: 6.8rem;
+	margin-inline: auto;
+	padding-inline: 2.4rem;
+	max-width: 124.8rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+
 	@media (max-width: 767px) {
 		@include typo_18_bold;
+		height: auto;
+		padding-inline: 0;
 	}
 }
 
-.service {
-	grid-area: service;
+.title_container {
+	@media (max-width: 767px) {
+		width: 100%;
+		padding-inline: 2.4rem;
+	}
 }
 
-.layout {
-	display: grid;
-	grid-template-areas: 'title service';
-	justify-content: space-between;
-	align-items: center;
-	max-width: 124.8rem;
-	padding-inline: 2.4rem;
-	margin-inline: auto;
-	height: 6.8rem;
+.title {
+	@include typo_28_bold;
 	@media (max-width: 767px) {
 		@include typo_18_bold;
-		padding-inline: 2rem;
-		height: auto;
-		grid-template-areas:
-			'title .'
-			'. service';
 	}
 }
 
@@ -36,6 +36,18 @@
 	height: 100%;
 	@media (max-width: 767px) {
 		height: 5.2rem;
+	}
+}
+
+.service_container {
+	display: flex;
+
+	@media (max-width: 767px) {
+		width: 100%;
+		padding-inline: 2.4rem;
+		border-top: 0.1rem solid $color_gray_200;
+
+		justify-content: flex-end;
 	}
 }
 

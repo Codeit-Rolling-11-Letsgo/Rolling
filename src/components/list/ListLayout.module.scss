@@ -12,6 +12,21 @@
 	gap: 4rem;
 }
 
+.cta {
+	@include typo_16_bold;
+
+	border: 0.1rem solid $color_gray_300;
+	border-radius: 0.6rem;
+	padding-inline: 1.6rem;
+	padding-block: 0.8rem;
+	color: $color_gray_900;
+	background-color: $color_white;
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+}
+
 @media screen and (max-width: 1247px) {
 	.container {
 		padding-bottom: $layout_safe_zone;

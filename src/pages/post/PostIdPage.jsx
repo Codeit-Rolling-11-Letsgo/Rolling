@@ -31,31 +31,36 @@ export default function PostIdPage() {
 		}
 	}, [pathname]);
 
-	const fetchMessages = async (limit, offset) => {
-		setIsLoading(true);
-
-		const { messageListInfo: newMessageListInfo } = await getMessageList({
-			recipientId,
-			limit: limit,
-			offset: offset,
-		});
-
-		setCurrentMessageListInfo({ ...newMessageListInfo });
-		setCurrentMessageList((prevMessageList) => [
-			...prevMessageList,
-			...newMessageListInfo.results,
-		]);
-		setIsLoading(false);
-	};
-
 	const fetchMoreMessageList = async () => {
 		if (currentMessageListInfo.count > currentMessageList.length) {
-			await fetchMessages(15, currentMessageList.length);
+			setIsLoading(true);
+
+			const { messageListInfo: newMessageListInfo } = await getMessageList({
+				recipientId,
+				limit: 15,
+				offset: currentMessageList.length,
+			});
+
+			setCurrentMessageListInfo({ ...newMessageListInfo });
+			setCurrentMessageList((prevMessageList) => [
+				...prevMessageList,
+				...newMessageListInfo.results,
+			]);
+			setIsLoading(false);
 		}
 	};
 
 	const reload = async () => {
-		await fetchMessages(currentMessageList.length, 0);
+		setIsLoading(true);
+		const { messageListInfo: newMessageListInfo } = await getMessageList({
+			recipientId,
+			limit: currentMessageList.length,
+			offset: 0,
+		});
+
+		setCurrentMessageListInfo(newMessageListInfo);
+		setCurrentMessageList(newMessageListInfo.results);
+		setIsLoading(false);
 	};
 
 	const handleClickDelete = async () => {

@@ -142,7 +142,12 @@ $color_black: #000;
 $color_error: #dc3a3a;
 $color_surface: #f6f8ff;
 
-$padding_safe_zone: 2.4rem;
+$media_desktop: 1248px;
+$media_tablet: 768px;
+$media_mobile: 360px;
+
+$layout_safe_zone: 2.4rem;
+$layout_global_header_height: 6.4rem;
 
 $transition_ease_1: cubic-bezier(0.25, 0, 0.5, 1);
 $transition_ease_2: cubic-bezier(0.25, 0, 0.4, 1);

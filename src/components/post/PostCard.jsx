@@ -7,6 +7,7 @@ import PostBadge from '@/components/post/PostBadge';
 import styles from '@/components/post/PostCard.module.scss';
 import { formatDate } from '@/utils/dateUtils';
 import { hoverCard } from '@/utils/framerAnimation';
+
 function PostCard({ message, openModal, isEdit, reload }) {
 	const { profileImageURL, sender, relationship, content, createdAt, id } =
 		message;
@@ -45,6 +46,11 @@ function PostCard({ message, openModal, isEdit, reload }) {
 						/>
 						<PostBadge label={relationship} />
 					</div>
+					{isEdit && (
+						<button className={styles.deleteButton} onClick={handleClickDelete}>
+							<Icon name='delete' className={styles.deleteIcon} />
+						</button>
+					)}
 					{isEdit && (
 						<button className={styles.deleteButton} onClick={handleClickDelete}>
 							<Icon name='delete' className={styles.deleteIcon} />

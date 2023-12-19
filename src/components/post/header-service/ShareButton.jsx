@@ -3,8 +3,12 @@ import { useEffect, useRef, useState } from 'react';
 
 import Icon from '@/components/common/icon/Icon';
 import styles from '@/components/post/header-service/ShareButton.module.scss';
+import shareMessageKakao from '@/utils/kakaoShareFormatting';
 
-export default function ShareButton() {
+export default function ShareButton({ shareInfo }) {
+	const { name, backgroundImageURL, messageCount, recipientId, reactionCount } =
+		shareInfo;
+
 	const [isPickerOpened, setIsPickerOpened] = useState(false);
 	const [isToastVisible, setIsToastVisible] = useState(false);
 	const shareOptionPickerRef = useRef(null);
@@ -21,6 +25,17 @@ export default function ShareButton() {
 		) {
 			setIsPickerOpened(false);
 		}
+	};
+
+	const handleShareKakao = (e) => {
+		shareMessageKakao(
+			backgroundImageURL,
+			recipientId,
+			name,
+			reactionCount,
+			messageCount,
+		);
+		handlePickerToggle(e);
 	};
 
 	const handleCopyUrl = (e) => {
@@ -54,10 +69,7 @@ export default function ShareButton() {
 			</button>
 			{isPickerOpened && (
 				<div className={styles.shareOptionList} ref={shareOptionPickerRef}>
-					<button
-						onClick={handlePickerToggle}
-						className={styles.shareOptionItem}
-					>
+					<button onClick={handleShareKakao} className={styles.shareOptionItem}>
 						카카오톡 공유
 					</button>
 					<button onClick={handleCopyUrl} className={styles.shareOptionItem}>

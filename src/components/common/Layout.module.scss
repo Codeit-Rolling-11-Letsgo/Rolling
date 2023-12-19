@@ -5,6 +5,7 @@
 }
 
 .global_header {
+	border-bottom: solid 0.1rem $color_border_gray;
 	padding-block: 1.2rem;
 	height: $layout_global_header_height;
 	background-color: $color_white;

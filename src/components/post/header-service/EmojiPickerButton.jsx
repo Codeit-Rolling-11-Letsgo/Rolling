@@ -21,8 +21,7 @@ export default function EmojiPickerButton({
 		setReloadingTrigger((prevTrigger) => !prevTrigger);
 	};
 
-	const handlePickerToggle = (e) => {
-		e.stopPropagation();
+	const handlePickerToggle = () => {
 		setIsPickerOpened(!isPickerOpened);
 	};
 
@@ -40,13 +39,13 @@ export default function EmojiPickerButton({
 	}, []);
 
 	return (
-		<div className={styles.emojiPickerComponent}>
+		<div className={styles.emojiPickerComponent} ref={emojiPickerRef}>
 			<button className={styles.toggleButton} onClick={handlePickerToggle}>
 				<Icon name='add' />
 				<div className={styles.addText}> 추가</div>
 			</button>
 			{isPickerOpened && (
-				<div className={styles.emojiPicker} ref={emojiPickerRef}>
+				<div className={styles.emojiPicker}>
 					<EmojiPicker
 						onEmojiClick={handleEmojiClick}
 						width={EMOJI_PICKER_WIDTH}

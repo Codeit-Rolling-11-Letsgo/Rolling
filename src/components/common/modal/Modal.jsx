@@ -22,8 +22,18 @@ const Modal = forwardRef(function Modal(
 		};
 
 		document.addEventListener('keydown', handleKeydownEsc);
+		document.body.style.cssText = `
+    position: fixed; 
+    top: -${window.scrollY}px;
+    overflow-y: scroll;
+    width: 100%;`;
 
-		return () => document.removeEventListener('keydown', handleKeydownEsc);
+		return () => {
+			document.removeEventListener('keydown', handleKeydownEsc);
+			const scrollY = document.body.style.top;
+			document.body.style.cssText = '';
+			window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+		};
 	}, [closeModal]);
 	return (
 		<motion.dialog

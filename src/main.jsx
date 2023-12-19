@@ -50,6 +50,25 @@ const router = createBrowserRouter([
 			};
 		},
 	},
+	{
+		path: '/post/:recipientId/edit',
+		element: <PostIdPage />,
+		loader: async ({ params }) => {
+			const [{ messageListInfo }, recipientInfo] = await Promise.all([
+				getMessageList({
+					recipientId: params.recipientId,
+					limit: 15,
+				}),
+				getRecipientInfo(params.recipientId),
+			]);
+
+			return {
+				recipientId: params.recipientId,
+				messageListInfo,
+				recipientInfo,
+			};
+		},
+	},
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

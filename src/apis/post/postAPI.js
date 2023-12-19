@@ -13,7 +13,11 @@ import { fetcher } from '@/apis/fetcher';
  *  }
  * }>}
  */
-export const getMessageList = async ({ recipientId, limit, offset }) => {
+export const getMessageList = async ({
+	recipientId,
+	limit = 15,
+	offset = 0,
+}) => {
 	const messageListInfo = await fetcher
 		.get(`recipients/${recipientId}/messages/`, {
 			searchParams: { limit, offset },
@@ -31,4 +35,20 @@ export const getMessageList = async ({ recipientId, limit, offset }) => {
 export const getRecipientInfo = async (recipientId) => {
 	const recipientInfo = await fetcher.get(`recipients/${recipientId}/`).json();
 	return recipientInfo;
+};
+
+/**
+ *
+ * @param {number} messageId
+ */
+export const deleteMessage = async (messageId) => {
+	await fetcher.delete(`messages/${messageId}/`).json();
+};
+
+/**
+ *
+ * @param {number} recipientId
+ */
+export const deleteRecipients = async (recipientId) => {
+	await fetcher.delete(`recipients/${recipientId}/`);
 };

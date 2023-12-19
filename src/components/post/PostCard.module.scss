@@ -76,11 +76,30 @@
 }
 
 .from {
+	width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	@include typo_20_regular;
 }
 
 .sender {
 	@include typo_20_bold;
+}
+
+.deleteButton {
+	margin-left: 1.7rem;
+	border-radius: 6px;
+	border: 1px solid $color_gray_300;
+	background: $color_white;
+	padding: 0.8rem;
+	width: 4rem;
+	height: 4rem;
+}
+
+.deleteIcon {
+	width: 2.4rem;
+	height: 2.4rem;
 }
 
 .contentContainer {

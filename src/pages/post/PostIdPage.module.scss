@@ -26,18 +26,38 @@
 	background-color: $color_green_200;
 }
 
+.buttonContainer {
+	position: relative;
+	width: 120rem;
+	margin: 0 auto;
+}
+
+.deleteButton {
+	display: block;
+	position: absolute;
+	top: -6.2rem;
+	right: 0;
+	width: 9.2rem;
+	padding: 0.7rem 1.6rem;
+	border-radius: 0.6rem;
+	background: $color_purple_600;
+	color: $color_white;
+	cursor: pointer;
+	@include typo_16_regular;
+}
+
 @media only screen and (max-width: 1248px) and (min-width: 768px) {
 	.cardList {
-		width: 72rem;
 		grid-template-columns: repeat(2, minmax(20rem, 1fr));
+		width: 72rem;
 		gap: 1.6rem;
 	}
 }
 
 @media only screen and (max-width: 767px) {
 	.cardList {
-		width: 32rem;
 		grid-template-columns: minmax(20rem, 1fr);
+		width: 32rem;
 		gap: 1.6rem;
 	}
 }

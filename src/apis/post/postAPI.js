@@ -54,7 +54,7 @@ export const deleteMessage = async (messageId) => {
  * 수신자 삭제
  * @param {number} recipientId
  */
-export const deleteRecipients = async (recipientId) => {
+export const deleteRecipient = async (recipientId) => {
 	try {
 		await fetcher.delete(`recipients/${recipientId}/`);
 		return true;

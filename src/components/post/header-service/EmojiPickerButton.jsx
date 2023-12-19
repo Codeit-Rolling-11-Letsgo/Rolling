@@ -33,9 +33,9 @@ export default function EmojiPickerButton({
 	};
 
 	useEffect(() => {
-		document.addEventListener('click', handleOutsideClick);
+		document.addEventListener('click', handleOutsideClick, true);
 		return () => {
-			document.removeEventListener('click', handleOutsideClick);
+			document.removeEventListener('click', handleOutsideClick, true);
 		};
 	}, []);
 

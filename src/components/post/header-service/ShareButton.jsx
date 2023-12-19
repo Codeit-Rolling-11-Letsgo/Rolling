@@ -56,9 +56,9 @@ export default function ShareButton({ shareInfo }) {
 	};
 
 	useEffect(() => {
-		document.addEventListener('click', handleOutsideClick);
+		document.addEventListener('click', handleOutsideClick, true);
 		return () => {
-			document.removeEventListener('click', handleOutsideClick);
+			document.removeEventListener('click', handleOutsideClick, true);
 		};
 	}, []);
 

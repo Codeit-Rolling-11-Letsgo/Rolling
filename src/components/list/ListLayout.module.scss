@@ -17,3 +17,9 @@
 		padding-bottom: $padding_safe_zone;
 	}
 }
+
+@media screen and (max-width: 767px) {
+	.container {
+		padding-top: 4rem;
+	}
+}

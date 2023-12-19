@@ -1,3 +1,5 @@
+@use '@/assets/variables.scss' as *;
+
 @mixin svg_stroke {
 	stroke: currentColor;
 	& * {
@@ -35,4 +37,16 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+@mixin mobile {
+	@media (max-width: #{$media_tablet - 1px}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (max-width: #{$media_desktop - 1px}) {
+		@content;
+	}
 }

@@ -1,3 +1,5 @@
+@use '@/assets/utilities.scss' as *;
+
 .cta {
 	@include typo_16_bold;
 
@@ -15,7 +17,7 @@
 
 .container {
 	height: 100%;
-	padding-inline: $padding_safe_zone;
+	padding-inline: $layout_safe_zone;
 	padding-top: 6rem;
 	padding-bottom: 15rem;
 	max-width: 124.8rem;
@@ -23,4 +25,11 @@
 
 	display: flex;
 	flex-direction: column;
+}
+
+@include tablet {
+	.container {
+		padding-top: 4.2rem;
+		padding-bottom: $layout_safe_zone;
+	}
 }

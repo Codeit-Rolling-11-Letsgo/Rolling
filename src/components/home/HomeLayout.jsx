@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 
+import GlobalHeader from '@/components/common/header/GlobalHeader';
 import Layout from '@/components/common/Layout';
 import styles from '@/components/home/HomeLayout.module.scss';
 import { PATH_POST } from '@/constants/routes';
 
 export default function HomeLayout({ children }) {
 	return (
-		<Layout addon={<HomeHeaderCTA />}>
+		<Layout>
+			<GlobalHeader addon={<HomeHeaderCTA />} />
 			<div className={styles.container}>{children}</div>
 		</Layout>
 	);

@@ -10,8 +10,7 @@ export default function EmojiReactionCollection({ reactionList }) {
 	const emojiCollectionRef = useRef(null);
 	const [isEmojiDropDownOpened, setIsEmojiDropDownOpened] = useState(false);
 
-	const handleToggleEmojiDropDown = (e) => {
-		e.stopPropagation();
+	const handleToggleEmojiDropDown = () => {
 		setIsEmojiDropDownOpened(!isEmojiDropDownOpened);
 	};
 
@@ -25,9 +24,9 @@ export default function EmojiReactionCollection({ reactionList }) {
 	};
 
 	useEffect(() => {
-		document.addEventListener('click', handleOutsideClick, true);
+		document.addEventListener('click', handleOutsideClick);
 		return () => {
-			document.removeEventListener('click', handleOutsideClick, true);
+			document.removeEventListener('click', handleOutsideClick);
 		};
 	}, []);
 
@@ -37,17 +36,20 @@ export default function EmojiReactionCollection({ reactionList }) {
 				<div className={styles.emojiReactionTop3}>
 					{TopEmojiReactionList(reactionList, 3)}
 				</div>
-				<button
-					className={styles.arrowDownButton}
-					onClick={handleToggleEmojiDropDown}
-				>
-					<Icon name='arrowDown' />
-				</button>
-				{isEmojiDropDownOpened && (
-					<div className={styles.emojiReactionList} ref={emojiCollectionRef}>
-						{TopEmojiReactionList(reactionList, reactionTypeCount)}
-					</div>
-				)}
+
+				<div ref={emojiCollectionRef}>
+					<button
+						className={styles.arrowDownButton}
+						onClick={handleToggleEmojiDropDown}
+					>
+						<Icon name='arrowDown' />
+					</button>
+					{isEmojiDropDownOpened && (
+						<div className={styles.emojiReactionList}>
+							{TopEmojiReactionList(reactionList, reactionTypeCount)}
+						</div>
+					)}
+				</div>
 			</div>
 		</div>
 	);

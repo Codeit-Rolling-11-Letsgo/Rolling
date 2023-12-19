@@ -13,8 +13,7 @@ export default function ShareButton({ shareInfo }) {
 	const [isToastVisible, setIsToastVisible] = useState(false);
 	const shareOptionPickerRef = useRef(null);
 
-	const handlePickerToggle = (e) => {
-		e.stopPropagation();
+	const handlePickerToggle = () => {
 		setIsPickerOpened(!isPickerOpened);
 	};
 
@@ -56,19 +55,19 @@ export default function ShareButton({ shareInfo }) {
 	};
 
 	useEffect(() => {
-		document.addEventListener('click', handleOutsideClick, true);
+		document.addEventListener('click', handleOutsideClick);
 		return () => {
-			document.removeEventListener('click', handleOutsideClick, true);
+			document.removeEventListener('click', handleOutsideClick);
 		};
 	}, []);
 
 	return (
-		<div className={styles.shareOption}>
+		<div className={styles.shareOption} ref={shareOptionPickerRef}>
 			<button className={styles.toggleButton} onClick={handlePickerToggle}>
 				<Icon name='share' />
 			</button>
 			{isPickerOpened && (
-				<div className={styles.shareOptionList} ref={shareOptionPickerRef}>
+				<div className={styles.shareOptionList}>
 					<button onClick={handleShareKakao} className={styles.shareOptionItem}>
 						카카오톡 공유
 					</button>

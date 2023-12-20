@@ -15,6 +15,19 @@ const Modal = forwardRef(function Modal(
 	const { closeModal } = useModalContext();
 
 	useEffect(() => {
+		const handleClickOutside = (e) => {
+			const target = e.target;
+			const rect = target.getBoundingClientRect();
+			if (
+				rect.left > e.clientX ||
+				rect.right < e.clientX ||
+				rect.top > e.clientY ||
+				rect.bottom < e.clientY
+			) {
+				closeModal();
+			}
+		};
+
 		const handleKeydownEsc = (e) => {
 			if (e.keyCode === 27) {
 				closeModal();
@@ -22,9 +35,24 @@ const Modal = forwardRef(function Modal(
 		};
 
 		document.addEventListener('keydown', handleKeydownEsc);
+		document.addEventListener('click', handleClickOutside);
 
-		return () => document.removeEventListener('keydown', handleKeydownEsc);
-	}, [closeModal]);
+		document.body.style.cssText = `
+    position: fixed; 
+    top: -${window.scrollY}px;
+    overflow-y: scroll;
+    width: 100%;`;
+
+		return () => {
+			document.removeEventListener('keydown', handleKeydownEsc);
+			document.removeEventListener('click', handleClickOutside);
+
+			const scrollY = document.body.style.top;
+			document.body.style.cssText = '';
+			window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+		};
+	}, [closeModal, ref]);
+
 	return (
 		<motion.dialog
 			initial='hidden'

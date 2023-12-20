@@ -1,16 +1,20 @@
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 import Icon from '@/components/common/icon/Icon';
 import styles from '@/components/post/header-service/ShareButton.module.scss';
+import { popover } from '@/utils/framerAnimation';
+import shareMessageKakao from '@/utils/kakaoShareFormatting';
+export default function ShareButton({ shareInfo }) {
+	const { name, backgroundImageURL, messageCount, recipientId, reactionCount } =
+		shareInfo;
 
-export default function ShareButton() {
 	const [isPickerOpened, setIsPickerOpened] = useState(false);
 	const [isToastVisible, setIsToastVisible] = useState(false);
 	const shareOptionPickerRef = useRef(null);
 
-	const handlePickerToggle = (e) => {
-		e.stopPropagation();
+	const handlePickerToggle = () => {
 		setIsPickerOpened(!isPickerOpened);
 	};
 
@@ -21,6 +25,17 @@ export default function ShareButton() {
 		) {
 			setIsPickerOpened(false);
 		}
+	};
+
+	const handleShareKakao = (e) => {
+		shareMessageKakao(
+			backgroundImageURL,
+			recipientId,
+			name,
+			reactionCount,
+			messageCount,
+		);
+		handlePickerToggle(e);
 	};
 
 	const handleCopyUrl = (e) => {
@@ -48,25 +63,37 @@ export default function ShareButton() {
 	}, []);
 
 	return (
-		<div className={styles.shareOption}>
-			<button className={styles.toggleButton} onClick={handlePickerToggle}>
-				<Icon name='share' />
-			</button>
-			{isPickerOpened && (
-				<div className={styles.shareOptionList} ref={shareOptionPickerRef}>
-					<button
-						onClick={handlePickerToggle}
-						className={styles.shareOptionItem}
+		<>
+			<div className={styles.shareOption} ref={shareOptionPickerRef}>
+				<button className={styles.toggleButton} onClick={handlePickerToggle}>
+					<Icon name='share' />
+				</button>
+				{isPickerOpened && (
+					<motion.div
+						className={styles.shareOptionList}
+						initial='hidden'
+						animate='visible'
+						variants={popover}
 					>
-						카카오톡 공유
-					</button>
-					<button onClick={handleCopyUrl} className={styles.shareOptionItem}>
-						URL 공유
-					</button>
-				</div>
-			)}
+						<button
+							onClick={handleShareKakao}
+							className={styles.shareOptionItem}
+						>
+							카카오톡 공유
+						</button>
+						<button onClick={handleCopyUrl} className={styles.shareOptionItem}>
+							URL 공유
+						</button>
+					</motion.div>
+				)}
+			</div>
 			{isToastVisible && (
-				<div className={clsx(styles.toast)}>
+				<motion.div
+					className={clsx(styles.toast)}
+					initial='hiddenStateOfToast'
+					animate='visibleSmoother'
+					variants={popover}
+				>
 					<div className={styles.toastContents}>
 						<Icon className={styles.checkIcon} name='complete' />
 						<div className={styles.toastText}>URL이 복사되었습니다</div>
@@ -79,8 +106,8 @@ export default function ShareButton() {
 					>
 						<Icon className={styles.toastIcon} name='close' />
 					</button>
-				</div>
+				</motion.div>
 			)}
-		</div>
+		</>
 	);
 }

@@ -15,7 +15,6 @@ $gap: 0.6rem;
 	top: ($height + $gap);
 }
 
-// 버튼 컴포넌트 제작 완료되면 삭제할 임시 스타일 요소
 .toggleButton {
 	@include typo_16_regular;
 	display: flex;
@@ -28,6 +27,10 @@ $gap: 0.6rem;
 	width: fit-content;
 	height: $height;
 	padding: 0.6rem 1.6rem;
+
+	&:hover {
+		background-color: $color_gray_100;
+	}
 }
 
 @media (max-width: 767px) {

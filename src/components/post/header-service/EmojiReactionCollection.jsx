@@ -1,17 +1,17 @@
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
+import EmojiBadge from '@/components/common/EmojiBadge';
 import Icon from '@/components/common/icon/Icon';
 import styles from '@/components/post/header-service/EmojiReactionCollection.module.scss';
-import TopEmojiReactionList from '@/components/post/header-service/TopEmojiReactionList';
-
+import { popover } from '@/utils/framerAnimation';
 export default function EmojiReactionCollection({ reactionList }) {
 	const reactionTypeCount = useMediaQuery({ maxWidth: 767 }) ? 6 : 8;
 	const emojiCollectionRef = useRef(null);
 	const [isEmojiDropDownOpened, setIsEmojiDropDownOpened] = useState(false);
 
-	const handleToggleEmojiDropDown = (e) => {
-		e.stopPropagation();
+	const handleToggleEmojiDropDown = () => {
 		setIsEmojiDropDownOpened(!isEmojiDropDownOpened);
 	};
 
@@ -35,19 +35,39 @@ export default function EmojiReactionCollection({ reactionList }) {
 		<div className={styles.emojiReactionCollection}>
 			<div className={styles.emojiReactionTop3Container}>
 				<div className={styles.emojiReactionTop3}>
-					{TopEmojiReactionList(reactionList, 3)}
+					{reactionList.slice(0, 3).map((reaction) => (
+						<EmojiBadge
+							key={reaction.id}
+							label={reaction.count}
+							emoji={reaction.emoji}
+						/>
+					))}
 				</div>
-				<button
-					className={styles.arrowDownButton}
-					onClick={handleToggleEmojiDropDown}
-				>
-					<Icon name='arrowDown' />
-				</button>
-				{isEmojiDropDownOpened && (
-					<div className={styles.emojiReactionList} ref={emojiCollectionRef}>
-						{TopEmojiReactionList(reactionList, reactionTypeCount)}
-					</div>
-				)}
+
+				<div ref={emojiCollectionRef}>
+					<button
+						className={styles.arrowDownButton}
+						onClick={handleToggleEmojiDropDown}
+					>
+						<Icon name='arrowDown' />
+					</button>
+					{isEmojiDropDownOpened && (
+						<motion.div
+							className={styles.emojiReactionList}
+							initial='hidden'
+							animate='visible'
+							variants={popover}
+						>
+							{reactionList.slice(0, reactionTypeCount).map((reaction) => (
+								<EmojiBadge
+									key={reaction.id}
+									label={reaction.count}
+									emoji={reaction.emoji}
+								/>
+							))}
+						</motion.div>
+					)}
+				</div>
 			</div>
 		</div>
 	);

@@ -1,28 +1,31 @@
-.title {
-	grid-area: title;
-}
-
-.service {
-	grid-area: service;
-}
-
 .layout {
-	@include typo_28_bold;
-	display: grid;
-	grid-template-areas: 'title service';
+	height: 6.8rem;
+	margin-inline: auto;
+	padding-inline: 2.4rem;
+	max-width: 124.8rem;
+	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	max-width: 124.8rem;
-	padding-inline: 2.4rem;
-	margin-inline: auto;
-	height: 6.8rem;
+	flex-wrap: wrap;
+
 	@media (max-width: 767px) {
 		@include typo_18_bold;
-		padding-inline: 2rem;
 		height: auto;
-		grid-template-areas:
-			'title'
-			'service';
+		padding-inline: 0;
+	}
+}
+
+.title_container {
+	@media (max-width: 767px) {
+		width: 100%;
+		padding-inline: 2.4rem;
+	}
+}
+
+.title {
+	@include typo_28_bold;
+	@media (max-width: 767px) {
+		@include typo_18_bold;
 	}
 }
 
@@ -30,10 +33,21 @@
 .service {
 	display: flex;
 	align-items: center;
-	gap: 1.3rem;
 	height: 100%;
 	@media (max-width: 767px) {
 		height: 5.2rem;
+	}
+}
+
+.service_container {
+	display: flex;
+
+	@media (max-width: 767px) {
+		width: 100%;
+		padding-inline: 2.4rem;
+		border-top: 0.1rem solid $color_gray_200;
+
+		justify-content: flex-end;
 	}
 }
 
@@ -42,4 +56,55 @@
 	height: 2.8rem;
 
 	background-color: $color_gray_200;
+	margin: 0 2.8rem;
+	&:nth-child(2) {
+		margin: 0 1.3rem;
+	}
+}
+
+.sender_profile_container {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	.sender_avatar_container {
+		display: flex;
+	}
+}
+
+.sender_profile {
+	border-radius: 5rem;
+	width: 2.8rem;
+	height: 2.8rem;
+	border: 0.15rem solid $color_white;
+	display: inline-block;
+
+	&:not(:first-child) {
+		margin-left: -1.2rem;
+	}
+}
+
+.more_profile {
+	@include typo_12_regular;
+
+	border: solid 0.1rem $color_border_gray;
+
+	height: 2.8rem;
+	width: 2.8rem;
+	padding-inline: 0.8rem;
+	border-radius: 50%;
+	background-color: $color_white;
+	color: $color_gray_500;
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	&:not(:first-child) {
+		margin-left: -2rem;
+	}
+}
+
+.sender_info {
+	color: $color_gray_900;
+	@include typo_18_regular;
 }

@@ -39,7 +39,10 @@ const PostModal = () => {
 				</div>
 				<span className={styles.createdAt}>{formatDate(createdAt)}</span>
 			</Modal.Title>
-			<Modal.Content Tag='p' className={styles.content} content={content} />
+			<div
+				className={styles.content}
+				dangerouslySetInnerHTML={{ __html: content }}
+			></div>
 			<Modal.Buttons>
 				<button onClick={closeModal} className={styles.confirmButton}>
 					확인

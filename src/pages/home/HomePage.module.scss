@@ -1,27 +1,35 @@
+@use '@/assets/utilities.scss' as *;
+
 $color_surface: #f6f8ff;
 
 .contents {
-	width: max-content;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 3rem;
 }
 
 .intro_card {
-	width: 120rem;
-	padding-block: 6rem;
+	position: relative;
+	width: 100%;
 	border-radius: 1.6rem;
 	background-color: $color_surface;
+	overflow: hidden;
+
 	display: flex;
 }
 
 .rolling {
-	padding-left: 6rem;
+	padding: 6rem 0 6rem 6rem;
 	gap: 15.2rem;
 }
 
 .emoji {
-	padding-right: 19.2rem;
+	padding-block: 6rem;
+}
+
+.intro_card_content {
+	order: 2;
 }
 
 .intro_card_badge {
@@ -44,6 +52,7 @@ $color_surface: #f6f8ff;
 
 	margin-top: 1.6rem;
 	color: $color_gray_900;
+	word-break: keep-all;
 }
 
 .intro_card_description {
@@ -54,17 +63,19 @@ $color_surface: #f6f8ff;
 }
 
 .intro_image_rolling_container {
-	padding-block: 1rem;
-	padding-inline: 2.8rem;
+	padding-block: 2.1rem;
+	padding-inline: 4rem;
+	order: 3;
 }
 
 .intro_image_rolling {
-	width: 66.4rem;
-	height: 18.8rem;
+	width: 64rem;
+	height: 16.2rem;
 }
 
 .intro_image_emoji_container {
 	padding-inline: 12.5rem;
+	order: 1;
 }
 
 .intro_image_emoji {
@@ -91,4 +102,88 @@ $color_surface: #f6f8ff;
 	border-radius: 1.2rem;
 
 	display: block;
+
+	&:active {
+		color: $color_white;
+	}
+}
+
+@include tablet {
+	.intro_card {
+		flex-direction: column;
+	}
+
+	.intro_card_content {
+		flex-direction: column;
+	}
+
+	.line_break {
+		display: none;
+	}
+
+	.rolling {
+		padding: 4rem;
+		gap: 3.6rem;
+	}
+
+	.emoji {
+		padding: 4rem;
+		gap: 3.6rem;
+	}
+
+	.intro_image_rolling_container {
+		margin-inline: auto;
+		padding-inline: 0;
+	}
+
+	.intro_image_emoji_container {
+		order: 3;
+		margin-inline: auto;
+		padding-inline: 0;
+	}
+
+	.bottom_cta {
+		width: 100%;
+	}
+}
+
+@include mobile {
+	.intro_card {
+		padding: 2.4rem;
+		gap: 0;
+	}
+
+	.intro_card_title {
+		@include typo_18_bold;
+
+		width: 27.2rem;
+	}
+
+	.intro_card_description {
+		@include typo_15_regular;
+
+		width: 27.2rem;
+		margin-top: 0.4rem;
+	}
+
+	.intro_image_rolling_container {
+		width: max-content;
+		padding-block: 5rem;
+		margin-left: calc((100% - 35.451rem) / 2);
+	}
+
+	.intro_image_emoji_container {
+		width: max-content;
+		padding-block: 5rem;
+	}
+
+	.intro_image_rolling {
+		width: 35.451rem;
+		height: 8.972rem;
+	}
+
+	.intro_image_emoji {
+		width: 26.034rem;
+		height: 11.3rem;
+	}
 }

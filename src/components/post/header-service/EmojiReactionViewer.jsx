@@ -24,7 +24,9 @@ export default function EmojiReactionViewer() {
 
 	return (
 		<div className={styles.emojiReactionViewer}>
-			<EmojiReactionCollection reactionList={reactionList} />
+			{!!reactionList.length && (
+				<EmojiReactionCollection reactionList={reactionList} />
+			)}
 			<EmojiPickerButton
 				recipientId={recipientId}
 				setReloadingTrigger={setReloadingTrigger}

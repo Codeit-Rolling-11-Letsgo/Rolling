@@ -11,4 +11,9 @@ const popover = {
 const rotateAddIcon = {
 	rotate90: { rotate: 90 },
 };
-export { popover, rotateAddIcon };
+
+const hoverCard = {
+	zoomedIn: { scale: 1.02 },
+};
+
+export { hoverCard, popover, rotateAddIcon };

@@ -1,6 +1,8 @@
+@use '@/assets/utilities.scss' as *;
+
 .badge {
 	@include typo_16_regular;
-	@media (max-width: 767px) {
+	@mixin mobile {
 		@include typo_14_regular;
 	}
 
@@ -20,7 +22,7 @@
 	vertical-align: middle;
 }
 
-@media screen and (max-width: 767px) {
+@mixin mobile {
 	.badge {
 		height: 3.2rem;
 		padding: 0.6rem 0.8rem;

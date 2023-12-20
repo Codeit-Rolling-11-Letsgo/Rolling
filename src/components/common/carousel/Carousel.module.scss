@@ -7,6 +7,9 @@
 
 .item_list {
 	@include scrollbar_hide;
+	@include tablet {
+		scroll-snap-type: x proximity;
+	}
 
 	display: flex;
 	gap: 2rem;
@@ -16,6 +19,15 @@
 }
 
 .item {
+	@include mobile {
+		scroll-snap-align: center;
+		scroll-snap-stop: always;
+
+		&:last-child {
+			scroll-snap-align: end;
+		}
+	}
+
 	scroll-snap-align: start;
 
 	&:last-child {
@@ -77,22 +89,5 @@
 		transition: transform 0.5s $transition_ease_squish_3;
 		transform-origin: center center;
 		color: $color_purple_600;
-	}
-}
-
-@media screen and (max-width: 1247px) {
-	.item_list {
-		scroll-snap-type: x proximity;
-	}
-}
-
-@media screen and (max-width: 767px) {
-	.item {
-		scroll-snap-align: center;
-		scroll-snap-stop: always;
-
-		&:last-child {
-			scroll-snap-align: end;
-		}
 	}
 }

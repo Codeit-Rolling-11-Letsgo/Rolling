@@ -1,3 +1,5 @@
+@use '@/assets/utilities.scss' as *;
+
 $gap: 0.7rem;
 $height: 3.6rem;
 
@@ -34,7 +36,7 @@ $height: 3.6rem;
 	width: fit-content;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(2, 1fr);
-	@media (max-width: 767px) {
+	@include mobile {
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: repeat(2, 1fr);
 	}

@@ -1,100 +1,52 @@
-@mixin typo_28_bold {
-	font-size: 2.8rem;
+@mixin typo($size: 1.4rem, $weight: 400, $height: 2rem, $spacing: -0.007rem) {
+	font-size: $size;
 	font-style: normal;
-	font-weight: 700;
-	line-height: 4.2rem;
-	letter-spacing: -0.028rem;
+	font-weight: $weight;
+	line-height: $height;
+	letter-spacing: $spacing;
+}
+
+@mixin typo_28_bold {
+	@include typo(2.8rem, 700, 4.2rem, -0.028rem);
 }
 @mixin typo_24_bold {
-	font-size: 2.4rem;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 3.6rem;
-	letter-spacing: -0.024rem;
+	@include typo(2.4rem, 700, 3.6rem, -0.024rem);
 }
 @mixin typo_24_regular {
-	font-size: 2.4rem;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 3.6rem;
-	letter-spacing: -0.024rem;
+	@include typo(2.4rem, 400, 3.6rem, -0.024rem);
 }
 @mixin typo_20_bold {
-	font-size: 2rem;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 3rem;
-	letter-spacing: -0.02rem;
+	@include typo(2rem, 700, 3rem, -0.02rem);
 }
 @mixin typo_20_regular {
-	font-size: 2rem;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 3rem;
-	letter-spacing: -0.02rem;
+	@include typo(2rem, 400, 3rem, -0.02rem);
 }
 @mixin typo_18_bold {
-	font-size: 1.8rem;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 2.8rem;
-	letter-spacing: -0.018rem;
+	@include typo(1.8rem, 700, 2.8rem, -0.018rem);
 }
 @mixin typo_18_regular {
-	font-size: 1.8rem;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 2.8rem;
-	letter-spacing: -0.018rem;
+	@include typo(1.8rem, 400, 2.8rem, -0.018rem);
 }
 @mixin typo_16_bold {
-	font-size: 1.6rem;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 2.6rem;
-	letter-spacing: -0.016rem;
+	@include typo(1.6rem, 700, 2.6rem, -0.016rem);
 }
 @mixin typo_16_regular {
-	font-size: 1.6rem;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 2.6rem;
-	letter-spacing: -0.016rem;
+	@include typo(1.6rem, 400, 2.6rem, -0.016rem);
 }
 @mixin typo_15_bold {
-	font-size: 1.5rem;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 2.2rem;
-	letter-spacing: -0.015rem;
+	@include typo(1.5rem, 700, 2.2rem, -0.015rem);
 }
 @mixin typo_15_regular {
-	font-size: 1.5rem;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 2.2rem;
-	letter-spacing: -0.015rem;
+	@include typo(1.5rem, 400, 2.2rem, -0.015rem);
 }
 @mixin typo_14_bold {
-	font-size: 1.4rem;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 2rem;
-	letter-spacing: -0.007rem;
+	@include typo(1.4rem, 700, 2rem, -0.007rem);
 }
 @mixin typo_14_regular {
-	font-size: 1.4rem;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 2rem;
-	letter-spacing: -0.007rem;
+	@include typo(1.4rem, 400, 2rem, -0.007rem);
 }
 @mixin typo_12_regular {
-	font-size: 1.2rem;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 1.8rem;
-	letter-spacing: -0.006rem;
+	@include typo(1.2rem, 400, 1.8rem, -0.006rem);
 }
 
 $color_purple_100: #f8f0ff;
@@ -143,7 +95,7 @@ $color_black: #000;
 $color_error: #dc3a3a;
 $color_surface: #f6f8ff;
 
-$media_desktop: 1200px;
+$media_desktop: 1248px;
 $media_tablet: 768px;
 $media_mobile: 360px;
 

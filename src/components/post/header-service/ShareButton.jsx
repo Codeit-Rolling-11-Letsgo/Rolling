@@ -1,10 +1,11 @@
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 import Icon from '@/components/common/icon/Icon';
 import styles from '@/components/post/header-service/ShareButton.module.scss';
+import { popover } from '@/utils/framerAnimation';
 import shareMessageKakao from '@/utils/kakaoShareFormatting';
-
 export default function ShareButton({ shareInfo }) {
 	const { name, backgroundImageURL, messageCount, recipientId, reactionCount } =
 		shareInfo;
@@ -68,7 +69,12 @@ export default function ShareButton({ shareInfo }) {
 					<Icon name='share' />
 				</button>
 				{isPickerOpened && (
-					<div className={styles.shareOptionList}>
+					<motion.div
+						className={styles.shareOptionList}
+						initial='hidden'
+						animate='visible'
+						variants={popover}
+					>
 						<button
 							onClick={handleShareKakao}
 							className={styles.shareOptionItem}
@@ -78,11 +84,16 @@ export default function ShareButton({ shareInfo }) {
 						<button onClick={handleCopyUrl} className={styles.shareOptionItem}>
 							URL 공유
 						</button>
-					</div>
+					</motion.div>
 				)}
 			</div>
 			{isToastVisible && (
-				<div className={clsx(styles.toast)}>
+				<motion.div
+					className={clsx(styles.toast)}
+					initial='hiddenStateOfToast'
+					animate='visibleSmoother'
+					variants={popover}
+				>
 					<div className={styles.toastContents}>
 						<Icon className={styles.checkIcon} name='complete' />
 						<div className={styles.toastText}>URL이 복사되었습니다</div>
@@ -95,7 +106,7 @@ export default function ShareButton({ shareInfo }) {
 					>
 						<Icon className={styles.toastIcon} name='close' />
 					</button>
-				</div>
+				</motion.div>
 			)}
 		</>
 	);

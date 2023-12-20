@@ -1,10 +1,11 @@
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import EmojiBadge from '@/components/common/EmojiBadge';
 import Icon from '@/components/common/icon/Icon';
 import styles from '@/components/post/header-service/EmojiReactionCollection.module.scss';
-
+import { popover } from '@/utils/framerAnimation';
 export default function EmojiReactionCollection({ reactionList }) {
 	const reactionTypeCount = useMediaQuery({ maxWidth: 767 }) ? 6 : 8;
 	const emojiCollectionRef = useRef(null);
@@ -51,7 +52,12 @@ export default function EmojiReactionCollection({ reactionList }) {
 						<Icon name='arrowDown' />
 					</button>
 					{isEmojiDropDownOpened && (
-						<div className={styles.emojiReactionList}>
+						<motion.div
+							className={styles.emojiReactionList}
+							initial='hidden'
+							animate='visible'
+							variants={popover}
+						>
 							{reactionList.slice(0, reactionTypeCount).map((reaction) => (
 								<EmojiBadge
 									key={reaction.id}
@@ -59,7 +65,7 @@ export default function EmojiReactionCollection({ reactionList }) {
 									emoji={reaction.emoji}
 								/>
 							))}
-						</div>
+						</motion.div>
 					)}
 				</div>
 			</div>

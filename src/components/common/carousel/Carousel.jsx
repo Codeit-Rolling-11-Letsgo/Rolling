@@ -1,25 +1,22 @@
 import clsx from 'clsx';
-import { useRef, useState } from 'react';
+import { forwardRef, useRef, useState } from 'react';
 
 import styles from '@/components/common/carousel/Carousel.module.scss';
 import Icon from '@/components/common/icon/Icon';
-import { detectMobile } from '@/utils/util';
+import { detectTouchScreen } from '@/utils/util';
 
 /**
  *
  * @param {{items: {id: number | string, item: React.ReactNode}[], swipeCount: number, onClickPrev: () => {}, onClickNext: () => {}}} props
  * @returns
  */
-export default function Carousel({
-	itemList,
-	swipeCount = 1,
-	onClickPrev = () => {},
-	onClickNext = () => {},
-}) {
+const Carousel = forwardRef(function Carousel(
+	{ itemList, swipeCount = 1, onClickPrev = () => {}, onClickNext = () => {} },
+	ref,
+) {
 	const [currentIdx, setCurrentIdx] = useState(0);
-	const swipeCountRef = useRef(swipeCount);
 	const itemMapRef = useRef(null);
-	const isMobile = detectMobile();
+	const isTouchScreen = detectTouchScreen();
 
 	const scrollToId = (itemId) => {
 		const map = getMap();
@@ -39,23 +36,28 @@ export default function Carousel({
 	};
 
 	const handlePrevClick = () => {
-		scrollToId(itemList.at(currentIdx - swipeCountRef.current).id);
-		setCurrentIdx((ci) => ci - swipeCountRef.current);
+		const prevIdx = Math.max(currentIdx - swipeCount, 0);
+		scrollToId(itemList.at(prevIdx).id);
+		setCurrentIdx(prevIdx);
 		onClickPrev();
 	};
 
 	const handleNextClick = () => {
-		scrollToId(itemList.at(currentIdx + swipeCountRef.current).id);
-		setCurrentIdx((ci) => ci + swipeCountRef.current);
+		const nextIdx = Math.min(
+			currentIdx + swipeCount,
+			itemList.length - swipeCount,
+		);
+		scrollToId(itemList.at(nextIdx).id);
+		setCurrentIdx(nextIdx);
 		onClickNext();
 	};
 
-	const isFirst = currentIdx === 0;
-	const isEnd = currentIdx + swipeCountRef.current === itemList.length;
+	const isFirst = currentIdx <= 0;
+	const isEnd = currentIdx + swipeCount >= itemList.length;
 
 	return (
-		<div className={styles.container}>
-			{isMobile || isFirst ? null : (
+		<div className={styles.container} ref={ref}>
+			{isTouchScreen || isFirst ? null : (
 				<button
 					onClick={handlePrevClick}
 					className={clsx(styles.carousel_button, styles.prev)}
@@ -63,7 +65,7 @@ export default function Carousel({
 					<Icon name='arrowLeft' className={styles.left_arrow} />
 				</button>
 			)}
-			{isMobile || isEnd ? null : (
+			{isTouchScreen || isEnd ? null : (
 				<button
 					onClick={handleNextClick}
 					className={clsx(styles.carousel_button, styles.next)}
@@ -91,4 +93,6 @@ export default function Carousel({
 			</ol>
 		</div>
 	);
-}
+});
+
+export default Carousel;

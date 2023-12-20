@@ -53,7 +53,7 @@ const Carousel = forwardRef(function Carousel(
 	};
 
 	const isFirst = currentIdx <= 0;
-	const isEnd = currentIdx + swipeCount >= itemList.length;
+	const isEnd = currentIdx + swipeCount >= itemList.length - swipeCount;
 
 	return (
 		<div className={styles.container} ref={ref}>

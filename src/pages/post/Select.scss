@@ -11,6 +11,7 @@
 }
 
 .toggleBox > .button {
+	width: 9rem;
 	margin: 0;
 }
 
@@ -23,7 +24,7 @@
 	cursor: pointer;
 }
 
-label > .check > svg {
+.selectLabel > .check > svg {
 	width: 4.4rem;
 	height: 4.4rem;
 	background: $color_gray_500;
@@ -32,51 +33,15 @@ label > .check > svg {
 	z-index: 1;
 }
 
-svg {
-	display: none;
-}
-
 .checked svg {
 	display: block;
 }
 
-.beige {
-	background: $color_orange_200;
-}
-
-.purple {
-	background: $color_purple_200;
-}
-
-.blue {
-	background: $color_blue_200;
-}
-
-.green {
-	background: $color_green_200;
-}
-
-.image1 {
-	background-image: url('https://picsum.photos/id/683/3840/2160');
-}
-
-.image2 {
-	background-image: url('https://picsum.photos/id/24/3840/2160');
-}
-
-.image3 {
-	background-image: url('https://picsum.photos/id/599/3840/2160');
-}
-
-.image4 {
-	background-image: url('https://picsum.photos/id/1058/3840/2160');
-}
-
-form > button {
+.postForm > .button {
 	margin-top: 10rem;
 }
 
-input[type='checkbox'] {
+.checkboxInput {
 	display: none;
 }
 
@@ -103,6 +68,22 @@ input[type='checkbox'] {
 
 		&.image4 {
 			background-image: url('https://picsum.photos/id/1058/3840/2160');
+		}
+
+		&.beige {
+			background: $color_orange_200;
+		}
+
+		&.purple {
+			background: $color_purple_200;
+		}
+
+		&.blue {
+			background: $color_blue_200;
+		}
+
+		&.green {
+			background: $color_green_200;
 		}
 	}
 }

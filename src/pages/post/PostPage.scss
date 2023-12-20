@@ -2,7 +2,7 @@
 	border-bottom: 0.1rem solid $color_gray_100;
 }
 
-form {
+.postForm {
 	width: 72rem;
 	display: flex;
 	flex-direction: column;
@@ -30,11 +30,11 @@ form {
 	margin-top: 5rem;
 }
 
-.textBox > h2 {
+.textBox > .title {
 	@include typo_24_bold;
 }
 
-.textBox > p {
+.textBox > .subTitle {
 	@include typo_16_regular;
 }
 

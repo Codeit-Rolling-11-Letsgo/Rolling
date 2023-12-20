@@ -41,7 +41,7 @@ function ProfileImageSelect({ onProfileImageChange }) {
 		<div className='profileImageBox'>
 			<img src={selectedImage} className='selected' alt='Selected' />
 			<div className='selectImage'>
-				<p className='imageText'>프로필 이미지를 선택해주세요.</p>
+				<p className='subTitle'>프로필 이미지를 선택해주세요.</p>
 				<div className='images'>
 					{imageUrls.map((image, index) => (
 						<div key={index}>
@@ -56,6 +56,7 @@ function ProfileImageSelect({ onProfileImageChange }) {
 								{''}
 							</button>
 							<input
+								className='checkboxInput'
 								type='checkbox'
 								id={`ckb${index + 1}`}
 								checked={checkedItems[`ckb${index + 1}`] || false}

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import postRecipientMessage from '@/apis/post/postRecipientsMessage';
 import Button from '@/components/common/Buttons/Button';
 import DropDown from '@/components/common/DropDown/DropDown';
+import GlobalHeader from '@/components/common/header/GlobalHeader';
 import Input from '@/components/common/Input/Input';
 import Layout from '@/components/common/Layout';
 import FontSelector from '@/pages/PostIdMessage/FontSelect';
@@ -76,6 +77,7 @@ function PostMessage() {
 
 	return (
 		<Layout>
+			<GlobalHeader />
 			<form className='postMessageForm'>
 				<div className='inputBox'>
 					<label htmlFor='sendingInput' className='sendTo'>

@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 
 import { postRecipient } from '@/apis/post/postRecipients';
 import Button from '@/components/common/Buttons/Button';
+import GlobalHeader from '@/components/common/header/GlobalHeader';
 import Input from '@/components/common/Input/Input';
 import Layout from '@/components/common/Layout';
 import Select from '@/pages/post/Select';
@@ -64,7 +65,8 @@ function PostForm() {
 
 	return (
 		<Layout>
-			<form onSubmit={handleFormSubmit}>
+			<GlobalHeader />
+			<form onSubmit={handleFormSubmit} className='postForm'>
 				<div className='inputBox'>
 					<label htmlFor='sendingInput' className='sendTo'>
 						To.
@@ -80,8 +82,10 @@ function PostForm() {
 					/>
 				</div>
 				<div className='textBox'>
-					<h2>배경화면을 선택해 주세요.</h2>
-					<p>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
+					<h2 className='title'>배경화면을 선택해 주세요.</h2>
+					<p className='subTitle'>
+						컬러를 선택하거나, 이미지를 선택할 수 있습니다.
+					</p>
 				</div>
 				<Select
 					type={type}

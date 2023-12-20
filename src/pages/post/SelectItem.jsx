@@ -11,6 +11,7 @@ const Checkbox = ({ id, type, color, image, isChecked, onCheckboxChange }) => {
 				{isChecked && <Icon name='check' className='check' />}
 			</label>
 			<input
+				className='checkboxInput'
 				type='checkbox'
 				id={id}
 				checked={isChecked}

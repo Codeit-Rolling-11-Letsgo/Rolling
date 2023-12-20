@@ -4,6 +4,7 @@
 	border-radius: 10rem;
 	border: 0.1rem solid $color_gray_200;
 	background-size: cover;
+	background-position: center;
 	cursor: pointer;
 }
 
@@ -20,7 +21,7 @@
 	align-items: flex-start;
 }
 
-.imageText {
+.subTitle {
 	color: $color_gray_500;
 	@include typo_16_regular;
 }

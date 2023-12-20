@@ -12,7 +12,6 @@ export default function RecipientCardList({ recipientList }) {
 	const GAP = 20;
 	const carouselRef = useRef(null);
 	const carouselWidth = useDOMWidth(carouselRef, { debounce: 10 });
-	console.log(carouselWidth);
 
 	let swipeCount = 4;
 	if (carouselWidth <= DEFAULT_CAROUSEL_WIDTH - CARD_WIDTH / 2) swipeCount = 3;

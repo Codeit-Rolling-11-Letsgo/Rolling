@@ -41,6 +41,11 @@
 	gap: 1.2rem;
 }
 
-.button {
+.link {
+	height: 4.8688rem;
 	margin: 10rem 0 6rem;
+}
+
+.link > .button {
+	width: 72rem;
 }

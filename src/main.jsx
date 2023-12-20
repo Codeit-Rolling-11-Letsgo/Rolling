@@ -57,7 +57,7 @@ const router = createBrowserRouter([
 		element: <Post />,
 	},
 	{
-		path: '/post/:recipientId/postMessage',
+		path: '/post/:recipientId/message',
 		element: <PostMessage />,
 	},
 	{

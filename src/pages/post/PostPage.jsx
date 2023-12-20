@@ -1,6 +1,8 @@
 import '@/pages/post/PostPage.scss';
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { postRecipient } from '@/apis/post/postRecipients';
 import Button from '@/components/common/Buttons/Button';
@@ -9,6 +11,7 @@ import Layout from '@/components/common/Layout';
 import Select from '@/pages/post/Select';
 
 function PostForm() {
+	const { recipientId } = useParams();
 	const [inputValue, setInputValue] = useState('');
 	const [error, setError] = useState('');
 	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -85,12 +88,14 @@ function PostForm() {
 					onSelectionChange={handleSelectionChange}
 					onSelectTypeChange={handleSelectTypeChange}
 				/>
-				<Button
-					size='basic'
-					disabled={isButtonDisabled}
-					content='생성하기'
-					type='submit'
-				/>
+				<Link to={`/post/${recipientId}`} className='link'>
+					<Button
+						size='basic'
+						disabled={isButtonDisabled}
+						content='생성하기'
+						type='submit'
+					/>
+				</Link>
 			</form>
 		</Layout>
 	);

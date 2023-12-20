@@ -1,26 +1,33 @@
 import { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 
-import { getMessageList } from '@/apis/post/postAPI';
+import { deleteRecipient, getMessageList } from '@/apis/post/postAPI';
 import NewMessageCTA from '@/components/post/NewMessageCTA';
 import PostCard from '@/components/post/PostCard';
 import PostLayout from '@/components/post/PostLayout';
 import PostModal from '@/components/post/PostModal';
-import { RecipientInfoProvider } from '@/contexts/RecipientInfoContext';
 import useBackgroundImage from '@/hooks/common/useBackgroundImage';
 import { useIntersect } from '@/hooks/useIntersect';
 import { useModalContext } from '@/hooks/useModalContext';
 import styles from '@/pages/post/PostIdPage.module.scss';
 
 export default function PostIdPage() {
+	const { pathname } = useLocation();
+	const navigate = useNavigate();
 	const { recipientId, messageListInfo, recipientInfo } = useLoaderData();
-	const { results: messageList } = messageListInfo;
+	const { isModalOpen, openModal } = useModalContext();
 
-	const [currentMessageList, setCurrentMessageList] = useState(messageList);
+	const isEdit = pathname.includes('edit');
+
+	const [currentMessageListInfo, setCurrentMessageListInfo] =
+		useState(messageListInfo);
+	const [currentMessageList, setCurrentMessageList] = useState(
+		currentMessageListInfo.results,
+	);
 	const [isLoading, setIsLoading] = useState(false);
 
 	const fetchMoreMessageList = async () => {
-		if (messageListInfo.count > currentMessageList.length) {
+		if (currentMessageListInfo.count > currentMessageList.length) {
 			setIsLoading(true);
 
 			const { messageListInfo: newMessageListInfo } = await getMessageList({
@@ -29,6 +36,7 @@ export default function PostIdPage() {
 				offset: currentMessageList.length,
 			});
 
+			setCurrentMessageListInfo(newMessageListInfo);
 			setCurrentMessageList((prevMessageList) => [
 				...prevMessageList,
 				...newMessageListInfo.results,
@@ -37,9 +45,29 @@ export default function PostIdPage() {
 		}
 	};
 
-	const trigger = useIntersect(fetchMoreMessageList, { rootMargin: '350px' });
+	const reload = async () => {
+		setIsLoading(true);
+		const { messageListInfo: newMessageListInfo } = await getMessageList({
+			recipientId,
+			limit: currentMessageList.length,
+			offset: 0,
+		});
 
-	const { isModalOpen, openModal } = useModalContext();
+		setCurrentMessageListInfo(newMessageListInfo);
+		setCurrentMessageList(newMessageListInfo.results);
+		setIsLoading(false);
+	};
+
+	const handleClickDelete = async () => {
+		const result = await deleteRecipient(recipientId);
+		if (!result) {
+			// TODO: 삭제 실패 toast
+			return;
+		}
+		navigate('/list');
+	};
+
+	const trigger = useIntersect(fetchMoreMessageList, { rootMargin: '350px' });
 
 	const backgroundImageRef = useBackgroundImage(
 		recipientInfo.backgroundImageURL,
@@ -49,25 +77,32 @@ export default function PostIdPage() {
 	);
 
 	return (
-		<RecipientInfoProvider recipientInfo={recipientInfo}>
-			<PostLayout
-				className={styles[recipientInfo.backgroundColor]}
-				ref={backgroundImageRef}
-			>
-				<div className={styles.cardList}>
-					<NewMessageCTA recipientId={recipientId} />
-					{currentMessageList.map((message) => (
-						<PostCard
-							key={message.id}
-							message={message}
-							onClick={openModal}
-						></PostCard>
-					))}
-
-					{!isLoading && <div ref={trigger}></div>}
-					{isModalOpen && <PostModal />}
+		<PostLayout
+			className={styles[recipientInfo.backgroundColor]}
+			ref={backgroundImageRef}
+		>
+			{isEdit && (
+				<div className={styles.buttonContainer}>
+					<button className={styles.deleteButton} onClick={handleClickDelete}>
+						삭제하기
+					</button>
 				</div>
-			</PostLayout>
-		</RecipientInfoProvider>
+			)}
+			<div className={styles.cardList}>
+				<NewMessageCTA recipientId={recipientId} />
+				{currentMessageList.map((message) => (
+					<PostCard
+						key={message.id}
+						message={message}
+						openModal={openModal}
+						isEdit={isEdit}
+						reload={reload}
+					></PostCard>
+				))}
+
+				{!isLoading && <div ref={trigger}></div>}
+				{isModalOpen && <PostModal />}
+			</div>
+		</PostLayout>
 	);
 }

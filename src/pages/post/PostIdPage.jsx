@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 
-import { deleteRecipients, getMessageList } from '@/apis/post/postAPI';
+import { deleteRecipient, getMessageList } from '@/apis/post/postAPI';
 import NewMessageCTA from '@/components/post/NewMessageCTA';
 import PostCard from '@/components/post/PostCard';
 import PostLayout from '@/components/post/PostLayout';
@@ -17,19 +17,14 @@ export default function PostIdPage() {
 	const { recipientId, messageListInfo, recipientInfo } = useLoaderData();
 	const { isModalOpen, openModal } = useModalContext();
 
-	const [isEdit, setIsEdit] = useState(false);
+	const isEdit = pathname.includes('edit');
+
 	const [currentMessageListInfo, setCurrentMessageListInfo] =
 		useState(messageListInfo);
 	const [currentMessageList, setCurrentMessageList] = useState(
 		currentMessageListInfo.results,
 	);
 	const [isLoading, setIsLoading] = useState(false);
-
-	useEffect(() => {
-		if (pathname.includes('edit')) {
-			setIsEdit(true);
-		}
-	}, [pathname]);
 
 	const fetchMoreMessageList = async () => {
 		if (currentMessageListInfo.count > currentMessageList.length) {
@@ -41,7 +36,7 @@ export default function PostIdPage() {
 				offset: currentMessageList.length,
 			});
 
-			setCurrentMessageListInfo({ ...newMessageListInfo });
+			setCurrentMessageListInfo(newMessageListInfo);
 			setCurrentMessageList((prevMessageList) => [
 				...prevMessageList,
 				...newMessageListInfo.results,
@@ -64,7 +59,11 @@ export default function PostIdPage() {
 	};
 
 	const handleClickDelete = async () => {
-		await deleteRecipients(recipientId);
+		const result = await deleteRecipient(recipientId);
+		if (!result) {
+			// TODO: 삭제 실패 toast
+			return;
+		}
 		navigate('/list');
 	};
 

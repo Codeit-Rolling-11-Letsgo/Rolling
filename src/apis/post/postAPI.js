@@ -40,15 +40,27 @@ export const getRecipientInfo = async (recipientId) => {
 /**
  *
  * @param {number} messageId
+ * @returns {Promise<boolean>} 메시지 삭제 성공 여부
  */
 export const deleteMessage = async (messageId) => {
-	await fetcher.delete(`messages/${messageId}/`).json();
+	try {
+		await fetcher.delete(`messages/${messageId}/`).json();
+		return true;
+	} catch (error) {
+		return false;
+	}
 };
 
 /**
  *
  * @param {number} recipientId
+ * @returns {Promise<boolean>} recipient 삭제 성공 여부
  */
-export const deleteRecipients = async (recipientId) => {
-	await fetcher.delete(`recipients/${recipientId}/`);
+export const deleteRecipient = async (recipientId) => {
+	try {
+		await fetcher.delete(`recipients/${recipientId}/`);
+		return true;
+	} catch (error) {
+		return false;
+	}
 };

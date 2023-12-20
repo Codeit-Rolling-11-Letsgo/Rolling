@@ -11,7 +11,11 @@ function PostCard({ message, openModal, isEdit, reload }) {
 
 	const handleClickDelete = async (e) => {
 		e.stopPropagation();
-		await deleteMessage(id);
+		const result = await deleteMessage(id);
+		if (!result) {
+			// TODO: 삭제 실패 toast
+			return;
+		}
 		await reload();
 	};
 

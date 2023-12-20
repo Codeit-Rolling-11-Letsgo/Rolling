@@ -51,11 +51,6 @@ function PostCard({ message, openModal, isEdit, reload }) {
 							<Icon name='delete' className={styles.deleteIcon} />
 						</button>
 					)}
-					{isEdit && (
-						<button className={styles.deleteButton} onClick={handleClickDelete}>
-							<Icon name='delete' className={styles.deleteIcon} />
-						</button>
-					)}
 				</Card.Panel>
 				<Card.Panel className={styles.contentContainer}>
 					<div

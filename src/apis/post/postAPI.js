@@ -40,6 +40,7 @@ export const getRecipientInfo = async (recipientId) => {
 /**
  * 메시지 삭제
  * @param {number} messageId
+ * @returns {Promise<boolean>} 메시지 삭제 성공 여부
  */
 export const deleteMessage = async (messageId) => {
 	try {
@@ -53,6 +54,7 @@ export const deleteMessage = async (messageId) => {
 /**
  * 수신자 삭제
  * @param {number} recipientId
+ * @returns {Promise<boolean>} recipient 삭제 성공 여부
  */
 export const deleteRecipient = async (recipientId) => {
 	try {

@@ -10,7 +10,7 @@ import { ModalProvider } from '@/contexts/ModalContext';
 import HomePage from '@/pages/home/HomePage';
 import ListPage from '@/pages/list/ListPage';
 import PostIdPage from '@/pages/post/PostIdPage';
-import Post from '@/pages/post/PostPage';
+import PostPage from '@/pages/post/PostPage';
 import PostMessage from '@/pages/PostIdMessage/PostMessage';
 
 const router = createBrowserRouter([
@@ -54,12 +54,13 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/post',
-		element: <Post />,
+		element: <PostPage />,
 	},
 	{
 		path: '/post/:recipientId/message',
 		element: <PostMessage />,
 	},
+
 	{
 		path: '/post/:recipientId/edit',
 		element: <PostIdPage />,

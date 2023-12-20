@@ -3,6 +3,8 @@
 	height: 5.6rem;
 	border-radius: 10rem;
 	border: 0.1rem solid $color_gray_200;
+	background-size: cover;
+	cursor: pointer;
 }
 
 .selected {
@@ -35,8 +37,4 @@
 	flex-direction: row;
 	align-items: center;
 	gap: 3.2rem;
-}
-
-button {
-	cursor: pointer;
 }

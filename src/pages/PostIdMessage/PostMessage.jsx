@@ -1,7 +1,9 @@
 import '@/pages/PostIdMessage/PostMessage.scss';
 
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
+import postRecipientMessage from '@/apis/post/postRecipientsMessage';
 import Button from '@/components/common/Buttons/Button';
 import DropDown from '@/components/common/DropDown/DropDown';
 import Input from '@/components/common/Input/Input';
@@ -10,13 +12,8 @@ import FontSelector from '@/pages/PostIdMessage/FontSelect';
 import ProfileImageSelect from '@/pages/PostIdMessage/ProfileImageSelect';
 import TextEditor from '@/pages/PostIdMessage/TextEditor';
 
-function stripPTags(htmlString) {
-	const doc = new DOMParser().parseFromString(htmlString, 'text/html');
-	const textContent = doc.body.textContent || '';
-	return textContent.trim();
-}
-
 function PostMessage() {
+	const { recipientId } = useParams();
 	const [inputValue, setInputValue] = useState('');
 	const [error, setError] = useState('');
 	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -58,39 +55,27 @@ function PostMessage() {
 			setError('');
 		}
 	};
-
 	const handleCreateMessage = async () => {
 		try {
-			const strippedContent = stripPTags(editorContent);
-			const response = await fetch(
-				'https://rolling-api.vercel.app/2-11/recipients/1348/messages/',
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-						sender: inputValue,
-						profileImageURL: selectedProfileImageUrl,
-						content: strippedContent,
-						font: selectedFont,
-						relationship: selectedRelation,
-					}),
-				},
-			);
+			const response = await postRecipientMessage(recipientId, {
+				sender: inputValue,
+				profileImageURL: selectedProfileImageUrl,
+				content: editorContent,
+				font: selectedFont,
+				relationship: selectedRelation,
+			});
 
-			if (response.ok) {
-				console.log('Message created successfully!');
-			} else {
-				console.error('Failed to create message:', response.statusText);
+			if (response) {
+				console.log('메세지 전송이 완료되었습니다.', response);
 			}
 		} catch (error) {
-			console.error('Error creating message:', error);
+			console.error('에러 발생:', error);
 		}
 	};
+
 	return (
 		<Layout>
-			<form>
+			<form className='postMessageForm'>
 				<div className='inputBox'>
 					<label htmlFor='sendingInput' className='sendTo'>
 						From.
@@ -106,11 +91,11 @@ function PostMessage() {
 					/>
 				</div>
 				<div className='textBox'>
-					<h2>프로필 이미지</h2>
+					<h2 className='sectionTitle'>프로필 이미지</h2>
 				</div>
 				<ProfileImageSelect onProfileImageChange={handleProfileImageChange} />
 				<div className='relation'>
-					<h2>상대와의 관계</h2>
+					<h2 className='sectionTitle'>상대와의 관계</h2>
 					<DropDown
 						options={['친구', '지인', '동료', '가족']}
 						defaultValue={selectedRelation}

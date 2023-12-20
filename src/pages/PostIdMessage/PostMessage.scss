@@ -2,7 +2,7 @@
 	border-bottom: 0.1rem solid $color_gray_100;
 }
 
-form {
+.postMessageForm {
 	width: 72rem;
 	display: flex;
 	flex-direction: column;
@@ -30,7 +30,7 @@ form {
 	margin-top: 5rem;
 }
 
-h2 {
+.sectionTitle {
 	@include typo_24_bold;
 }
 
@@ -41,11 +41,6 @@ h2 {
 	gap: 1.2rem;
 }
 
-svg,
-span {
-	display: block;
-}
-
 .button {
-	margin-bottom: 6rem;
+	margin: 10rem 0 6rem;
 }

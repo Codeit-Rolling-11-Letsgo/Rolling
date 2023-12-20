@@ -47,7 +47,7 @@ function TextEditor({ onContentChange }) {
 
 	return (
 		<div className='textEditor'>
-			<h2>내용을 입력해 주세요</h2>
+			<h2 className='sectionTitle'>내용을 입력해 주세요</h2>
 			<ReactQuill
 				theme='snow'
 				value={content}

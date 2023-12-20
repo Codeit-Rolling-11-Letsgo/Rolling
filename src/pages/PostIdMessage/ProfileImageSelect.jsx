@@ -47,7 +47,7 @@ function ProfileImageSelect({ onProfileImageChange }) {
 						<div key={index}>
 							<button
 								type='button'
-								className={`imageSelectLabel image${index + 1} ${
+								className={`imageSelectLabel ${
 									checkedItems[`ckb${index + 1}`] ? 'checked' : ''
 								}`}
 								style={{ backgroundImage: `url(${image})` }}

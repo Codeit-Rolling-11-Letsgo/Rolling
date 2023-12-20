@@ -25,22 +25,6 @@
 	"ignorePatterns": ["dist"],
 	"plugins": ["react-refresh", "simple-import-sort"],
 	"rules": {
-		"jsx-a11y/label-has-associated-control": [
-			"error",
-			{
-				"required": {
-					"some": ["nesting", "id"]
-				}
-			}
-		],
-		"jsx-a11y/label-has-for": [
-			"error",
-			{
-				"required": {
-					"some": ["nesting", "id"]
-				}
-			}
-		],
 		"react-refresh/only-export-components": [
 			"warn",
 			{

@@ -9,8 +9,8 @@ import { getRecipientList } from '@/apis/recipients/recipientsAPI';
 import { ModalProvider } from '@/contexts/ModalContext';
 import HomePage from '@/pages/home/HomePage';
 import ListPage from '@/pages/list/ListPage';
-import Post from '@/pages/post/Post';
 import PostIdPage from '@/pages/post/PostIdPage';
+import Post from '@/pages/post/PostPage';
 import PostMessage from '@/pages/PostIdMessage/PostMessage';
 
 const router = createBrowserRouter([
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
 		element: <Post />,
 	},
 	{
-		path: '/postMessage',
+		path: '/post/:recipientId/postMessage',
 		element: <PostMessage />,
 	},
 ]);

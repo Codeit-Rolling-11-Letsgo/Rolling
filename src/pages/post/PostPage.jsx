@@ -1,7 +1,8 @@
-import '@/pages/post/post.scss';
+import '@/pages/post/PostPage.scss';
 
 import { useState } from 'react';
 
+import { postRecipient } from '@/apis/post/postRecipients';
 import Button from '@/components/common/Buttons/Button';
 import Input from '@/components/common/Input/Input';
 import Layout from '@/components/common/Layout';
@@ -11,10 +12,7 @@ function PostForm() {
 	const [inputValue, setInputValue] = useState('');
 	const [error, setError] = useState('');
 	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
-	const [backgroundSelection, setBackgroundSelection] = useState({
-		backgroundColor: 'beige',
-		backgroundImageURL: 'https://picsum.photos/id/683/3840/2160',
-	});
+	const [backgroundSelection, setBackgroundSelection] = useState({});
 
 	const handleInputChange = (e) => {
 		const value = e.target.value;
@@ -34,37 +32,17 @@ function PostForm() {
 	const handleFormSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			let requestBody;
+			const requestBody = {
+				name: inputValue,
+				backgroundColor: backgroundSelection.backgroundColor,
+				backgroundImageURL:
+					type === 'image' ? backgroundSelection.imageURL : null,
+			};
 
-			if (type === 'color') {
-				requestBody = {
-					name: inputValue,
-					backgroundColor: backgroundSelection.backgroundColor,
-					backgroundImageURL: null,
-				};
-			} else if (type === 'image') {
-				requestBody = {
-					name: inputValue,
-					backgroundColor: backgroundSelection.backgroundColor,
-					backgroundImageURL: backgroundSelection.imageURL,
-				};
-			}
-			const response = await fetch(
-				'https://rolling-api.vercel.app/2-11/recipients/',
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify(requestBody),
-				},
-			);
+			const response = await postRecipient(requestBody);
 
-			if (response.ok) {
-				console.log('전송이 완료되었습니다.');
-			} else {
-				const errorMessage = await response.text();
-				console.error('전송에 실패했습니다.', errorMessage);
+			if (response) {
+				console.log('전송이 완료되었습니다.', response);
 			}
 		} catch (error) {
 			console.error('에러 발생:', error);

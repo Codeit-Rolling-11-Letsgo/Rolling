@@ -1,7 +1,5 @@
 import '@/pages/PostIdMessage/FontSelect.scss';
 
-import { useState } from 'react';
-
 import DropDown from '@/components/common/DropDown/DropDown';
 
 const fontOptions = [
@@ -12,21 +10,22 @@ const fontOptions = [
 ];
 
 function FontSelector({ onSelectFont }) {
+	/*
 	const [selectedFont, setSelectedFont] = useState('Noto Sans');
-
+*/
 	const handleFontChange = (font) => {
-		setSelectedFont(font);
+		/* setSelectedFont(font);*/
 		onSelectFont(font);
 	};
 
 	return (
 		<div className='fontSelect'>
-			<h2>폰트 선택</h2>
+			<h2 className='sectionTitle'>폰트 선택</h2>
 			<DropDown
 				options={fontOptions}
 				defaultValue='Noto Sans'
 				onChange={handleFontChange}
-				selectedOption={selectedFont}
+				/*selectedOption={selectedFont}*/
 			/>
 		</div>
 	);

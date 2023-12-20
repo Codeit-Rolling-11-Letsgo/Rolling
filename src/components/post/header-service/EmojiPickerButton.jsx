@@ -1,10 +1,11 @@
 import EmojiPicker from 'emoji-picker-react';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 import { postRecipientsReactions } from '@/apis/recipients/reactionsAPI';
 import Icon from '@/components/common/icon/Icon';
 import styles from '@/components/post/header-service/EmojiPickerButton.module.scss';
-
+import { popover } from '@/utils/framerAnimation';
 const EMOJI_PICKER_WIDTH = '30.7rem';
 const EMOJI_PICKER_HEIGHT = '39.3rem';
 
@@ -45,13 +46,18 @@ export default function EmojiPickerButton({
 				<div className={styles.addText}> 추가</div>
 			</button>
 			{isPickerOpened && (
-				<div className={styles.emojiPicker}>
+				<motion.div
+					className={styles.emojiPicker}
+					initial='hidden'
+					animate='visible'
+					variants={popover}
+				>
 					<EmojiPicker
 						onEmojiClick={handleEmojiClick}
 						width={EMOJI_PICKER_WIDTH}
 						height={EMOJI_PICKER_HEIGHT}
 					/>
-				</div>
+				</motion.div>
 			)}
 		</div>
 	);

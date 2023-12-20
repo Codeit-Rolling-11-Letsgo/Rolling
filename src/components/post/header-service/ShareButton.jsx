@@ -62,20 +62,25 @@ export default function ShareButton({ shareInfo }) {
 	}, []);
 
 	return (
-		<div className={styles.shareOption} ref={shareOptionPickerRef}>
-			<button className={styles.toggleButton} onClick={handlePickerToggle}>
-				<Icon name='share' />
-			</button>
-			{isPickerOpened && (
-				<div className={styles.shareOptionList}>
-					<button onClick={handleShareKakao} className={styles.shareOptionItem}>
-						카카오톡 공유
-					</button>
-					<button onClick={handleCopyUrl} className={styles.shareOptionItem}>
-						URL 공유
-					</button>
-				</div>
-			)}
+		<>
+			<div className={styles.shareOption} ref={shareOptionPickerRef}>
+				<button className={styles.toggleButton} onClick={handlePickerToggle}>
+					<Icon name='share' />
+				</button>
+				{isPickerOpened && (
+					<div className={styles.shareOptionList}>
+						<button
+							onClick={handleShareKakao}
+							className={styles.shareOptionItem}
+						>
+							카카오톡 공유
+						</button>
+						<button onClick={handleCopyUrl} className={styles.shareOptionItem}>
+							URL 공유
+						</button>
+					</div>
+				)}
+			</div>
 			{isToastVisible && (
 				<div className={clsx(styles.toast)}>
 					<div className={styles.toastContents}>
@@ -92,6 +97,6 @@ export default function ShareButton({ shareInfo }) {
 					</button>
 				</div>
 			)}
-		</div>
+		</>
 	);
 }

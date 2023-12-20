@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
+import EmojiBadge from '@/components/common/EmojiBadge';
 import Icon from '@/components/common/icon/Icon';
 import styles from '@/components/post/header-service/EmojiReactionCollection.module.scss';
-import TopEmojiReactionList from '@/components/post/header-service/TopEmojiReactionList';
 
 export default function EmojiReactionCollection({ reactionList }) {
 	const reactionTypeCount = useMediaQuery({ maxWidth: 767 }) ? 6 : 8;
@@ -34,7 +34,13 @@ export default function EmojiReactionCollection({ reactionList }) {
 		<div className={styles.emojiReactionCollection}>
 			<div className={styles.emojiReactionTop3Container}>
 				<div className={styles.emojiReactionTop3}>
-					{TopEmojiReactionList(reactionList, 3)}
+					{reactionList.slice(0, 3).map((reaction) => (
+						<EmojiBadge
+							key={reaction.id}
+							label={reaction.count}
+							emoji={reaction.emoji}
+						/>
+					))}
 				</div>
 
 				<div ref={emojiCollectionRef}>
@@ -46,7 +52,13 @@ export default function EmojiReactionCollection({ reactionList }) {
 					</button>
 					{isEmojiDropDownOpened && (
 						<div className={styles.emojiReactionList}>
-							{TopEmojiReactionList(reactionList, reactionTypeCount)}
+							{reactionList.slice(0, reactionTypeCount).map((reaction) => (
+								<EmojiBadge
+									key={reaction.id}
+									label={reaction.count}
+									emoji={reaction.emoji}
+								/>
+							))}
 						</div>
 					)}
 				</div>

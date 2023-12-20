@@ -17,6 +17,10 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	&:active {
+		color: $color_white;
+	}
 }
 
 @media screen and (max-width: 1247px) {

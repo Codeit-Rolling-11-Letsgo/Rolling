@@ -1,6 +1,6 @@
-import '@/pages/PostIdMessage/ProfileImageSelect.scss';
-
 import { useEffect, useState } from 'react';
+
+import styles from '@/pages/PostIdMessage/ProfileImageSelect.module.scss';
 
 function ProfileImageSelect({ onProfileImageChange }) {
 	const [imageUrls, setImageUrls] = useState([]);
@@ -38,17 +38,17 @@ function ProfileImageSelect({ onProfileImageChange }) {
 	};
 
 	return (
-		<div className='profileImageBox'>
-			<img src={selectedImage} className='selected' alt='Selected' />
-			<div className='selectImage'>
-				<p className='subTitle'>프로필 이미지를 선택해주세요.</p>
-				<div className='images'>
+		<div className={styles.profileImageBox}>
+			<img src={selectedImage} className={styles.selected} alt='Selected' />
+			<div className={styles.selectImage}>
+				<p className={styles.subTitle}>프로필 이미지를 선택해주세요.</p>
+				<div className={styles.images}>
 					{imageUrls.map((image, index) => (
-						<div key={index} className='imageButton'>
+						<div key={index} className={styles.imageButton}>
 							<button
 								type='button'
-								className={`imageSelectLabel ${
-									checkedItems[`ckb${index + 1}`] ? 'checked' : ''
+								className={`${styles.imageSelectLabel} ${
+									checkedItems[`ckb${index + 1}`] ? styles.checked : ''
 								}`}
 								style={{ backgroundImage: `url(${image})` }}
 								onClick={() => handleCheckboxChange(`ckb${index + 1}`, image)}
@@ -56,7 +56,7 @@ function ProfileImageSelect({ onProfileImageChange }) {
 								{''}
 							</button>
 							<input
-								className='checkboxInput'
+								className={styles.checkboxInput}
 								type='checkbox'
 								id={`ckb${index + 1}`}
 								checked={checkedItems[`ckb${index + 1}`] || false}

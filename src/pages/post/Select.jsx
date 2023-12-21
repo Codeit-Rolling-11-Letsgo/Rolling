@@ -1,9 +1,8 @@
-import '@/pages/post/Select.scss';
-
 import { useEffect, useState } from 'react';
 
 import ToggleButton from '@/components/common/button/ToggleButton';
 import Icon from '@/components/common/icon/Icon';
+import styles from '@/pages/post/Select.module.scss';
 import Checkbox from '@/pages/post/SelectItem';
 
 function Select({ onSelectionChange, onSelectTypeChange }) {
@@ -30,7 +29,7 @@ function Select({ onSelectionChange, onSelectTypeChange }) {
 
 		const index = parseInt(checkboxId.slice(3)) - 1;
 
-		const newBackgroundColor = getColorFromCheckbox(checkboxId);
+		const newBackgroundColor = getColorFromCheckbox(checkboxId) || '';
 		const newImageURL = imageUrls[index] || '';
 
 		onSelectionChange({
@@ -50,7 +49,7 @@ function Select({ onSelectionChange, onSelectTypeChange }) {
 			case 'ckb4':
 				return 'green';
 			default:
-				return '';
+				return 'beige';
 		}
 	};
 
@@ -74,7 +73,7 @@ function Select({ onSelectionChange, onSelectTypeChange }) {
 	}, []);
 	return (
 		<>
-			<div className='toggleBox'>
+			<div className={styles.toggleBox}>
 				<ToggleButton
 					items={[
 						{ label: '컬러', value: 'color' },
@@ -87,7 +86,7 @@ function Select({ onSelectionChange, onSelectTypeChange }) {
 					}}
 				/>
 			</div>
-			<div className='selector_box'>
+			<div className={styles.selectorBox}>
 				{imageUrls.map((imageUrl, index) => (
 					<Checkbox
 						key={`ckb${index + 1}`}
@@ -97,7 +96,7 @@ function Select({ onSelectionChange, onSelectTypeChange }) {
 						image={`image${index + 1}`}
 						isChecked={isChecked[`ckb${index + 1}`]}
 						onCheckboxChange={() => handleCheckboxChange(`ckb${index + 1}`)}
-						checkIcon={<Icon name='check' className='check' />}
+						checkIcon={<Icon name='check' className={styles.check} />}
 					/>
 				))}
 			</div>

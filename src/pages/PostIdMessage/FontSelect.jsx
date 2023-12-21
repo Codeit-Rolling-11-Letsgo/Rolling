@@ -1,6 +1,5 @@
-import '@/pages/PostIdMessage/FontSelect.scss';
-
 import DropDown from '@/components/common/DropDown/DropDown';
+import styles from '@/pages/PostIdMessage/FontSelect.module.scss';
 
 const fontOptions = [
 	'Noto Sans',
@@ -10,22 +9,17 @@ const fontOptions = [
 ];
 
 function FontSelector({ onSelectFont }) {
-	/*
-	const [selectedFont, setSelectedFont] = useState('Noto Sans');
-*/
 	const handleFontChange = (font) => {
-		/* setSelectedFont(font);*/
 		onSelectFont(font);
 	};
 
 	return (
-		<div className='fontSelect'>
-			<h2 className='sectionTitle'>폰트 선택</h2>
+		<div className={styles.fontSelect}>
+			<h2 className={styles.sectionTitle}>폰트 선택</h2>
 			<DropDown
 				options={fontOptions}
 				defaultValue='Noto Sans'
 				onChange={handleFontChange}
-				/*selectedOption={selectedFont}*/
 			/>
 		</div>
 	);

@@ -1,0 +1,111 @@
+@use '@/assets/utilities.scss' as *;
+$select-label-margin: 4rem;
+
+.toggleBox {
+	display: flex;
+	flex-direction: row;
+	margin: 2.4rem 0;
+
+	button {
+		margin: 0;
+	}
+}
+
+.selectorBox {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.6rem;
+
+	@include mobile {
+		gap: 1.2rem !important;
+	}
+
+	.selectLabel {
+		width: 16.8rem;
+		height: 16.8rem;
+		aspect-ratio: 1 / 1;
+		border-radius: 1.6rem;
+		flex-shrink: 0;
+		border: 0.1rem solid rgba(0, 0, 0, 0.08);
+		cursor: pointer;
+		background-size: cover;
+
+		@include mobile {
+			$mobile-width: calc((100% - #{$select-label-margin}) / 4);
+			min-width: 15.4rem;
+			min-height: 15.4rem;
+			width: $mobile-width;
+			height: $mobile-width;
+			aspect-ratio: 1 / 1;
+		}
+	}
+
+	.selectLabel > .check {
+		@include mobile {
+			$mobile-width: calc((100% - #{$select-label-margin}) / 4);
+			min-width: 15.4rem;
+			min-height: 15.4rem;
+			width: $mobile-width;
+			height: $mobile-width;
+			aspect-ratio: 1 / 1;
+		}
+	}
+
+	.selectLabel > .check > svg {
+		width: 4.4rem;
+		height: 4.4rem;
+		background: $color_gray_500;
+		border-radius: 10rem;
+		padding: 1rem;
+		margin: 6.2rem;
+		z-index: 1;
+
+		@include mobile {
+			margin: 5.5rem;
+		}
+	}
+
+	.checked svg {
+		display: block;
+	}
+
+	.checkboxInput {
+		display: none;
+	}
+
+	.image1 {
+		background-image: url('https://picsum.photos/id/683/3840/2160');
+	}
+
+	.image2 {
+		background-image: url('https://picsum.photos/id/24/3840/2160');
+	}
+
+	.image3 {
+		background-image: url('https://picsum.photos/id/599/3840/2160');
+	}
+
+	.image4 {
+		background-image: url('https://picsum.photos/id/1058/3840/2160');
+	}
+
+	.beige {
+		background: $color_orange_200;
+	}
+
+	.purple {
+		background: $color_purple_200;
+	}
+
+	.blue {
+		background: $color_blue_200;
+	}
+
+	.green {
+		background: $color_green_200;
+	}
+
+	@include mobile {
+		flex-wrap: wrap;
+	}
+}

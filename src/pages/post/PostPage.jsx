@@ -1,5 +1,3 @@
-import '@/pages/post/PostPage.scss';
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,6 +6,7 @@ import Button from '@/components/common/button/Button';
 import GlobalHeader from '@/components/common/header/GlobalHeader';
 import Input from '@/components/common/Input/Input';
 import Layout from '@/components/common/Layout';
+import styles from '@/pages/post/PostPage.module.scss';
 import Select from '@/pages/post/Select';
 
 function PostForm() {
@@ -60,10 +59,10 @@ function PostForm() {
 
 	return (
 		<Layout>
-			<GlobalHeader className='postPageHeader' />
-			<form onSubmit={handleFormSubmit} className='postForm'>
-				<div className='inputBox'>
-					<label htmlFor='sendingInput' className='sendTo'>
+			<GlobalHeader className={styles.postPageHeader} />
+			<form onSubmit={handleFormSubmit} className={styles.postForm}>
+				<div className={styles.inputBox}>
+					<label htmlFor='sendingInput' className={styles.sendTo}>
 						To.
 					</label>
 					<Input
@@ -74,12 +73,12 @@ function PostForm() {
 						onChange={handleInputChange}
 						onBlur={handleBlur}
 						errorMessage={error}
-						className='sendToInput'
+						className={styles.sendToInput}
 					/>
 				</div>
-				<div className='textBox'>
-					<h2 className='title'>배경화면을 선택해 주세요.</h2>
-					<p className='subTitle'>
+				<div className={styles.textBox}>
+					<h2 className={styles.title}>배경화면을 선택해 주세요.</h2>
+					<p className={styles.subTitle}>
 						컬러를 선택하거나, 이미지를 선택할 수 있습니다.
 					</p>
 				</div>

@@ -2,7 +2,7 @@ import '@/pages/post/Select.scss';
 
 import { useEffect, useState } from 'react';
 
-import Button from '@/components/common/button/Button';
+import ToggleButton from '@/components/common/button/ToggleButton';
 import Icon from '@/components/common/icon/Icon';
 import Checkbox from '@/pages/post/SelectItem';
 
@@ -72,33 +72,24 @@ function Select({ onSelectionChange, onSelectTypeChange }) {
 
 		fetchImageUrls();
 	}, []);
-
-	const handleColorButtonClick = () => {
-		setType('color');
-		onSelectTypeChange('color');
-	};
-
-	const handleImageButtonClick = () => {
-		setType('image');
-		onSelectTypeChange('image');
-	};
-
 	return (
 		<>
 			<div className='toggleBox'>
-				<Button
-					variant='secondary'
-					size='md'
-					label='컬러'
-					onClick={handleColorButtonClick}
-					type='button'
+				<ToggleButton
+					items={['컬러']}
+					selected={type === 'color'}
+					onClickItem={() => {
+						setType('color');
+						onSelectTypeChange('color');
+					}}
 				/>
-				<Button
-					variant='outlined'
-					size='md'
-					label='이미지'
-					onClick={handleImageButtonClick}
-					type='button'
+				<ToggleButton
+					items={['이미지']}
+					selected={type === 'image'}
+					onClickItem={() => {
+						setType('image');
+						onSelectTypeChange('image');
+					}}
 				/>
 			</div>
 			<div className='selector_box'>

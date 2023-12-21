@@ -5,6 +5,9 @@ $select-label-margin: 4rem;
 	display: flex;
 	align-items: flex-start;
 	gap: 1.6rem;
+	@include mobile {
+		gap: 1.2rem !important;
+	}
 }
 
 .toggleBox {
@@ -31,6 +34,17 @@ $select-label-margin: 4rem;
 	}
 }
 
+.selectLabel > .check {
+	@include mobile {
+		$mobile-width: calc((100% - #{$select-label-margin}) / 4);
+		min-width: 15.4rem;
+		min-height: 15.4rem;
+		width: $mobile-width;
+		height: $mobile-width;
+		aspect-ratio: 1 /1;
+	}
+}
+
 .selectLabel > .check > svg {
 	width: 4.4rem;
 	height: 4.4rem;
@@ -38,6 +52,9 @@ $select-label-margin: 4rem;
 	border-radius: 10rem;
 	margin: 6.2rem;
 	z-index: 1;
+	@include mobile {
+		margin: 5.5rem;
+	}
 }
 
 .checked svg {

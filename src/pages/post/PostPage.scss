@@ -1,5 +1,11 @@
 @use '@/assets/utilities.scss' as *;
 
+.postPageHeader {
+	@include mobile {
+		display: none;
+	}
+}
+
 .postForm {
 	width: 72rem;
 	display: flex;
@@ -7,7 +13,7 @@
 	margin: 0 auto;
 	@include mobile {
 		width: calc(100% - 4rem);
-		margin: 0 auto;
+		margin: 0 2rem;
 	}
 }
 

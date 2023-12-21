@@ -60,7 +60,7 @@ function PostForm() {
 
 	return (
 		<Layout>
-			<GlobalHeader />
+			<GlobalHeader className='postPageHeader' />
 			<form onSubmit={handleFormSubmit} className='postForm'>
 				<div className='inputBox'>
 					<label htmlFor='sendingInput' className='sendTo'>

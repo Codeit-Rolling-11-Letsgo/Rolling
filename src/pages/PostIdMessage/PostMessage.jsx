@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,10 +21,25 @@ function PostMessage() {
 	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 	const [selectedRelation, setSelectedRelation] = useState('지인');
 	const [editorContent, setEditorContent] = useState('');
-	const [selectedProfileImageUrl, setSelectedProfileImageUrl] = useState(
-		'https://learn-codeit-kr-static.s3.ap-northeast-2.amazonaws.com/sprint-proj-image/default_avatar.png',
-	);
+	const [selectedProfileImageUrl, setSelectedProfileImageUrl] = useState('');
 	const [selectedFont, setSelectedFont] = useState('Pretendard');
+
+	useEffect(() => {
+		const fetchProfileImage = async () => {
+			try {
+				const response = await fetch(
+					'https://rolling-api.vercel.app/profile-images/',
+				);
+				const data = await response.json();
+				const firstImageUrl = data.imageUrls[0];
+				setSelectedProfileImageUrl(firstImageUrl);
+			} catch (error) {
+				console.error('Error fetching profile image:', error);
+			}
+		};
+
+		fetchProfileImage();
+	}, []);
 
 	const handleInputChange = (e) => {
 		const value = e.target.value;
@@ -95,7 +110,10 @@ function PostMessage() {
 				<div className={styles.textBox}>
 					<h2 className={styles.sectionTitle}>프로필 이미지</h2>
 				</div>
-				<ProfileImageSelect onProfileImageChange={handleProfileImageChange} />
+				<ProfileImageSelect
+					onProfileImageChange={handleProfileImageChange}
+					initialImageUrl={selectedProfileImageUrl}
+				/>
 				<div className={styles.relation}>
 					<h2 className={styles.sectionTitle}>상대와의 관계</h2>
 					<DropDown

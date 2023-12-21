@@ -14,6 +14,7 @@ const rotateAddIcon = {
 
 const hoverCard = {
 	zoomedIn: { scale: 1.02 },
+	controlOpacity: { opacity: 0.75 },
 };
 
 export { hoverCard, popover, rotateAddIcon };

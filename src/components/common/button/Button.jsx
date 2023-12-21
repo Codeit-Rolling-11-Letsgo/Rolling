@@ -7,8 +7,15 @@ import styles from '@/components/common/button/Button.module.scss';
  * @param {{variant: 'primary' | 'secondary' | 'outlined', size: 'xl' | 'lg' | 'md' | 'sm' | 'full' | 'icon', label: string, icon: React.ReactNode}} props
  * @returns
  */
-function Button({ variant, size, label, icon, ...props }) {
-	const { labelHide, deleteButton } = props;
+function Button({
+	variant,
+	size,
+	label,
+	icon,
+	labelhide,
+	deleteButton,
+	...props
+}) {
 	return (
 		<button
 			className={clsx(
@@ -20,7 +27,7 @@ function Button({ variant, size, label, icon, ...props }) {
 			{...props}
 		>
 			{icon}
-			<div className={labelHide && styles.labelHiddenAtMobile}>{label}</div>
+			<div className={labelhide && styles.labelHiddenAtMobile}>{label}</div>
 		</button>
 	);
 }

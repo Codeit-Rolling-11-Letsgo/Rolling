@@ -155,6 +155,13 @@
 	color: $color_gray_600;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 3;
+
+	ol,
+	ul {
+		list-style: revert;
+		margin: revert;
+		padding: revert;
+	}
 }
 
 .createdAt {

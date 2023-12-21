@@ -68,6 +68,13 @@
 		border-radius: 12px 12px 12px 12px;
 		background: $color_gray_300;
 	}
+
+	ol,
+	ul {
+		list-style: revert;
+		margin: revert;
+		padding: revert;
+	}
 }
 
 .confirmButton {

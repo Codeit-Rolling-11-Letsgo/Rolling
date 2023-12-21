@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 
-import styles from '@/components/common//DropDown/DropDown.module.scss';
+import styles from '@/components/common/dropdown/DropDown.module.scss';
 import Icon from '@/components/common/icon/Icon';
 
 /**

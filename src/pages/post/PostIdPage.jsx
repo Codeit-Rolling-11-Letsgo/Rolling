@@ -88,7 +88,7 @@ export default function PostIdPage() {
 						variant='primary'
 						size='md'
 						onClick={handleClickDelete}
-						label='삭제하기'
+						label='페이지 삭제하기'
 						deleteButton='deleteButton'
 					/>
 				)}

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 
 import { deleteRecipient, getMessageList } from '@/apis/post/postAPI';
+import Button from '@/components/common/button/Button';
 import NewMessageCTA from '@/components/post/NewMessageCTA';
 import PostCard from '@/components/post/PostCard';
 import PostLayout from '@/components/post/PostLayout';
@@ -27,22 +28,22 @@ export default function PostIdPage() {
 	const [isLoading, setIsLoading] = useState(false);
 
 	const fetchMoreMessageList = async () => {
-		if (currentMessageListInfo.count > currentMessageList.length) {
-			setIsLoading(true);
+		if (currentMessageListInfo.count <= currentMessageList.length) return;
 
-			const { messageListInfo: newMessageListInfo } = await getMessageList({
-				recipientId,
-				limit: 15,
-				offset: currentMessageList.length,
-			});
+		setIsLoading(true);
 
-			setCurrentMessageListInfo(newMessageListInfo);
-			setCurrentMessageList((prevMessageList) => [
-				...prevMessageList,
-				...newMessageListInfo.results,
-			]);
-			setIsLoading(false);
-		}
+		const { messageListInfo: newMessageListInfo } = await getMessageList({
+			recipientId,
+			limit: 15,
+			offset: currentMessageList.length,
+		});
+
+		setCurrentMessageListInfo(newMessageListInfo);
+		setCurrentMessageList((prevMessageList) => [
+			...prevMessageList,
+			...newMessageListInfo.results,
+		]);
+		setIsLoading(false);
 	};
 
 	const reload = async () => {
@@ -81,13 +82,16 @@ export default function PostIdPage() {
 			className={styles[recipientInfo.backgroundColor]}
 			ref={backgroundImageRef}
 		>
-			{isEdit && (
-				<div className={styles.buttonContainer}>
-					<button className={styles.deleteButton} onClick={handleClickDelete}>
-						삭제하기
-					</button>
-				</div>
-			)}
+			<div className={styles.buttonContainer}>
+				{isEdit && (
+					<Button
+						variant='primary'
+						size='md'
+						onClick={handleClickDelete}
+						label='삭제하기'
+					/>
+				)}
+			</div>
 			<div className={styles.cardList}>
 				<NewMessageCTA recipientId={recipientId} />
 				{currentMessageList.map((message) => (

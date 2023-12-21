@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 import { postRecipientsReactions } from '@/apis/recipients/reactionsAPI';
+import Button from '@/components/common/button/Button';
 import Icon from '@/components/common/icon/Icon';
 import styles from '@/components/post/header-service/EmojiPickerButton.module.scss';
 import { popover } from '@/utils/framerAnimation';
@@ -41,10 +42,13 @@ export default function EmojiPickerButton({
 
 	return (
 		<div className={styles.emojiPickerComponent} ref={emojiPickerRef}>
-			<button className={styles.toggleButton} onClick={handlePickerToggle}>
-				<Icon name='add' />
-				<div className={styles.addText}> 추가</div>
-			</button>
+			<Button
+				variant='outlined'
+				size='md'
+				icon={<Icon name='add' className={styles.addIcon} />}
+				label='추가'
+				onClick={handlePickerToggle}
+			/>
 			{isPickerOpened && (
 				<motion.div
 					className={styles.emojiPicker}

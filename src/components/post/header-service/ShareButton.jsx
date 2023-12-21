@@ -2,10 +2,12 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
+import Button from '@/components/common/button/Button';
 import Icon from '@/components/common/icon/Icon';
 import styles from '@/components/post/header-service/ShareButton.module.scss';
 import { popover } from '@/utils/framerAnimation';
 import shareMessageKakao from '@/utils/kakaoShareFormatting';
+
 export default function ShareButton({ shareInfo }) {
 	const { name, backgroundImageURL, messageCount, recipientId, reactionCount } =
 		shareInfo;
@@ -65,9 +67,12 @@ export default function ShareButton({ shareInfo }) {
 	return (
 		<>
 			<div className={styles.shareOption} ref={shareOptionPickerRef}>
-				<button className={styles.toggleButton} onClick={handlePickerToggle}>
-					<Icon name='share' />
-				</button>
+				<Button
+					variant='outlined'
+					size='md'
+					onClick={handlePickerToggle}
+					icon={<Icon name='share' className={styles.checkIcon} />}
+				/>
 				{isPickerOpened && (
 					<motion.div
 						className={styles.shareOptionList}

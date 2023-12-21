@@ -1,3 +1,5 @@
+@use '@/assets/utilities.scss' as *;
+
 .imageSelectLabel {
 	width: 5.6rem;
 	height: 5.6rem;
@@ -6,6 +8,16 @@
 	background-size: cover;
 	background-position: center;
 	cursor: pointer;
+	@include mobile {
+		@media only screen and (max-width: 767px) {
+			width: 5.6rem;
+			height: 5.6rem;
+		}
+		@media only screen and (max-width: 688px) {
+			width: 4rem;
+			height: 4rem;
+		}
+	}
 }
 
 .selected {
@@ -19,6 +31,9 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	@include tablet {
+		width: 100%;
+	}
 }
 
 .subTitle {
@@ -31,6 +46,32 @@
 	flex-direction: row;
 	gap: 1.2rem;
 	margin-top: 1.2rem;
+	@include tablet {
+		width: 100%;
+		min-width: 76.8rem;
+		flex-wrap: wrap;
+	}
+	@include mobile {
+		@media only screen and (max-width: 767px) {
+			width: 100%;
+			min-width: 23rem;
+			max-height: 8.4rem;
+			justify-content: space-between;
+			gap: 0.2rem;
+		}
+		@media only screen and (max-width: 688px) {
+			gap: 1.2rem;
+			justify-content: flex-start;
+		}
+		@media only screen and (max-width: 624px) {
+			justify-content: space-between;
+			gap: 0.2rem;
+		}
+		@media only screen and (max-width: 527px) {
+			justify-content: flex-start;
+			gap: 0.2rem;
+		}
+	}
 }
 
 .profileImageBox {
@@ -38,4 +79,11 @@
 	flex-direction: row;
 	align-items: center;
 	gap: 3.2rem;
+	@include tablet {
+		width: 100%;
+	}
+	@include mobile {
+		width: 100%;
+		min-width: 32rem;
+	}
 }

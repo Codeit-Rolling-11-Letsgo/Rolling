@@ -1,3 +1,5 @@
+@use '@/assets/utilities.scss' as *;
+
 ._global_header_zm0nz_5 {
 	border-bottom: 0.1rem solid $color_gray_100;
 }
@@ -7,6 +9,10 @@
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
+	@include mobile {
+		width: calc(100% - 4rem);
+		margin: 0 auto;
+	}
 }
 
 .inputBox {
@@ -44,11 +50,9 @@
 	margin: 2.4rem 0;
 }
 
-.link {
-	height: 4.8688rem;
-	margin: 10rem 0 6rem;
-}
-
-.link > .button {
+.postForm > .button {
 	width: 72rem;
+	@include tablet {
+		width: 100%;
+	}
 }

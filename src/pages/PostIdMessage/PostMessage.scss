@@ -1,5 +1,12 @@
-._global_header_zm0nz_5 {
-	border-bottom: 0.1rem solid $color_gray_100;
+@use '@/assets/utilities.scss' as *;
+
+.postMessageHeader {
+	position: sticky;
+	top: 0;
+	z-index: 2;
+	@include mobile {
+		display: none;
+	}
 }
 
 .postMessageForm {
@@ -7,6 +14,13 @@
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
+	@include tablet {
+		margin: 0 auto;
+	}
+	@include mobile {
+		width: calc(100% - 4rem);
+		margin: 0 2rem;
+	}
 }
 
 .inputBox {
@@ -48,4 +62,7 @@
 
 .link > .button {
 	width: 72rem;
+	@include tablet {
+		width: 100%;
+	}
 }

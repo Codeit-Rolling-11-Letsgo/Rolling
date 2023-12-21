@@ -1,3 +1,6 @@
+@use '@/assets/utilities.scss' as *;
+$select-label-margin: 4rem;
+
 .selector_box {
 	display: flex;
 	align-items: flex-start;
@@ -18,10 +21,19 @@
 .selectLabel {
 	width: 16.8rem;
 	height: 16.8rem;
+	aspect-ratio: 1 /1;
 	border-radius: 1.6rem;
 	flex-shrink: 0;
 	border: 0.1rem solid rgba(0, 0, 0, 0.08);
 	cursor: pointer;
+	@include mobile {
+		$mobile-width: calc((100% - #{$select-label-margin}) / 4);
+		min-width: 15.4rem;
+		min-height: 15.4rem;
+		width: $mobile-width;
+		height: $mobile-width;
+		aspect-ratio: 1 /1;
+	}
 }
 
 .selectLabel > .check > svg {
@@ -85,5 +97,9 @@
 		&.green {
 			background: $color_green_200;
 		}
+	}
+
+	@include mobile {
+		flex-wrap: wrap;
 	}
 }

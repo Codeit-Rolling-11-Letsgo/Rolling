@@ -77,7 +77,7 @@ function PostMessage() {
 
 	return (
 		<Layout>
-			<GlobalHeader />
+			<GlobalHeader className='postMessageHeader' />
 			<form className='postMessageForm'>
 				<div className='inputBox'>
 					<label htmlFor='sendingInput' className='sendTo'>

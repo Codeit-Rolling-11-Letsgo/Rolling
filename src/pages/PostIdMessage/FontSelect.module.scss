@@ -1,0 +1,10 @@
+.fontSelect {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	margin-top: 10rem;
+}
+
+.sectionTitle {
+	@include typo_24_bold;
+}

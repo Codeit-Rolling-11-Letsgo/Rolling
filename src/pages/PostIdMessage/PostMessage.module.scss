@@ -14,6 +14,15 @@
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
+
+	input[type='checkbox'] {
+		display: none;
+	}
+
+	.postMessageButton {
+		margin: 10rem 0 6rem;
+	}
+
 	@include tablet {
 		margin: 0 auto;
 	}

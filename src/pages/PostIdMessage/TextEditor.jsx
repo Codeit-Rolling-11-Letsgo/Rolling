@@ -1,8 +1,9 @@
-import '@/pages/PostIdMessage/TextEditor.scss';
 import 'react-quill/dist/quill.snow.css';
 
 import { useEffect, useState } from 'react';
 import ReactQuill from 'react-quill';
+
+import styles from '@/pages/PostIdMessage/TextEditor.module.scss';
 
 function TextEditor({ onContentChange }) {
 	const [content, setContent] = useState('');
@@ -46,13 +47,14 @@ function TextEditor({ onContentChange }) {
 	};
 
 	return (
-		<div className='textEditor'>
-			<h2 className='sectionTitle'>내용을 입력해 주세요</h2>
+		<div className={styles.textEditor}>
+			<h2 className={styles.sectionTitle}>내용을 입력해 주세요</h2>
 			<ReactQuill
 				theme='snow'
 				value={content}
 				onChange={handleChange}
 				modules={modules}
+				style={{ height: '26rem' }}
 			/>
 		</div>
 	);

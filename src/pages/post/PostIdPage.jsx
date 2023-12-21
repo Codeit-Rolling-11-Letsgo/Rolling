@@ -72,7 +72,7 @@ export default function PostIdPage() {
 	const backgroundImageRef = useBackgroundImage(
 		recipientInfo.backgroundImageURL,
 		{
-			gradient: 'rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)',
+			gradient: 'rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)',
 		},
 	);
 

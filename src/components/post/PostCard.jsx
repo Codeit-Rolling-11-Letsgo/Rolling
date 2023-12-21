@@ -9,8 +9,15 @@ import { formatDate } from '@/utils/dateUtils';
 import { hoverCard } from '@/utils/framerAnimation';
 
 function PostCard({ message, openModal, isEdit, reload }) {
-	const { profileImageURL, sender, relationship, content, createdAt, id } =
-		message;
+	const {
+		profileImageURL,
+		sender,
+		relationship,
+		content,
+		createdAt,
+		id,
+		font,
+	} = message;
 
 	const handleClickDelete = async (e) => {
 		e.stopPropagation();
@@ -55,6 +62,7 @@ function PostCard({ message, openModal, isEdit, reload }) {
 				<Card.Panel className={styles.contentContainer}>
 					<div
 						className={styles.content}
+						style={{ fontFamily: font }}
 						dangerouslySetInnerHTML={{ __html: content }}
 					></div>
 					<span className={styles.createdAt}>{formatDate(createdAt)}</span>

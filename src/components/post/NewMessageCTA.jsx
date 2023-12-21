@@ -9,18 +9,20 @@ import { rotateAddIcon } from '@/utils/framerAnimation';
 function NewMessageCTA({ recipientId }) {
 	return (
 		<Card className={clsx(styles.card, styles.newMessageContainer)}>
-			<motion.div
-				whileHover='rotate90'
-				variants={rotateAddIcon}
-				className={styles.link}
+			<Link
+				to={`/post/${recipientId}/message`}
+				className={styles.linkToNewMessage}
 			>
-				<Link
-					to={`/post/${recipientId}/message`}
-					className={styles.linkToNewMessage}
+				<motion.div
+					whileHover='rotate90'
+					variants={rotateAddIcon}
+					className={styles.link}
 				>
-					<Icon name='plus' className={styles.newMessage} />
-				</Link>
-			</motion.div>
+					<div className={styles.iconContainer}>
+						<Icon name='plus' className={styles.newMessage} />
+					</div>
+				</motion.div>
+			</Link>
 		</Card>
 	);
 }

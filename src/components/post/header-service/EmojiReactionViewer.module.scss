@@ -1,12 +1,14 @@
+@use '@/assets/utilities.scss' as *;
+
 .emojiReactionViewer {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	gap: 1.3rem;
-	@media (max-width: 1199px) {
+	@include tablet {
 		gap: 1.5rem;
 	}
-	@media (max-width: 767px) {
+	@include mobile {
 		gap: 0.2rem;
 	}
 }

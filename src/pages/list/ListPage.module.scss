@@ -1,4 +1,9 @@
+@use '@/assets/utilities.scss' as *;
+
 .bottom {
+	@include tablet {
+		margin-top: auto;
+	}
 	padding-block: 2.4rem;
 
 	display: flex;
@@ -7,6 +12,9 @@
 
 .post_cta {
 	@include typo_18_regular;
+	@include tablet {
+		width: 100%;
+	}
 
 	width: 28rem;
 	padding: 1.4rem 2.4rem;
@@ -20,15 +28,5 @@
 
 	&:active {
 		color: $color_white;
-	}
-}
-
-@media screen and (max-width: 1247px) {
-	.bottom {
-		margin-top: auto;
-	}
-
-	.post_cta {
-		width: 100%;
 	}
 }

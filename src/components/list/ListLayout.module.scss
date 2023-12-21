@@ -1,4 +1,14 @@
+@use '@/assets/utilities.scss' as *;
+
 .container {
+	@include tablet {
+		padding-bottom: $layout_safe_zone;
+	}
+
+	@include mobile {
+		padding-top: 4rem;
+	}
+
 	width: 100%;
 	max-width: 120.8rem;
 	height: 100%;
@@ -25,16 +35,4 @@
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-}
-
-@media screen and (max-width: 1247px) {
-	.container {
-		padding-bottom: $layout_safe_zone;
-	}
-}
-
-@media screen and (max-width: 767px) {
-	.container {
-		padding-top: 4rem;
-	}
 }

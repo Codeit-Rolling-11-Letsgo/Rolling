@@ -4,7 +4,7 @@ const popover = {
 	visible: { scale: 1 },
 	visibleSmoother: {
 		scale: 1,
-		transition: { type: 'spring', stiffness: 260, damping: 20 },
+		transition: { type: 'spring', stiffness: 260, damping: 25 },
 	},
 };
 

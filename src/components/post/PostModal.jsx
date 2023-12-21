@@ -4,6 +4,7 @@ import Image from '@/components/common/Image';
 import Modal from '@/components/common/modal/Modal';
 import PostBadge from '@/components/post/PostBadge';
 import styles from '@/components/post/PostModal.module.scss';
+import { fontNamesEng } from '@/constants/fontNames';
 import { useModalContext } from '@/hooks/useModalContext';
 import { formatDate } from '@/utils/dateUtils';
 
@@ -41,7 +42,7 @@ const PostModal = () => {
 			</Modal.Title>
 			<div
 				className={styles.content}
-				style={{ fontFamily: font }}
+				style={{ fontFamily: fontNamesEng[font] || font }}
 				dangerouslySetInnerHTML={{ __html: content }}
 			></div>
 			<Modal.Buttons>

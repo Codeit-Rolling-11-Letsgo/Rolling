@@ -1,18 +1,19 @@
+@use '@/assets/utilities.scss' as *;
+$select-label-margin: 4rem;
+
 .selector_box {
 	display: flex;
 	align-items: flex-start;
 	gap: 1.6rem;
+	@include mobile {
+		gap: 1.2rem !important;
+	}
 }
 
 .toggleBox {
 	display: flex;
 	flex-direction: row;
 	margin: 2.4rem 0;
-}
-
-.toggleBox > .button {
-	width: 9rem;
-	margin: 0;
 }
 
 .selectLabel {
@@ -23,6 +24,25 @@
 	flex-shrink: 0;
 	border: 0.1rem solid rgba(0, 0, 0, 0.08);
 	cursor: pointer;
+	@include mobile {
+		$mobile-width: calc((100% - #{$select-label-margin}) / 4);
+		min-width: 15.4rem;
+		min-height: 15.4rem;
+		width: $mobile-width;
+		height: $mobile-width;
+		aspect-ratio: 1 /1;
+	}
+}
+
+.selectLabel > .check {
+	@include mobile {
+		$mobile-width: calc((100% - #{$select-label-margin}) / 4);
+		min-width: 15.4rem;
+		min-height: 15.4rem;
+		width: $mobile-width;
+		height: $mobile-width;
+		aspect-ratio: 1 /1;
+	}
 }
 
 .selectLabel > .check > svg {
@@ -30,16 +50,16 @@
 	height: 4.4rem;
 	background: $color_gray_500;
 	border-radius: 10rem;
+	padding: 1rem;
 	margin: 6.2rem;
 	z-index: 1;
+	@include mobile {
+		margin: 5.5rem;
+	}
 }
 
 .checked svg {
 	display: block;
-}
-
-.postForm > .button {
-	margin-top: 10rem;
 }
 
 .checkboxInput {
@@ -86,5 +106,8 @@
 		&.green {
 			background: $color_green_200;
 		}
+	}
+	@include mobile {
+		flex-wrap: wrap;
 	}
 }

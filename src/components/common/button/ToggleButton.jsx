@@ -5,15 +5,14 @@ import styles from '@/components/common/button/ToggleButton.module.scss';
 export default function ToggleButton({ items, selected, onClickItem }) {
 	return (
 		<div className={styles.toggle}>
-			{items.map((item) => {
-				console.log(item === selected);
+			{items.map(({ label, value }) => {
 				return (
 					<button
-						key={item}
-						onClick={() => onClickItem(item)}
-						className={clsx(styles.item, selected === item && styles.selected)}
+						key={value}
+						onClick={() => onClickItem(value)}
+						className={clsx(styles.item, selected === value && styles.selected)}
 					>
-						{item}
+						{label}
 					</button>
 				);
 			})}

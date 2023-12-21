@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { postRecipient } from '@/apis/post/postRecipients';
-import Button from '@/components/common/Buttons/Button';
+import Button from '@/components/common/button/Button';
 import GlobalHeader from '@/components/common/header/GlobalHeader';
 import Input from '@/components/common/Input/Input';
 import Layout from '@/components/common/Layout';
@@ -41,12 +41,6 @@ function PostForm() {
 				backgroundImageURL:
 					type === 'image' ? backgroundSelection.imageURL : null,
 			};
-
-			const response = await postRecipient(requestBody);
-
-			if (response) {
-				console.log('전송이 완료되었습니다.', response);
-			}
 			const { id } = await postRecipient(requestBody);
 			navigate(`/post/${id}`);
 		} catch (error) {
@@ -66,7 +60,7 @@ function PostForm() {
 
 	return (
 		<Layout>
-			<GlobalHeader />
+			<GlobalHeader className='postPageHeader' />
 			<form onSubmit={handleFormSubmit} className='postForm'>
 				<div className='inputBox'>
 					<label htmlFor='sendingInput' className='sendTo'>
@@ -95,9 +89,10 @@ function PostForm() {
 					onSelectTypeChange={handleSelectTypeChange}
 				/>
 				<Button
-					size='basic'
+					variant='primary'
+					size='full'
 					disabled={isButtonDisabled}
-					content='생성하기'
+					label='생성하기'
 					type='submit'
 				/>
 			</form>

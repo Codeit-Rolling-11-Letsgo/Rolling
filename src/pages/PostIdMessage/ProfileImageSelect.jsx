@@ -44,7 +44,7 @@ function ProfileImageSelect({ onProfileImageChange }) {
 				<p className='subTitle'>프로필 이미지를 선택해주세요.</p>
 				<div className='images'>
 					{imageUrls.map((image, index) => (
-						<div key={index}>
+						<div key={index} className='imageButton'>
 							<button
 								type='button'
 								className={`imageSelectLabel ${

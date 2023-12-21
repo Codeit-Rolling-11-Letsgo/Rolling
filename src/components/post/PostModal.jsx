@@ -9,7 +9,7 @@ import { formatDate } from '@/utils/dateUtils';
 
 const PostModal = () => {
 	const { isModalOpen, closeModal, modalValue } = useModalContext();
-	const { profileImageURL, sender, relationship, content, createdAt } =
+	const { profileImageURL, sender, relationship, content, createdAt, font } =
 		modalValue;
 	const dialogRef = useRef(null);
 
@@ -41,6 +41,7 @@ const PostModal = () => {
 			</Modal.Title>
 			<div
 				className={styles.content}
+				style={{ fontFamily: font }}
 				dangerouslySetInnerHTML={{ __html: content }}
 			></div>
 			<Modal.Buttons>

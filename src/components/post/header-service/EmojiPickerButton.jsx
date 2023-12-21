@@ -47,6 +47,7 @@ export default function EmojiPickerButton({
 				size='md'
 				icon={<Icon name='add' className={styles.addIcon} />}
 				label='추가'
+				labelHide={true}
 				onClick={handlePickerToggle}
 			/>
 			{isPickerOpened && (

@@ -8,13 +8,14 @@ import styles from '@/components/common/button/Button.module.scss';
  * @returns
  */
 function Button({ variant, size, label, icon, ...props }) {
+	const { labelHide } = props;
 	return (
 		<button
 			className={clsx(styles.button, styles[variant], styles[size])}
 			{...props}
 		>
 			{icon}
-			{label}
+			<div className={labelHide && styles.labelHiddenAtMobile}>{label}</div>
 		</button>
 	);
 }

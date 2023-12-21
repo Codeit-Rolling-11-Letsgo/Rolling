@@ -98,6 +98,7 @@
 	}
 
 	@include mobile {
+		@include typo_18_regular;
 		width: 14.3rem;
 	}
 
@@ -109,15 +110,14 @@
 
 .sender {
 	@include typo_20_bold;
+	@include mobile {
+		@include typo_18_bold;
+	}
 }
 
 .deleteButton {
 	@include tablet {
 		margin-left: 0;
-	}
-
-	&:hover {
-		background: $color_gray_200;
 	}
 
 	width: 4rem;
@@ -127,6 +127,10 @@
 	border: 0.1rem solid $color_gray_300;
 	border-radius: 0.6rem;
 	background: $color_white;
+
+	&:hover {
+		background: $color_gray_200;
+	}
 }
 
 .deleteIcon {
@@ -150,17 +154,21 @@
 		-webkit-line-clamp: 2;
 	}
 
+	@include mobile {
+		@include typo_15_regular;
+	}
 	display: -webkit-box;
 	overflow: hidden;
 	color: $color_gray_600;
+	word-wrap: break-word;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 3;
 
 	ol,
 	ul {
-		list-style: revert;
 		margin: revert;
 		padding: revert;
+		list-style: revert;
 	}
 }
 

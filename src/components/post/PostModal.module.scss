@@ -1,4 +1,10 @@
+@use '@/assets/utilities.scss' as *;
+
 .title {
+	@include mobile {
+		width: 34rem;
+		height: 10rem;
+	}
 	display: flex;
 	position: relative;
 	justify-content: space-between;
@@ -7,6 +13,9 @@
 }
 
 .title::after {
+	@include mobile {
+		width: 30rem;
+	}
 	position: absolute;
 	right: 0;
 	bottom: 0;
@@ -18,8 +27,10 @@
 }
 
 .profileContainer {
+	@include mobile {
+		padding: 3rem 0 1rem 3rem;
+	}
 	display: flex;
-
 	padding: 4rem 0 2rem 3.9rem;
 	gap: 1.6rem;
 }
@@ -38,14 +49,28 @@
 
 .from {
 	@include typo_20_regular;
+	@include mobile {
+		@include typo_16_regular;
+		width: 15rem;
+	}
+	width: 33rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .sender {
 	@include typo_20_bold;
+	@include mobile {
+		@include typo_16_bold;
+	}
 }
 
 .createdAt {
 	@include typo_14_regular;
+	@include mobile {
+		@include typo_12_regular;
+	}
 	display: block;
 	margin: 5.6rem 4.5rem 4rem 0;
 	color: $color_gray_400;
@@ -53,11 +78,18 @@
 
 .content {
 	@include typo_18_regular;
+	@include mobile {
+		@include typo_15_regular;
+		width: 30rem;
+		height: 12rem;
+		margin: 1rem auto;
+	}
 	width: 52rem;
 	height: 24rem;
 	margin: 1.6rem auto;
 	overflow: scroll;
 	color: #5a5a5a;
+	word-wrap: break-word;
 	&::-webkit-scrollbar {
 		width: 0.5rem;
 		height: 0;
@@ -71,9 +103,9 @@
 
 	ol,
 	ul {
-		list-style: revert;
 		margin: revert;
 		padding: revert;
+		list-style: revert;
 	}
 }
 
@@ -81,7 +113,7 @@
 	@include typo_16_regular;
 	display: block;
 	width: 12rem;
-	margin: 2.4rem auto 0;
+	margin: 2.4rem auto 4rem;
 	padding: 0.7rem 1.6rem;
 	border-radius: 0.6rem;
 	background: $color_purple_600;

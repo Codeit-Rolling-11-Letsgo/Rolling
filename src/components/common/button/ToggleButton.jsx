@@ -9,6 +9,7 @@ export default function ToggleButton({ items, selected, onClickItem }) {
 				return (
 					<button
 						key={value}
+						type='button'
 						onClick={() => onClickItem(value)}
 						className={clsx(styles.item, selected === value && styles.selected)}
 					>

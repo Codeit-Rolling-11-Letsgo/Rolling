@@ -1,5 +1,9 @@
 @use '@/assets/utilities.scss' as *;
 
+.dropDownContainer {
+	width: fit-content;
+}
+
 .selectedOption,
 .optionItem,
 .selectContainer {

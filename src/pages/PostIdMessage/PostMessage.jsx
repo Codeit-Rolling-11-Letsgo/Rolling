@@ -22,7 +22,7 @@ function PostMessage() {
 	const [selectedRelation, setSelectedRelation] = useState('지인');
 	const [editorContent, setEditorContent] = useState('');
 	const [selectedProfileImageUrl, setSelectedProfileImageUrl] = useState('');
-	const [selectedFont, setSelectedFont] = useState('Pretendard');
+	const [selectedFont, setSelectedFont] = useState('Noto Sans');
 
 	useEffect(() => {
 		const fetchProfileImage = async () => {

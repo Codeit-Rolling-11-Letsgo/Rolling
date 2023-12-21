@@ -58,10 +58,16 @@
 
 .right_arrow {
 	@include svg_stroke;
+
+	width: 1.6rem;
+	height: 1.6rem;
 }
 
 .left_arrow {
 	@include svg_stroke;
+
+	width: 1.6rem;
+	height: 1.6rem;
 }
 
 .next {

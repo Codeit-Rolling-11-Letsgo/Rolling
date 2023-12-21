@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 import { deleteMessage } from '@/apis/post/postAPI';
+import Button from '@/components/common/button/Button';
 import Card from '@/components/common/card/Card';
 import Icon from '@/components/common/icon/Icon';
 import PostBadge from '@/components/post/PostBadge';
@@ -26,6 +27,7 @@ function PostCard({ message, openModal, isEdit, reload }) {
 			// TODO: 삭제 실패 toast
 			return;
 		}
+
 		await reload();
 	};
 
@@ -54,9 +56,12 @@ function PostCard({ message, openModal, isEdit, reload }) {
 						<PostBadge label={relationship} />
 					</div>
 					{isEdit && (
-						<button className={styles.deleteButton} onClick={handleClickDelete}>
-							<Icon name='delete' className={styles.deleteIcon} />
-						</button>
+						<Button
+							variant='outlined'
+							size='icon'
+							icon={<Icon name='delete' className={styles.deleteIcon} />}
+							onClick={handleClickDelete}
+						/>
 					)}
 				</Card.Panel>
 				<Card.Panel className={styles.contentContainer}>

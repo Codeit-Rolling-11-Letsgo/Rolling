@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
@@ -46,10 +47,13 @@ export default function EmojiReactionCollection({ reactionList }) {
 
 				<div ref={emojiCollectionRef}>
 					<button
-						className={styles.arrowDownButton}
+						className={clsx(
+							styles.arrowDownButton,
+							isEmojiDropDownOpened && styles.collectionButtonPressed,
+						)}
 						onClick={handleToggleEmojiDropDown}
 					>
-						<Icon name='arrowDown' />
+						<Icon name='arrowDown' className={styles.arrowDownIcon} />
 					</button>
 					{isEmojiDropDownOpened && (
 						<motion.div

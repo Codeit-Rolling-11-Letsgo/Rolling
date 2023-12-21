@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import styles from '@/components/common//DropDown/DropDown.module.scss';
 import Icon from '@/components/common/icon/Icon';
@@ -34,6 +34,7 @@ export default function DropDown({
 }) {
 	const [isOpened, setIsOpened] = useState(false);
 	const [selectedOption, setSelectedOption] = useState(defaultValue);
+	const dropDownref = useRef(null);
 
 	const handleOpenDropDown = () => {
 		setIsOpened(!isOpened);
@@ -45,8 +46,25 @@ export default function DropDown({
 		setIsOpened(!isOpened);
 	};
 
+	const handleOutsideClick = (e) => {
+		if (dropDownref.current && !dropDownref.current.contains(e.target)) {
+			setIsOpened(false);
+		}
+	};
+
+	useEffect(() => {
+		document.addEventListener('click', handleOutsideClick);
+		return () => {
+			document.removeEventListener('click', handleOutsideClick);
+		};
+	}, []);
+
 	return (
-		<div className={className} {...props}>
+		<div
+			className={clsx(className, styles.dropDownContainer)}
+			{...props}
+			ref={dropDownref}
+		>
 			<button
 				type='button'
 				disabled={disabled || errorMessage}

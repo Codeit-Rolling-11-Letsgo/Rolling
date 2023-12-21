@@ -1,6 +1,11 @@
 @use '@/assets/utilities.scss' as *;
 
 .panel {
+	@include mobile {
+		width: 20.8rem;
+		height: 23.2rem;
+	}
+
 	position: relative;
 	width: 27.5rem;
 	height: 26rem;
@@ -42,6 +47,10 @@
 .title {
 	@include typo_24_bold;
 	@include line_clamp(1);
+
+	@include mobile {
+		@include typo_18_bold;
+	}
 
 	max-width: 12.5rem;
 	text-overflow: ellipsis;
@@ -89,6 +98,9 @@
 
 .description {
 	@include typo_16_regular;
+	@include mobile {
+		@include typo_14_regular;
+	}
 }
 
 .description_dark {
@@ -96,6 +108,10 @@
 }
 
 .splitter {
+	@include mobile {
+		margin-top: 3.3rem;
+	}
+
 	width: 100%;
 	height: 0.1rem;
 	margin-top: 4.3rem;
@@ -104,6 +120,12 @@
 
 .reaction_list {
 	@include typo_16_regular;
+	@include mobile {
+		@include typo_14_regular;
+
+		margin-top: 1.6rem;
+		gap: 0.4rem;
+	}
 
 	margin-top: 1.6rem;
 	color: $color_white;
@@ -117,30 +139,4 @@
 	bottom: 0;
 	right: 0;
 	z-index: 0;
-}
-
-@media screen and (max-width: 767px) {
-	.panel {
-		width: 20.8rem;
-		height: 23.2rem;
-	}
-
-	.title {
-		@include typo_18_bold;
-	}
-
-	.description {
-		@include typo_14_regular;
-	}
-
-	.splitter {
-		margin-top: 3.3rem;
-	}
-
-	.reaction_list {
-		@include typo_14_regular;
-
-		margin-top: 1.6rem;
-		gap: 0.4rem;
-	}
 }

@@ -11,7 +11,7 @@ import { take } from '@/utils/util';
 const MESSAGE_PREVIEW_COUNT = 3;
 
 export default function HeaderService() {
-	const isPc = useMediaQuery({ minWidth: 1119 });
+	const isPc = useMediaQuery({ minWidth: 1248 });
 	const { count: senderListCount, results: senderListInfo } =
 		useLoaderData().messageListInfo;
 	const { recipientId, recipientInfo } = useLoaderData();

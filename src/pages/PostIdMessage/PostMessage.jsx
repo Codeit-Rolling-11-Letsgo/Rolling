@@ -3,6 +3,7 @@ import '@/pages/PostIdMessage/PostMessage.scss';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import postRecipientMessage from '@/apis/post/postRecipientsMessage';
 import Button from '@/components/common/Buttons/Button';
@@ -16,6 +17,7 @@ import TextEditor from '@/pages/PostIdMessage/TextEditor';
 
 function PostMessage() {
 	const { recipientId } = useParams();
+	const navigate = useNavigate();
 	const [inputValue, setInputValue] = useState('');
 	const [error, setError] = useState('');
 	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
@@ -66,9 +68,8 @@ function PostMessage() {
 				font: selectedFont,
 				relationship: selectedRelation,
 			});
-
 			if (response) {
-				console.log('메세지 전송이 완료되었습니다.', response);
+				navigate(`/post/${recipientId}`);
 			}
 		} catch (error) {
 			console.error('에러 발생:', error);

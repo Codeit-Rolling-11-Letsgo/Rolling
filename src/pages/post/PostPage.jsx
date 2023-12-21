@@ -1,8 +1,7 @@
 import '@/pages/post/PostPage.scss';
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { postRecipient } from '@/apis/post/postRecipients';
 import Button from '@/components/common/Buttons/Button';
@@ -12,11 +11,11 @@ import Layout from '@/components/common/Layout';
 import Select from '@/pages/post/Select';
 
 function PostForm() {
-	const { recipientId } = useParams();
 	const [inputValue, setInputValue] = useState('');
 	const [error, setError] = useState('');
 	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 	const [backgroundSelection, setBackgroundSelection] = useState({});
+	const navigate = useNavigate();
 
 	const handleInputChange = (e) => {
 		const value = e.target.value;
@@ -42,12 +41,8 @@ function PostForm() {
 				backgroundImageURL:
 					type === 'image' ? backgroundSelection.imageURL : null,
 			};
-
-			const response = await postRecipient(requestBody);
-
-			if (response) {
-				console.log('전송이 완료되었습니다.', response);
-			}
+			const { id } = await postRecipient(requestBody);
+			navigate(`/post/${id}`);
 		} catch (error) {
 			console.error('에러 발생:', error);
 		}
@@ -79,6 +74,7 @@ function PostForm() {
 						onChange={handleInputChange}
 						onBlur={handleBlur}
 						errorMessage={error}
+						className='sendToInput'
 					/>
 				</div>
 				<div className='textBox'>
@@ -92,14 +88,12 @@ function PostForm() {
 					onSelectionChange={handleSelectionChange}
 					onSelectTypeChange={handleSelectTypeChange}
 				/>
-				<Link to={`/post/${recipientId}`} className='link'>
-					<Button
-						size='basic'
-						disabled={isButtonDisabled}
-						content='생성하기'
-						type='submit'
-					/>
-				</Link>
+				<Button
+					size='basic'
+					disabled={isButtonDisabled}
+					content='생성하기'
+					type='submit'
+				/>
 			</form>
 		</Layout>
 	);

@@ -1,37 +1,45 @@
+@use '@/assets/utilities.scss' as *;
+
 .link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
 	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
 .card {
-	max-width: 38.4rem;
-	max-height: 28rem;
-	border-radius: 1.6rem;
-	background-color: $color_white;
-	aspect-ratio: 384/280;
-	cursor: pointer;
-
-	@media only screen and (max-width: 1248px) and (min-width: 768px) {
+	@include tablet {
 		max-width: 35.2rem;
 		max-height: 28.4rem;
 	}
 
-	@media only screen and (max-width: 767px) {
+	@include mobile {
 		max-width: 32rem;
 		max-height: 23rem;
 	}
+
+	max-width: 38.4rem;
+	max-height: 28rem;
+	border-radius: 1.6rem;
+	background-color: $color_white;
+	cursor: pointer;
+	aspect-ratio: 384/280;
 }
 
 .newMessageContainer {
 	display: flex;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
 }
 
 .linkToNewMessage {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.iconContainer {
 	display: block;
 	width: 5.6rem;
 	height: 5.6rem;
@@ -56,19 +64,19 @@
 }
 
 .cardTitle::after {
+	@include tablet {
+		width: 30.4rem;
+	}
+
+	@include mobile {
+		width: 27.2rem;
+	}
+
 	position: absolute;
 	bottom: 0;
 	width: 33.6rem;
 	border-bottom: 0.1rem solid $color_gray_200;
 	content: '';
-
-	@media only screen and (max-width: 1248px) and (min-width: 768px) {
-		width: 30.4rem;
-	}
-
-	@media only screen and (max-width: 767px) {
-		width: 27.2rem;
-	}
 }
 
 .thumbnail {
@@ -84,11 +92,19 @@
 }
 
 .from {
-	width: 200px;
+	@include typo_20_regular;
+	@include tablet {
+		width: 17.9rem;
+	}
+
+	@include mobile {
+		width: 14.3rem;
+	}
+
+	width: 19.4rem;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	@include typo_20_regular;
 }
 
 .sender {
@@ -96,13 +112,21 @@
 }
 
 .deleteButton {
-	margin-left: 1.7rem;
-	border-radius: 6px;
-	border: 1px solid $color_gray_300;
-	background: $color_white;
-	padding: 0.8rem;
+	@include tablet {
+		margin-left: 0;
+	}
+
+	&:hover {
+		background: $color_gray_200;
+	}
+
 	width: 4rem;
 	height: 4rem;
+	margin-left: 1.7rem;
+	padding: 0.8rem;
+	border: 0.1rem solid $color_gray_300;
+	border-radius: 0.6rem;
+	background: $color_white;
 }
 
 .deleteIcon {
@@ -120,19 +144,27 @@
 }
 
 .content {
+	@include typo_18_regular;
+
+	@include tablet {
+		-webkit-line-clamp: 2;
+	}
+
 	display: -webkit-box;
 	overflow: hidden;
 	color: $color_gray_600;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 3;
-	@include typo_18_regular;
 
-	@media only screen and (max-width: 1248px) {
-		-webkit-line-clamp: 2;
+	ol,
+	ul {
+		list-style: revert;
+		margin: revert;
+		padding: revert;
 	}
 }
 
 .createdAt {
-	color: $color_gray_400;
 	@include typo_12_regular;
+	color: $color_gray_400;
 }

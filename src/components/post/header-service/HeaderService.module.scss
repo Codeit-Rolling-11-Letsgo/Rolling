@@ -1,3 +1,5 @@
+@use '@/assets/utilities.scss' as *;
+
 .layout {
 	height: 6.8rem;
 	margin-inline: auto;
@@ -8,7 +10,7 @@
 	align-items: center;
 	flex-wrap: wrap;
 
-	@media (max-width: 767px) {
+	@include mobile {
 		@include typo_18_bold;
 		height: auto;
 		padding-inline: 0;
@@ -16,7 +18,7 @@
 }
 
 .title_container {
-	@media (max-width: 767px) {
+	@include mobile {
 		width: 100%;
 		padding-inline: 2.4rem;
 	}
@@ -24,7 +26,7 @@
 
 .title {
 	@include typo_28_bold;
-	@media (max-width: 767px) {
+	@include mobile {
 		@include typo_18_bold;
 	}
 }
@@ -34,7 +36,7 @@
 	display: flex;
 	align-items: center;
 	height: 100%;
-	@media (max-width: 767px) {
+	@include mobile {
 		height: 5.2rem;
 	}
 }
@@ -42,7 +44,7 @@
 .service_container {
 	display: flex;
 
-	@media (max-width: 767px) {
+	@include mobile {
 		width: 100%;
 		padding-inline: 2.4rem;
 		border-top: 0.1rem solid $color_gray_200;

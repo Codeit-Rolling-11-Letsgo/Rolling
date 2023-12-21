@@ -1,3 +1,4 @@
+
 @use '@/assets/utilities.scss' as *;
 $select-label-margin: 4rem;
 
@@ -98,7 +99,6 @@ $select-label-margin: 4rem;
 			background: $color_green_200;
 		}
 	}
-
 	@include mobile {
 		flex-wrap: wrap;
 	}

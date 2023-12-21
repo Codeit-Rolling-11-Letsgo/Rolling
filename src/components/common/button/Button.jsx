@@ -8,10 +8,15 @@ import styles from '@/components/common/button/Button.module.scss';
  * @returns
  */
 function Button({ variant, size, label, icon, ...props }) {
-	const { labelHide } = props;
+	const { labelHide, deleteButton } = props;
 	return (
 		<button
-			className={clsx(styles.button, styles[variant], styles[size])}
+			className={clsx(
+				styles.button,
+				styles[variant],
+				styles[size],
+				styles[deleteButton],
+			)}
 			{...props}
 		>
 			{icon}

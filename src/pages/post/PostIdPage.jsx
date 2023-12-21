@@ -89,6 +89,7 @@ export default function PostIdPage() {
 						size='md'
 						onClick={handleClickDelete}
 						label='삭제하기'
+						deleteButton='deleteButton'
 					/>
 				)}
 			</div>

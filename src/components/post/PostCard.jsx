@@ -6,6 +6,7 @@ import Card from '@/components/common/card/Card';
 import Icon from '@/components/common/icon/Icon';
 import PostBadge from '@/components/post/PostBadge';
 import styles from '@/components/post/PostCard.module.scss';
+import { fontNamesEng } from '@/constants/fontNames';
 import { formatDate } from '@/utils/dateUtils';
 import { hoverCard } from '@/utils/framerAnimation';
 
@@ -67,7 +68,7 @@ function PostCard({ message, openModal, isEdit, reload }) {
 				<Card.Panel className={styles.contentContainer}>
 					<div
 						className={styles.content}
-						style={{ fontFamily: font }}
+						style={{ fontFamily: fontNamesEng[font] || font }}
 						dangerouslySetInnerHTML={{ __html: content }}
 					></div>
 					<span className={styles.createdAt}>{formatDate(createdAt)}</span>

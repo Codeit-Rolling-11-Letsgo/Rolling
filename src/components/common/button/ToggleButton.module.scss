@@ -1,0 +1,38 @@
+.toggle {
+	@include typo_16_regular;
+
+	width: max-content;
+	background-color: $color_gray_100;
+	border-radius: 0.6rem;
+	overflow: hidden;
+
+	display: flex;
+}
+
+.item {
+	height: 4rem;
+	padding-inline: 2.8rem;
+	color: $color_gray_500;
+	background-color: $color_gray_100;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&:hover {
+		background-color: $color_gray_200;
+	}
+}
+
+.selected {
+	@include typo_16_bold;
+
+	border-radius: 0.6rem;
+	box-shadow: 0 0 0 0.2rem $color_purple_600 inset;
+	background-color: $color_white;
+	color: $color_purple_700;
+
+	&:hover {
+		background-color: $color_white;
+	}
+}

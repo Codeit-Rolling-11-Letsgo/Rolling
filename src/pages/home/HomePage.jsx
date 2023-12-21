@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 
-import Button from '@/components/common/button/Button';
 import Card from '@/components/common/card/Card';
 import HomeLayout from '@/components/home/HomeLayout';
 import { PATH_LIST } from '@/constants/routes';
@@ -70,8 +69,8 @@ export default function HomePage() {
 				</Card>
 			</section>
 			<div className={styles.bottom}>
-				<Link to={PATH_LIST}>
-					<Button variant='primary' size='xl' label='구경해보기' />
+				<Link to={PATH_LIST} className={styles.bottom_cta}>
+					구경해보기
 				</Link>
 			</div>
 		</HomeLayout>

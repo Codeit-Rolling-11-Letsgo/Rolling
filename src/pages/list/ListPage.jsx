@@ -1,6 +1,5 @@
 import { Link, useLoaderData } from 'react-router-dom';
 
-import Button from '@/components/common/button/Button';
 import ListContent from '@/components/list/ListContent';
 import ListLayout from '@/components/list/ListLayout';
 import RecipientCardList from '@/components/list/RecipientCardList';
@@ -19,8 +18,8 @@ export default function ListPage() {
 				<RecipientCardList recipientList={recentRecipientList} />
 			</ListContent>
 			<div className={styles.bottom}>
-				<Link to={PATH_POST}>
-					<Button variant='primary' size='xl' label='나도 만들어보기' />
+				<Link to={PATH_POST} className={styles.post_cta}>
+					나도 만들어보기
 				</Link>
 			</div>
 		</ListLayout>

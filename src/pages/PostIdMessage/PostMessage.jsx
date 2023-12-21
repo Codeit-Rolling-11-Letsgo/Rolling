@@ -1,7 +1,8 @@
 import '@/pages/PostIdMessage/PostMessage.scss';
 
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import postRecipientMessage from '@/apis/post/postRecipientsMessage';
 import Button from '@/components/common/Buttons/Button';
@@ -14,7 +15,6 @@ import ProfileImageSelect from '@/pages/PostIdMessage/ProfileImageSelect';
 import TextEditor from '@/pages/PostIdMessage/TextEditor';
 
 function PostMessage() {
-	const navigate = useNavigate();
 	const { recipientId } = useParams();
 	const [inputValue, setInputValue] = useState('');
 	const [error, setError] = useState('');
@@ -70,7 +70,6 @@ function PostMessage() {
 			if (response) {
 				console.log('메세지 전송이 완료되었습니다.', response);
 			}
-			navigate(`/post/${recipientId}`);
 		} catch (error) {
 			console.error('에러 발생:', error);
 		}
@@ -108,13 +107,15 @@ function PostMessage() {
 				</div>
 				<TextEditor onContentChange={handleContentChange} />
 				<FontSelector onSelectFont={handleFontChange} />
-				<Button
-					size='basic'
-					disabled={isButtonDisabled}
-					content='생성하기'
-					onClick={handleCreateMessage}
-					type='button'
-				/>
+				<Link to={`/post/${recipientId}`} className='link'>
+					<Button
+						size='basic'
+						disabled={isButtonDisabled}
+						content='생성하기'
+						onClick={handleCreateMessage}
+						type='button'
+					/>
+				</Link>
 			</form>
 		</Layout>
 	);

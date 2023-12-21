@@ -25,10 +25,27 @@ $height: 3.6rem;
 }
 
 .arrowDownButton {
-	background-color: inherit;
 	width: 3.6rem;
-	height: 100%;
-	padding: 0.6rem;
+	height: 3.6rem;
+	background-color: inherit;
+	border-radius: 0.6rem;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&:hover {
+		background-color: $color_gray_200;
+	}
+}
+
+.collectionButtonPressed {
+	background-color: $color_gray_200;
+}
+
+.arrowDownIcon {
+	width: 2.4rem;
+	height: 2.4rem;
 }
 
 .emojiReactionList {

@@ -8,20 +8,19 @@ import styles from '@/components/post/PostCard.module.scss';
 import { rotateAddIcon } from '@/utils/framerAnimation';
 function NewMessageCTA({ recipientId }) {
 	return (
-		<Card className={clsx(styles.card, styles.newMessageContainer)}>
-			<motion.div
-				whileHover='rotate90'
-				variants={rotateAddIcon}
-				className={styles.link}
-			>
-				<Link
-					to={`/post/${recipientId}/message`}
-					className={styles.linkToNewMessage}
+		<Link to={`/post/${recipientId}/message`}>
+			<Card className={clsx(styles.card, styles.newMessageContainer)}>
+				<motion.div
+					whileHover='rotate90'
+					variants={rotateAddIcon}
+					className={styles.link}
 				>
-					<Icon name='plus' className={styles.newMessage} />
-				</Link>
-			</motion.div>
-		</Card>
+					<div className={styles.linkToNewMessage}>
+						<Icon name='plus' className={styles.newMessage} />
+					</div>
+				</motion.div>
+			</Card>
+		</Link>
 	);
 }
 

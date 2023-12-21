@@ -99,7 +99,7 @@ export default function DropDown({
 							onClick={handleOptionSelect}
 							className={styles.optionItem}
 							value={option}
-						></input>
+						/>
 					))}
 				</div>
 			)}

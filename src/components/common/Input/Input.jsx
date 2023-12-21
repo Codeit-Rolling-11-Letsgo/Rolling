@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import styles from './Input.module.scss';
 
 /**
- *
  * @param {{errorMessage?: string}} props
  * @returns
  */

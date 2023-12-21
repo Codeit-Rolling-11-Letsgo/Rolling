@@ -43,45 +43,13 @@
 .buttonContainer {
 	@include tablet {
 		position: static;
+		width: auto;
 	}
-
-	position: relative;
 	width: 120rem;
+	position: relative;
 	margin: 0 auto;
-	padding-block: 2.4rem;
+	padding: 1.1rem;
 
 	display: flex;
 	justify-content: flex-end;
-}
-
-.deleteButton {
-	@include typo_16_regular;
-	@include tablet {
-		z-index: 1;
-		position: fixed;
-		top: auto;
-		bottom: 2.4rem;
-		left: 50%;
-		width: 72rem;
-		transform: translate(-50%, 0);
-	}
-
-	@include mobile {
-		width: 32rem;
-	}
-
-	&:hover {
-		background: $color_purple_700;
-	}
-
-	display: block;
-	position: absolute;
-	top: -6.2rem;
-	right: 0;
-	width: 9.2rem;
-	padding: 0.7rem 1.6rem;
-	border-radius: 0.6rem;
-	background: $color_purple_600;
-	color: $color_white;
-	cursor: pointer;
 }

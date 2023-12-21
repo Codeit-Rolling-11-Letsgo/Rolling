@@ -7,14 +7,27 @@ import styles from '@/components/common/button/Button.module.scss';
  * @param {{variant: 'primary' | 'secondary' | 'outlined', size: 'xl' | 'lg' | 'md' | 'sm' | 'full' | 'icon', label: string, icon: React.ReactNode}} props
  * @returns
  */
-function Button({ variant, size, label, icon, ...props }) {
+function Button({
+	variant,
+	size,
+	label,
+	icon,
+	labelhide,
+	deleteButton,
+	...props
+}) {
 	return (
 		<button
-			className={clsx(styles.button, styles[variant], styles[size])}
+			className={clsx(
+				styles.button,
+				styles[variant],
+				styles[size],
+				styles[deleteButton],
+			)}
 			{...props}
 		>
 			{icon}
-			{label}
+			<div className={labelhide && styles.labelHiddenAtMobile}>{label}</div>
 		</button>
 	);
 }

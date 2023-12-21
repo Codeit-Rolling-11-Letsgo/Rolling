@@ -1,10 +1,11 @@
 import '@/pages/PostIdMessage/PostMessage.scss';
 
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import postRecipientMessage from '@/apis/post/postRecipientsMessage';
-import Button from '@/components/common/Buttons/Button';
+import Button from '@/components/common/button/Button';
 import DropDown from '@/components/common/DropDown/DropDown';
 import GlobalHeader from '@/components/common/header/GlobalHeader';
 import Input from '@/components/common/Input/Input';
@@ -67,7 +68,6 @@ function PostMessage() {
 				relationship: selectedRelation,
 			});
 			if (response) {
-				console.log('메세지 전송이 완료되었습니다.', response);
 				navigate(`/post/${recipientId}`);
 			}
 		} catch (error) {
@@ -77,7 +77,7 @@ function PostMessage() {
 
 	return (
 		<Layout>
-			<GlobalHeader />
+			<GlobalHeader className='postMessageHeader' />
 			<form className='postMessageForm'>
 				<div className='inputBox'>
 					<label htmlFor='sendingInput' className='sendTo'>
@@ -108,9 +108,10 @@ function PostMessage() {
 				<TextEditor onContentChange={handleContentChange} />
 				<FontSelector onSelectFont={handleFontChange} />
 				<Button
-					size='basic'
+					variant='primary'
+					size='full'
 					disabled={isButtonDisabled}
-					content='생성하기'
+					label='생성하기'
 					onClick={handleCreateMessage}
 					type='button'
 				/>

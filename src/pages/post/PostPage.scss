@@ -1,5 +1,9 @@
-._global_header_zm0nz_5 {
-	border-bottom: 0.1rem solid $color_gray_100;
+@use '@/assets/utilities.scss' as *;
+
+.postPageHeader {
+	@include mobile {
+		display: none;
+	}
 }
 
 .postForm {
@@ -7,6 +11,10 @@
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
+	@include mobile {
+		width: calc(100% - 4rem);
+		margin: 0 2rem;
+	}
 }
 
 .inputBox {
@@ -44,6 +52,6 @@
 	margin: 2.4rem 0;
 }
 
-.postForm > .button {
-	width: 72rem;
+._primary_ltbho_11 {
+	margin: 10rem 0 6rem;
 }

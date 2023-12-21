@@ -14,6 +14,7 @@ export default function ShareButton({ shareInfo }) {
 
 	const [isPickerOpened, setIsPickerOpened] = useState(false);
 	const [isToastVisible, setIsToastVisible] = useState(false);
+	const [toastTimer, setToastTimer] = useState(null);
 	const shareOptionPickerRef = useRef(null);
 
 	const handlePickerToggle = () => {
@@ -42,13 +43,16 @@ export default function ShareButton({ shareInfo }) {
 
 	const handleCopyUrl = (e) => {
 		const currentUrl = window.location.href;
+		if (toastTimer) clearTimeout(toastTimer);
+
 		navigator.clipboard
 			.writeText(currentUrl)
 			.then(() => {
 				setIsToastVisible(true);
-				setTimeout(() => {
+				const newTimer = setTimeout(() => {
 					setIsToastVisible(false);
 				}, 5000);
+				setToastTimer(newTimer);
 			})
 			.catch((error) => {
 				throw new error(error);

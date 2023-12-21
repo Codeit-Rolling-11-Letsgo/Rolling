@@ -2,7 +2,7 @@
 
 .cardList {
 	@include tablet {
-		width: calc(100% - 48px);
+		width: calc(100% - 4.8rem);
 	}
 
 	@include tablet {
@@ -41,6 +41,10 @@
 }
 
 .buttonContainer {
+	@include tablet {
+		position: static;
+	}
+
 	position: relative;
 	width: 120rem;
 	margin: 0 auto;
@@ -48,6 +52,24 @@
 
 .deleteButton {
 	@include typo_16_regular;
+	@include tablet {
+		z-index: 1;
+		position: fixed;
+		top: auto;
+		bottom: 2.4rem;
+		left: 50%;
+		width: 72rem;
+		transform: translate(-50%, 0);
+	}
+
+	@include mobile {
+		width: 32rem;
+	}
+
+	&:hover {
+		background: $color_purple_700;
+	}
+
 	display: block;
 	position: absolute;
 	top: -6.2rem;

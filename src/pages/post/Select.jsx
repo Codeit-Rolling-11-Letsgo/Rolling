@@ -76,19 +76,14 @@ function Select({ onSelectionChange, onSelectTypeChange }) {
 		<>
 			<div className='toggleBox'>
 				<ToggleButton
-					items={['컬러']}
-					selected={type === 'color'}
-					onClickItem={() => {
-						setType('color');
-						onSelectTypeChange('color');
-					}}
-				/>
-				<ToggleButton
-					items={['이미지']}
-					selected={type === 'image'}
-					onClickItem={() => {
-						setType('image');
-						onSelectTypeChange('image');
+					items={[
+						{ label: '컬러', value: 'color' },
+						{ label: '이미지', value: 'image' },
+					]}
+					selected={type}
+					onClickItem={(type) => {
+						setType(type);
+						onSelectTypeChange(type);
 					}}
 				/>
 			</div>

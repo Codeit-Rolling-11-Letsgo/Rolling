@@ -99,13 +99,13 @@
 	@include typo_18_bold;
 
 	height: 5.6rem;
-	padding-inline: 4.8rem;
+	padding-inline: 9.6rem;
 	border-radius: 1.2rem;
 	gap: 1.2rem;
 }
 
 .lg {
-	@include typo_16_regular;
+	@include typo_16_bold;
 
 	height: 4rem;
 	padding-inline: 2.4rem;
@@ -117,7 +117,7 @@
 	@include typo_16_regular;
 
 	height: 3.6rem;
-	padding-inline: 2.4rem;
+	padding-inline: 1.6rem;
 	border-radius: 0.6rem;
 	gap: 0.8rem;
 }
@@ -126,12 +126,14 @@
 	@include typo_14_regular;
 
 	height: 2.8rem;
-	padding-inline: 2.4rem;
+	padding-inline: 0.8rem;
 	border-radius: 0.6rem;
 	gap: 0.4rem;
 }
 
 .icon {
+	height: 3.6rem;
+	aspect-ratio: 1/1;
 	padding: 0.6rem;
 	border-radius: 0.6rem;
 }

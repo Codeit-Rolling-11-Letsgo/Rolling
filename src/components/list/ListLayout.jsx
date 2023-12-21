@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+import Button from '@/components/common/button/Button';
 import GlobalHeader from '@/components/common/header/GlobalHeader';
 import Layout from '@/components/common/Layout';
 import styles from '@/components/list/ListLayout.module.scss';
@@ -16,8 +17,8 @@ export default function ListLayout({ children }) {
 
 function ListHeaderCTA() {
 	return (
-		<Link to={PATH_POST} className={styles.cta}>
-			롤링 페이퍼 만들기
+		<Link to={PATH_POST}>
+			<Button variant='outlined' size='lg' label='롤링 페이퍼 만들기' />
 		</Link>
 	);
 }

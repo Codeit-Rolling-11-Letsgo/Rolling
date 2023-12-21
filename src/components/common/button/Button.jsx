@@ -9,7 +9,10 @@ import styles from '@/components/common/button/Button.module.scss';
  */
 function Button({ variant, size, label, icon, ...props }) {
 	return (
-		<button className={clsx(styles[variant], styles[size])} {...props}>
+		<button
+			className={clsx(styles.button, styles[variant], styles[size])}
+			{...props}
+		>
 			{icon}
 			{label}
 		</button>

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { postRecipient } from '@/apis/post/postRecipients';
-import Button from '@/components/common/Buttons/Button';
+import Button from '@/components/common/button/Button';
 import GlobalHeader from '@/components/common/header/GlobalHeader';
 import Input from '@/components/common/Input/Input';
 import Layout from '@/components/common/Layout';
@@ -89,9 +89,10 @@ function PostForm() {
 					onSelectTypeChange={handleSelectTypeChange}
 				/>
 				<Button
-					size='basic'
+					variant='primary'
+					size='full'
 					disabled={isButtonDisabled}
-					content='생성하기'
+					label='생성하기'
 					type='submit'
 				/>
 			</form>

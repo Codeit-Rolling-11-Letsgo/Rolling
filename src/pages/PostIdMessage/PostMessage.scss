@@ -54,15 +54,3 @@
 	margin-top: 5rem;
 	gap: 1.2rem;
 }
-
-.link {
-	height: 4.8688rem;
-	margin: 10rem 0 6rem;
-}
-
-.link > .button {
-	width: 72rem;
-	@include tablet {
-		width: 100%;
-	}
-}

@@ -2,7 +2,7 @@ import '@/pages/post/Select.scss';
 
 import { useEffect, useState } from 'react';
 
-import Button from '@/components/common/Buttons/Button';
+import Button from '@/components/common/button/Button';
 import Icon from '@/components/common/icon/Icon';
 import Checkbox from '@/pages/post/SelectItem';
 
@@ -88,15 +88,15 @@ function Select({ onSelectionChange, onSelectTypeChange }) {
 			<div className='toggleBox'>
 				<Button
 					variant='secondary'
-					size=''
-					content='컬러'
+					size='md'
+					label='컬러'
 					onClick={handleColorButtonClick}
 					type='button'
 				/>
 				<Button
 					variant='outlined'
-					size='lg'
-					content='이미지'
+					size='md'
+					label='이미지'
 					onClick={handleImageButtonClick}
 					type='button'
 				/>

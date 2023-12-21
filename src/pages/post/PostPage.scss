@@ -1,9 +1,5 @@
 @use '@/assets/utilities.scss' as *;
 
-._global_header_zm0nz_5 {
-	border-bottom: 0.1rem solid $color_gray_100;
-}
-
 .postForm {
 	width: 72rem;
 	display: flex;
@@ -50,9 +46,6 @@
 	margin: 2.4rem 0;
 }
 
-.postForm > .button {
-	width: 72rem;
-	@include tablet {
-		width: 100%;
-	}
+._primary_ltbho_11 {
+	margin: 10rem 0 6rem;
 }

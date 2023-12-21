@@ -1,0 +1,51 @@
+._global_header_zm0nz_5 {
+	border-bottom: 0.1rem solid $color_gray_100;
+}
+
+.postMessageForm {
+	width: 72rem;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.inputBox {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.2rem;
+	margin-top: 5.7rem;
+}
+
+.sendTo {
+	@include typo_24_bold;
+	border: none;
+}
+
+.textBox {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.4rem;
+	margin-top: 5rem;
+}
+
+.sectionTitle {
+	@include typo_24_bold;
+}
+
+.relation {
+	display: flex;
+	flex-direction: column;
+	margin-top: 5rem;
+	gap: 1.2rem;
+}
+
+.link {
+	height: 4.8688rem;
+	margin: 10rem 0 6rem;
+}
+
+.link > .button {
+	width: 72rem;
+}

@@ -1,0 +1,49 @@
+._global_header_zm0nz_5 {
+	border-bottom: 0.1rem solid $color_gray_100;
+}
+
+.postForm {
+	width: 72rem;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.inputBox {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.2rem;
+	margin-top: 5.7rem;
+}
+
+.sendTo {
+	@include typo_24_bold;
+	border: none;
+}
+
+.textBox {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.4rem;
+	margin-top: 5rem;
+}
+
+.textBox > .title {
+	@include typo_24_bold;
+}
+
+.textBox > .subTitle {
+	@include typo_16_regular;
+}
+
+.toggleBox {
+	display: flex;
+	flex-direction: row;
+	margin: 2.4rem 0;
+}
+
+.postForm > .button {
+	width: 72rem;
+}

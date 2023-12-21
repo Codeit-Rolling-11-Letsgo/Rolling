@@ -1,0 +1,90 @@
+.selector_box {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.6rem;
+}
+
+.toggleBox {
+	display: flex;
+	flex-direction: row;
+	margin: 2.4rem 0;
+}
+
+.toggleBox > .button {
+	width: 9rem;
+	margin: 0;
+}
+
+.selectLabel {
+	width: 16.8rem;
+	height: 16.8rem;
+	aspect-ratio: 1 /1;
+	border-radius: 1.6rem;
+	flex-shrink: 0;
+	border: 0.1rem solid rgba(0, 0, 0, 0.08);
+	cursor: pointer;
+}
+
+.selectLabel > .check > svg {
+	width: 4.4rem;
+	height: 4.4rem;
+	background: $color_gray_500;
+	border-radius: 10rem;
+	margin: 6.2rem;
+	z-index: 1;
+}
+
+.checked svg {
+	display: block;
+}
+
+.postForm > .button {
+	margin-top: 10rem;
+}
+
+.checkboxInput {
+	display: none;
+}
+
+.selector_box {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.6rem;
+
+	.selectLabel {
+		background-size: cover;
+		background-position: center;
+
+		&.image1 {
+			background-image: url('https://picsum.photos/id/683/3840/2160');
+		}
+
+		&.image2 {
+			background-image: url('https://picsum.photos/id/24/3840/2160');
+		}
+
+		&.image3 {
+			background-image: url('https://picsum.photos/id/599/3840/2160');
+		}
+
+		&.image4 {
+			background-image: url('https://picsum.photos/id/1058/3840/2160');
+		}
+
+		&.beige {
+			background: $color_orange_200;
+		}
+
+		&.purple {
+			background: $color_purple_200;
+		}
+
+		&.blue {
+			background: $color_blue_200;
+		}
+
+		&.green {
+			background: $color_green_200;
+		}
+	}
+}

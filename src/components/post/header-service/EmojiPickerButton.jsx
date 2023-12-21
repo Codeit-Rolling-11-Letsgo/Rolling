@@ -42,7 +42,7 @@ export default function EmojiPickerButton({
 	return (
 		<div className={styles.emojiPickerComponent} ref={emojiPickerRef}>
 			<button className={styles.toggleButton} onClick={handlePickerToggle}>
-				<Icon name='add' />
+				<Icon className={styles.addIcon} name='add' />
 				<div className={styles.addText}> 추가</div>
 			</button>
 			{isPickerOpened && (

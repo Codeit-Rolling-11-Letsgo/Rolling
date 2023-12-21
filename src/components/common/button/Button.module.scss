@@ -18,14 +18,13 @@
 }
 
 .deleteButton {
-	@include typo_16_regular;
 	@include tablet {
 		z-index: 1;
 		position: fixed;
-		top: auto;
 		bottom: 2.4rem;
 		left: 50%;
 		width: 72rem;
+		height: 5.6rem;
 		transform: translate(-50%, 0);
 	}
 

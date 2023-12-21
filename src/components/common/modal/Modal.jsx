@@ -6,7 +6,7 @@ import styles from '@/components/common/modal/Modal.module.scss';
 import ModalButtons from '@/components/common/modal/ModalButtons';
 import ModalContent from '@/components/common/modal/ModalContent';
 import ModalTitle from '@/components/common/modal/ModalTitle';
-import { useModalContext } from '@/hooks/useModalContext';
+import { useModalContext } from '@/hooks/common/modal/useModalContext';
 import { popover } from '@/utils/framerAnimation';
 const Modal = forwardRef(function Modal(
 	{ children, className, ...props },

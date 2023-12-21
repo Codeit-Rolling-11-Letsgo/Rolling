@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useLoaderData } from 'react-router-dom';
 
-import { getRecipientsReactions } from '@/apis/recipients/reactionsAPI';
+import { getRecipientsReactionList } from '@/apis/reaction/api';
 import Image from '@/components/common/Image';
-import EmojiReactionViewer from '@/components/post/header-service/EmojiReactionViewer';
-import styles from '@/components/post/header-service/HeaderService.module.scss';
-import ShareButton from '@/components/post/header-service/ShareButton';
+import EmojiReactionViewer from '@/components/post/headerService/EmojiReactionViewer';
+import styles from '@/components/post/headerService/HeaderService.module.scss';
+import ShareButton from '@/components/post/headerService/ShareButton';
 import { take } from '@/utils/util';
 const MESSAGE_PREVIEW_COUNT = 3;
 
@@ -19,7 +19,7 @@ export default function HeaderService() {
 
 	useEffect(() => {
 		const loadReactionCount = async () => {
-			const { count } = await getRecipientsReactions(recipientId);
+			const { count } = await getRecipientsReactionList(recipientId);
 			setReactionCount(count);
 		};
 		loadReactionCount();

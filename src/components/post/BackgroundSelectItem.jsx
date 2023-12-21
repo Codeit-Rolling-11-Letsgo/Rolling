@@ -1,5 +1,5 @@
 import Icon from '@/components/common/icon/Icon';
-import styles from '@/pages/post/Select.module.scss';
+import styles from '@/components/post/BackgroundSelect.module.scss';
 
 const Checkbox = ({ id, type, color, image, isChecked, onCheckboxChange }) => {
 	return (

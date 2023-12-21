@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import styles from '@/pages/PostIdMessage/ProfileImageSelect.module.scss';
+import styles from '@/components/post/ProfileImageSelect.module.scss';
 
 function ProfileImageSelect({ onProfileImageChange }) {
 	const [imageUrls, setImageUrls] = useState([]);

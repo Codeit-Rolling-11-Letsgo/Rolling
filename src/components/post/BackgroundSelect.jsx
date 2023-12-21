@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 
 import ToggleButton from '@/components/common/button/ToggleButton';
 import Icon from '@/components/common/icon/Icon';
-import styles from '@/pages/post/Select.module.scss';
-import Checkbox from '@/pages/post/SelectItem';
+import styles from '@/components/post/BackgroundSelect.module.scss';
+import BackgroundSelectItem from '@/components/post/BackgroundSelectItem';
 
-function Select({ onSelectionChange, onSelectTypeChange }) {
+export default function BackgroundSelect({
+	onSelectionChange,
+	onSelectTypeChange,
+}) {
 	const [isChecked, setIsChecked] = useState({
 		ckb1: true,
 		ckb2: false,
@@ -88,7 +91,7 @@ function Select({ onSelectionChange, onSelectTypeChange }) {
 			</div>
 			<div className={styles.selectorBox}>
 				{imageUrls.map((imageUrl, index) => (
-					<Checkbox
+					<BackgroundSelectItem
 						key={`ckb${index + 1}`}
 						id={`ckb${index + 1}`}
 						type={type}
@@ -103,5 +106,3 @@ function Select({ onSelectionChange, onSelectTypeChange }) {
 		</>
 	);
 }
-
-export default Select;

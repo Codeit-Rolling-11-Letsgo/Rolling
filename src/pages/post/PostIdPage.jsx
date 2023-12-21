@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 
-import { deleteRecipient, getMessageList } from '@/apis/post/postAPI';
+import { getRecipientMessageList } from '@/apis/messages/api';
+import { deleteRecipient } from '@/apis/recipient/api';
 import Button from '@/components/common/button/Button';
 import NewMessageCTA from '@/components/post/NewMessageCTA';
 import PostCard from '@/components/post/PostCard';
 import PostLayout from '@/components/post/PostLayout';
 import PostModal from '@/components/post/PostModal';
+import { useModalContext } from '@/hooks/common/modal/useModalContext';
 import useBackgroundImage from '@/hooks/common/useBackgroundImage';
-import { useIntersect } from '@/hooks/useIntersect';
-import { useModalContext } from '@/hooks/useModalContext';
+import { useIntersect } from '@/hooks/common/useIntersect';
 import styles from '@/pages/post/PostIdPage.module.scss';
 
 export default function PostIdPage() {
@@ -32,11 +33,12 @@ export default function PostIdPage() {
 
 		setIsLoading(true);
 
-		const { messageListInfo: newMessageListInfo } = await getMessageList({
-			recipientId,
-			limit: 15,
-			offset: currentMessageList.length,
-		});
+		const { messageListInfo: newMessageListInfo } =
+			await getRecipientMessageList({
+				recipientId,
+				limit: 15,
+				offset: currentMessageList.length,
+			});
 
 		setCurrentMessageListInfo(newMessageListInfo);
 		setCurrentMessageList((prevMessageList) => [
@@ -48,11 +50,12 @@ export default function PostIdPage() {
 
 	const reload = async () => {
 		setIsLoading(true);
-		const { messageListInfo: newMessageListInfo } = await getMessageList({
-			recipientId,
-			limit: currentMessageList.length,
-			offset: 0,
-		});
+		const { messageListInfo: newMessageListInfo } =
+			await getRecipientMessageList({
+				recipientId,
+				limit: currentMessageList.length,
+				offset: 0,
+			});
 
 		setCurrentMessageListInfo(newMessageListInfo);
 		setCurrentMessageList(newMessageListInfo.results);

@@ -1,5 +1,5 @@
-import DropDown from '@/components/common/DropDown/DropDown';
-import styles from '@/pages/PostIdMessage/FontSelect.module.scss';
+import DropDown from '@/components/common/dropdown/DropDown';
+import styles from '@/components/post/FontSelect.module.scss';
 
 const fontOptions = [
 	'Noto Sans',
@@ -8,7 +8,7 @@ const fontOptions = [
 	'나눔손글씨 손편지체',
 ];
 
-function FontSelector({ onSelectFont }) {
+function FontSelect({ onSelectFont }) {
 	const handleFontChange = (font) => {
 		onSelectFont(font);
 	};
@@ -25,4 +25,4 @@ function FontSelector({ onSelectFont }) {
 	);
 }
 
-export default FontSelector;
+export default FontSelect;

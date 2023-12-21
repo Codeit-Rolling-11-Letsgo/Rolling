@@ -4,8 +4,8 @@ import Image from '@/components/common/Image';
 import Modal from '@/components/common/modal/Modal';
 import PostBadge from '@/components/post/PostBadge';
 import styles from '@/components/post/PostModal.module.scss';
-import { fontNamesEng } from '@/constants/fontNames';
-import { useModalContext } from '@/hooks/useModalContext';
+import { FONT_NAMES } from '@/constants/fonts';
+import { useModalContext } from '@/hooks/common/modal/useModalContext';
 import { formatDate } from '@/utils/dateUtils';
 
 const PostModal = () => {
@@ -42,7 +42,7 @@ const PostModal = () => {
 			</Modal.Title>
 			<div
 				className={styles.content}
-				style={{ fontFamily: fontNamesEng[font] || font }}
+				style={{ fontFamily: FONT_NAMES[font] || font }}
 				dangerouslySetInnerHTML={{ __html: content }}
 			></div>
 			<Modal.Buttons>

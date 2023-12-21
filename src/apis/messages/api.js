@@ -13,7 +13,7 @@ import { fetcher } from '@/apis/fetcher';
  *  }
  * }>}
  */
-export const getMessageList = async ({
+export const getRecipientMessageList = async ({
 	recipientId,
 	limit = 15,
 	offset = 0,
@@ -27,14 +27,25 @@ export const getMessageList = async ({
 	return { recipientId, messageListInfo };
 };
 
-/**
- * 수신자 정보(리액션 등) 불러오기
- * @param {number} recipientId
- * @returns
- */
-export const getRecipientInfo = async (recipientId) => {
-	const recipientInfo = await fetcher.get(`recipients/${recipientId}/`).json();
-	return recipientInfo;
+export const postRecipientMessageList = async (
+	recipientId,
+	{ sender, profileImageURL, relationship, content, font },
+) => {
+	try {
+		const response = await fetcher.post(`recipients/${recipientId}/messages/`, {
+			json: { sender, profileImageURL, relationship, content, font },
+		});
+
+		if (response.ok) {
+			return response.json();
+		} else {
+			const errorMessage = await response.text();
+			throw new Error(errorMessage);
+		}
+	} catch (error) {
+		console.error('메세지 전송 실패:', error);
+		throw error;
+	}
 };
 
 /**
@@ -45,20 +56,7 @@ export const getRecipientInfo = async (recipientId) => {
 export const deleteMessage = async (messageId) => {
 	try {
 		await fetcher.delete(`messages/${messageId}/`).json();
-		return true;
-	} catch (error) {
-		return false;
-	}
-};
 
-/**
- * 수신자 삭제
- * @param {number} recipientId
- * @returns {Promise<boolean>} recipient 삭제 성공 여부
- */
-export const deleteRecipient = async (recipientId) => {
-	try {
-		await fetcher.delete(`recipients/${recipientId}/`);
 		return true;
 	} catch (error) {
 		return false;

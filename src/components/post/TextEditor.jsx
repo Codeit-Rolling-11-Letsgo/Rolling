@@ -3,7 +3,7 @@ import 'react-quill/dist/quill.snow.css';
 import { useEffect, useState } from 'react';
 import ReactQuill from 'react-quill';
 
-import styles from '@/pages/PostIdMessage/TextEditor.module.scss';
+import styles from '@/components/post/TextEditor.module.scss';
 
 function TextEditor({ onContentChange }) {
 	const [content, setContent] = useState('');

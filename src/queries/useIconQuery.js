@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { getIcon } from '@/apis/icon/iconAPI';
+import { getIcon } from '@/apis/icon/api';
 
 /**
  * @param {Parameters<typeof getIcon>[0]} name

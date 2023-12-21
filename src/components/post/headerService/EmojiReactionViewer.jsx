@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { getRecipientsReactions } from '@/apis/recipients/reactionsAPI';
-import EmojiPickerButton from '@/components/post/header-service/EmojiPickerButton';
-import EmojiReactionCollection from '@/components/post/header-service/EmojiReactionCollection';
-import styles from '@/components/post/header-service/EmojiReactionViewer.module.scss';
+import { getRecipientsReactionList } from '@/apis/reaction/api';
+import EmojiPickerButton from '@/components/post/headerService/EmojiPickerButton';
+import EmojiReactionCollection from '@/components/post/headerService/EmojiReactionCollection';
+import styles from '@/components/post/headerService/EmojiReactionViewer.module.scss';
 
 export default function EmojiReactionViewer() {
 	const { recipientId } = useParams();
@@ -16,7 +16,7 @@ export default function EmojiReactionViewer() {
 	useEffect(() => {
 		const fetchReactionList = async () => {
 			const { results: fetchedReactionList } =
-				await getRecipientsReactions(recipientId);
+				await getRecipientsReactionList(recipientId);
 			setReactionList(fetchedReactionList);
 		};
 		fetchReactionList();

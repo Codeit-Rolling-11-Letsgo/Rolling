@@ -4,14 +4,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { getMessageList, getRecipientInfo } from '@/apis/post/postAPI';
-import { getRecipientList } from '@/apis/recipients/recipientsAPI';
+import { getRecipientMessageList } from '@/apis/messages/api';
+import { getRecipient, getRecipientList } from '@/apis/recipient/api';
 import { ModalProvider } from '@/contexts/ModalContext';
 import HomePage from '@/pages/home/HomePage';
 import ListPage from '@/pages/list/ListPage';
+import PostMessage from '@/pages/post/PostIdMessagePage';
 import PostIdPage from '@/pages/post/PostIdPage';
 import PostPage from '@/pages/post/PostPage';
-import PostMessage from '@/pages/PostIdMessage/PostMessage';
 
 const router = createBrowserRouter([
 	{
@@ -38,11 +38,11 @@ const router = createBrowserRouter([
 		element: <PostIdPage />,
 		loader: async ({ params }) => {
 			const [{ messageListInfo }, recipientInfo] = await Promise.all([
-				getMessageList({
+				getRecipientMessageList({
 					recipientId: params.recipientId,
 					limit: 15,
 				}),
-				getRecipientInfo(params.recipientId),
+				getRecipient(params.recipientId),
 			]);
 
 			return {
@@ -66,11 +66,11 @@ const router = createBrowserRouter([
 		element: <PostIdPage />,
 		loader: async ({ params }) => {
 			const [{ messageListInfo }, recipientInfo] = await Promise.all([
-				getMessageList({
+				getRecipientMessageList({
 					recipientId: params.recipientId,
 					limit: 15,
 				}),
-				getRecipientInfo(params.recipientId),
+				getRecipient(params.recipientId),
 			]);
 
 			return {

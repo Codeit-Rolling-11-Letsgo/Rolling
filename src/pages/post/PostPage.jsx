@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { postRecipient } from '@/apis/post/postRecipients';
+import { postRecipient } from '@/apis/recipient/api';
 import Button from '@/components/common/button/Button';
 import GlobalHeader from '@/components/common/header/GlobalHeader';
-import Input from '@/components/common/Input/Input';
+import Input from '@/components/common/input/Input';
 import Layout from '@/components/common/Layout';
+import BackgroundSelect from '@/components/post/BackgroundSelect';
 import styles from '@/pages/post/PostPage.module.scss';
-import Select from '@/pages/post/Select';
 
 function PostForm() {
 	const [inputValue, setInputValue] = useState('');
@@ -82,7 +82,7 @@ function PostForm() {
 						컬러를 선택하거나, 이미지를 선택할 수 있습니다.
 					</p>
 				</div>
-				<Select
+				<BackgroundSelect
 					type={type}
 					onSelectionChange={handleSelectionChange}
 					onSelectTypeChange={handleSelectTypeChange}
@@ -92,7 +92,8 @@ function PostForm() {
 					size='full'
 					disabled={isButtonDisabled}
 					label='생성하기'
-					type='submit'
+					type='button'
+					style={{ margin: '10rem 0 6rem' }}
 				/>
 			</form>
 		</Layout>

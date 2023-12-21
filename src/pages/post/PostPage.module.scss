@@ -12,14 +12,6 @@
 	flex-direction: column;
 	margin: 0 auto;
 
-	button {
-		margin: 10rem 0 6rem;
-	}
-
-	button:disabled {
-		cursor: not-allowed;
-	}
-
 	@include mobile {
 		width: calc(100% - 4rem);
 		margin: 0 2rem;

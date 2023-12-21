@@ -2,10 +2,10 @@ import EmojiPicker from 'emoji-picker-react';
 import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
-import { postRecipientsReactions } from '@/apis/recipients/reactionsAPI';
+import { postRecipientsReactionList } from '@/apis/reaction/api';
 import Button from '@/components/common/button/Button';
 import Icon from '@/components/common/icon/Icon';
-import styles from '@/components/post/header-service/EmojiPickerButton.module.scss';
+import styles from '@/components/post/headerService/EmojiPickerButton.module.scss';
 import { popover } from '@/utils/framerAnimation';
 const EMOJI_PICKER_WIDTH = '30.7rem';
 const EMOJI_PICKER_HEIGHT = '39.3rem';
@@ -19,7 +19,7 @@ export default function EmojiPickerButton({
 
 	const handleEmojiClick = async (emojiInfo) => {
 		setIsPickerOpened(false);
-		await postRecipientsReactions(emojiInfo.emoji, recipientId);
+		await postRecipientsReactionList(emojiInfo.emoji, recipientId);
 		setReloadingTrigger((prevTrigger) => !prevTrigger);
 	};
 

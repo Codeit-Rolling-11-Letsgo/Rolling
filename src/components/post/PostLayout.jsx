@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import GlobalHeader from '@/components/common/header/GlobalHeader';
 import Layout from '@/components/common/Layout';
-import HeaderService from '@/components/post/header-service/HeaderService';
+import HeaderService from '@/components/post/headerService/HeaderService';
 import styles from '@/components/post/PostLayout.module.scss';
 
 const PostLayout = forwardRef(function PostLayout(

@@ -2,18 +2,18 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-import postRecipientMessage from '@/apis/post/postRecipientsMessage';
+import { postRecipientMessageList } from '@/apis/messages/api';
 import Button from '@/components/common/button/Button';
-import DropDown from '@/components/common/DropDown/DropDown';
+import DropDown from '@/components/common/dropdown/DropDown';
 import GlobalHeader from '@/components/common/header/GlobalHeader';
-import Input from '@/components/common/Input/Input';
+import Input from '@/components/common/input/Input';
 import Layout from '@/components/common/Layout';
-import FontSelector from '@/pages/PostIdMessage/FontSelect';
-import styles from '@/pages/PostIdMessage/PostMessage.module.scss';
-import ProfileImageSelect from '@/pages/PostIdMessage/ProfileImageSelect';
-import TextEditor from '@/pages/PostIdMessage/TextEditor';
+import FontSelect from '@/components/post/FontSelect';
+import ProfileImageSelect from '@/components/post/ProfileImageSelect';
+import TextEditor from '@/components/post/TextEditor';
+import styles from '@/pages/post/PostIdMessagePage.module.scss';
 
-function PostMessage() {
+function PostIdMessagePage() {
 	const { recipientId } = useParams();
 	const navigate = useNavigate();
 	const [inputValue, setInputValue] = useState('');
@@ -74,7 +74,7 @@ function PostMessage() {
 	};
 	const handleCreateMessage = async () => {
 		try {
-			const response = await postRecipientMessage(recipientId, {
+			const response = await postRecipientMessageList(recipientId, {
 				sender: inputValue,
 				profileImageURL: selectedProfileImageUrl,
 				content: editorContent,
@@ -123,7 +123,7 @@ function PostMessage() {
 					/>
 				</div>
 				<TextEditor onContentChange={handleContentChange} />
-				<FontSelector onSelectFont={handleFontChange} />
+				<FontSelect onSelectFont={handleFontChange} />
 				<Button
 					variant='primary'
 					size='full'
@@ -141,4 +141,4 @@ function PostMessage() {
 	);
 }
 
-export default PostMessage;
+export default PostIdMessagePage;

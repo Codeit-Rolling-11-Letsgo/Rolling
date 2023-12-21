@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
+import EmojiBadge from '@/components/common/badge/EmojiBadge';
 import Card from '@/components/common/card/Card';
-import EmojiBadge from '@/components/common/EmojiBadge';
 import Icon from '@/components/common/icon/Icon';
 import Image from '@/components/common/Image';
 import styles from '@/components/list/RecipientCard.module.scss';

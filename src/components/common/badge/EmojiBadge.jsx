@@ -1,4 +1,4 @@
-import styles from '@/components/common/EmojiBadge.module.scss';
+import styles from '@/components/common/badge/EmojiBadge.module.scss';
 
 export default function EmojiBadge({ emoji, label, ...props }) {
 	return (

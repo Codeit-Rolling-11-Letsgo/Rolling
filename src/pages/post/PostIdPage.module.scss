@@ -45,11 +45,32 @@
 		position: static;
 		width: auto;
 	}
-	width: 120rem;
+	width: 100%;
+	max-width: 120rem;
 	position: relative;
 	margin: 0 auto;
 	padding: 1.1rem;
 
 	display: flex;
 	justify-content: flex-end;
+}
+
+.deleteButton {
+	@include tablet {
+		z-index: 1;
+		position: fixed;
+		bottom: 2.4rem;
+		left: 50%;
+		width: 72rem;
+		height: 5.6rem;
+		transform: translate(-50%, 0);
+	}
+
+	@include mobile {
+		width: 32rem;
+	}
+
+	&:hover {
+		background: $color_purple_700;
+	}
 }

@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-import EmojiBadge from '@/components/common/EmojiBadge';
+import EmojiBadge from '@/components/common/badge/EmojiBadge';
 import Icon from '@/components/common/icon/Icon';
-import styles from '@/components/post/header-service/EmojiReactionCollection.module.scss';
+import styles from '@/components/post/headerService/EmojiReactionCollection.module.scss';
 import { popover } from '@/utils/framerAnimation';
 export default function EmojiReactionCollection({ reactionList }) {
 	const reactionTypeCount = useMediaQuery({ maxWidth: 767 }) ? 6 : 8;

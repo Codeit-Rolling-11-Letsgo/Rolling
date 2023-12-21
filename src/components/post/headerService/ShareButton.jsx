@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import Button from '@/components/common/button/Button';
 import Icon from '@/components/common/icon/Icon';
-import styles from '@/components/post/header-service/ShareButton.module.scss';
+import styles from '@/components/post/headerService/ShareButton.module.scss';
 import { popover } from '@/utils/framerAnimation';
 import shareMessageKakao from '@/utils/kakaoShareFormatting';
 

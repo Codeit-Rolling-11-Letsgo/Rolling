@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 
-import { deleteMessage } from '@/apis/post/postAPI';
+import { deleteMessage } from '@/apis/messages/api';
 import Button from '@/components/common/button/Button';
 import Card from '@/components/common/card/Card';
 import Icon from '@/components/common/icon/Icon';
 import PostBadge from '@/components/post/PostBadge';
 import styles from '@/components/post/PostCard.module.scss';
-import { fontNamesEng } from '@/constants/fontNames';
+import { FONT_NAMES } from '@/constants/fonts';
 import { formatDate } from '@/utils/dateUtils';
 import { hoverCard } from '@/utils/framerAnimation';
 
@@ -68,7 +68,7 @@ function PostCard({ message, openModal, isEdit, reload }) {
 				<Card.Panel className={styles.contentContainer}>
 					<div
 						className={styles.content}
-						style={{ fontFamily: fontNamesEng[font] || font }}
+						style={{ fontFamily: FONT_NAMES[font] || font }}
 						dangerouslySetInnerHTML={{ __html: content }}
 					></div>
 					<span className={styles.createdAt}>{formatDate(createdAt)}</span>

@@ -12,6 +12,10 @@
 	}
 
 	min-height: calc(100vh - $layout_global_header_height - 6.8rem);
+
+	@include mobile {
+		min-height: calc(100vh - 5.2rem - 5.2rem);
+	}
 	padding-top: 11.3rem;
 	padding-bottom: 21.8rem;
 	background-attachment: fixed;

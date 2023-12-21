@@ -2,7 +2,6 @@ import '@/pages/PostIdMessage/PostMessage.scss';
 
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 import postRecipientMessage from '@/apis/post/postRecipientsMessage';
@@ -108,16 +107,14 @@ function PostMessage() {
 				</div>
 				<TextEditor onContentChange={handleContentChange} />
 				<FontSelector onSelectFont={handleFontChange} />
-				<Link to={`/post/${recipientId}`} className='link'>
-					<Button
-						variant='primary'
-						size='full'
-						disabled={isButtonDisabled}
-						label='생성하기'
-						onClick={handleCreateMessage}
-						type='button'
-					/>
-				</Link>
+				<Button
+					variant='primary'
+					size='full'
+					disabled={isButtonDisabled}
+					label='생성하기'
+					onClick={handleCreateMessage}
+					type='button'
+				/>
 			</form>
 		</Layout>
 	);

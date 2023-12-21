@@ -2,8 +2,12 @@
 
 .badge {
 	@include typo_16_regular;
-	@mixin mobile {
+	@include mobile {
 		@include typo_14_regular;
+	}
+	@include mobile {
+		height: 3.2rem;
+		padding: 0.6rem 0.8rem;
 	}
 
 	color: $color_white;
@@ -20,11 +24,4 @@
 
 .emoji {
 	vertical-align: middle;
-}
-
-@mixin mobile {
-	.badge {
-		height: 3.2rem;
-		padding: 0.6rem 0.8rem;
-	}
 }

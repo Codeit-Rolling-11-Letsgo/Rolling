@@ -8,7 +8,7 @@ export const take = (iter, count) => {
 	return res;
 };
 
-export const detectMobile = () => {
+export const detectTouchScreen = () => {
 	try {
 		document.createEvent('TouchEvent');
 		return true;

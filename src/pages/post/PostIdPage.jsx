@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 
-import { deleteRecipient, getMessageList } from '@/apis/post/postAPI';
+import {
+	deleteMessage,
+	deleteRecipient,
+	getMessageList,
+} from '@/apis/post/postAPI';
 import Button from '@/components/common/button/Button';
 import NewMessageCTA from '@/components/post/NewMessageCTA';
 import PostCard from '@/components/post/PostCard';
@@ -17,6 +21,7 @@ export default function PostIdPage() {
 	const navigate = useNavigate();
 	const { recipientId, messageListInfo, recipientInfo } = useLoaderData();
 	const { isModalOpen, openModal } = useModalContext();
+	console.log(isModalOpen);
 
 	const isEdit = pathname.includes('edit');
 
@@ -57,6 +62,16 @@ export default function PostIdPage() {
 		setCurrentMessageListInfo(newMessageListInfo);
 		setCurrentMessageList(newMessageListInfo.results);
 		setIsLoading(false);
+	};
+
+	const handleClickDeleteMessage = async (id) => {
+		const result = await deleteMessage(id);
+		if (!result) {
+			// TODO: 삭제 실패 toast
+			return;
+		}
+
+		await reload();
 	};
 
 	const handleClickDelete = async () => {
@@ -101,7 +116,7 @@ export default function PostIdPage() {
 						message={message}
 						openModal={openModal}
 						isEdit={isEdit}
-						reload={reload}
+						deleteMessage={handleClickDeleteMessage}
 					></PostCard>
 				))}
 

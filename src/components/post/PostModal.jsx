@@ -17,7 +17,8 @@ const PostModal = () => {
 	useEffect(() => {
 		if (isModalOpen) {
 			dialogRef.current.showModal();
-		} else if (dialogRef.current.open) {
+		}
+		if (!isModalOpen) {
 			dialogRef.current.close();
 		}
 	}, [isModalOpen]);

@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 
-import { deleteMessage } from '@/apis/post/postAPI';
 import Button from '@/components/common/button/Button';
 import Card from '@/components/common/card/Card';
 import Icon from '@/components/common/icon/Icon';
@@ -10,7 +9,7 @@ import { fontNamesEng } from '@/constants/fontNames';
 import { formatDate } from '@/utils/dateUtils';
 import { hoverCard } from '@/utils/framerAnimation';
 
-function PostCard({ message, openModal, isEdit, reload }) {
+function PostCard({ message, openModal, isEdit, deleteMessage }) {
 	const {
 		profileImageURL,
 		sender,
@@ -23,13 +22,7 @@ function PostCard({ message, openModal, isEdit, reload }) {
 
 	const handleClickDelete = async (e) => {
 		e.stopPropagation();
-		const result = await deleteMessage(id);
-		if (!result) {
-			// TODO: 삭제 실패 toast
-			return;
-		}
-
-		await reload();
+		deleteMessage(id);
 	};
 
 	return (
